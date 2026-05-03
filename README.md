@@ -4,7 +4,7 @@ Webbasierte Plattform zur Vermittlung von privater Nachhilfe zwischen Schüler/i
 
 ## Team 9:
 + Mohd Alkhtib  
-+ Hasan Benyamin  
++ Benyamin Hasan  
 + Abdullah Aldarwish  
 + Emrah Rabotic  
 
