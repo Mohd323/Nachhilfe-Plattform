@@ -3,13 +3,13 @@ title: Nachhilfe Plattform
 nav_order: 0
 ---
 
-# 📚 Nachhilfe-Plattform
+# Nachhilfe-Plattform
 
 Webbasierte Plattform zur Vermittlung von privater Nachhilfe zwischen Schüler/innen und Lehrer/innen.
 
 ---
 
-## 👥 Team 9
+## Team 9
 - Mohd Alkhtib  
 - Hasan Benyamin  
 - Abdullah Aldarwish  
@@ -33,7 +33,7 @@ In 2er Bereich, ich möchte Ende des Kurses lernen wie man komplette digitale An
 
 ---
 
-## 💡 Value Proposition
+## Value Proposition
 
 - **Nutzer:** Schüler/innen und Nachhilfelehrer/innen  
 - **Problem:** Schwierigkeiten bei der Suche nach passenden Nachhilfelehrern  
