@@ -11,7 +11,7 @@ Webbasierte Plattform zur Vermittlung von privater Nachhilfe zwischen Schüler/i
 
 ## Team 9
 - Mohd Alkhtib  
-- Hasan Benyamin  
+- Benyamin Hasan 
 - Abdullah Aldarwish  
 - Emrah Rabotic  
 
@@ -22,7 +22,7 @@ Webbasierte Plattform zur Vermittlung von privater Nachhilfe zwischen Schüler/i
 ### Mohd Alkhtib
 Mein Ziel ist es, eine Note zwischen 1,3 und 2,0 zu erreichen. Außerdem möchte ich meine Kenntnisse in der Webentwicklung vertiefen, praktische Erfahrung mit Git und GitHub sammeln und lernen, effektiv im Team an einem Softwareprojekt zu arbeiten.
 
-### Hasan Benyamin
+### Benyamin Hasan
 2.3 - 2.7 Einen Überblick über die groben Bereiche verschaffen. Vielleicht wird sich ein Schwerpunkt herauskristallisieren, den man später gezielt vertiefen kann.
 
 ### Abdullah Aldarwish
