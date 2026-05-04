@@ -60,3 +60,18 @@ Ich möchte lernen, wie man vollständige digitale Anwendungen von Anfang bis En
 3. Schüler wählt Lehrer aus  
 4. Schüler sendet Buchungsanfrage  
 5. Lehrer akzeptiert  
+
+---
+
+## UI Skizzen
+### Registrierung / Login
+![Login](mockups/Login.png)
+
+### Lehrer finden / Suche
+![Suche](mockups/lehrer-finden.png)
+
+### Buchung
+![Buchung](mockups/Buchung.png)
+
+### Startseite
+![Startseite](mockups/Startseite.png)
