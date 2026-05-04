@@ -68,7 +68,7 @@ Ich möchte lernen, wie man vollständige digitale Anwendungen von Anfang bis En
 ![Login](mockups/Login.png)
 
 ### Lehrer finden / Suche
-![Suche](mockups/lehrer-finden.png)
+![Suche](mockups/Lehrer-finden.png)
 
 ### Buchung
 ![Buchung](mockups/Buchung.png)
