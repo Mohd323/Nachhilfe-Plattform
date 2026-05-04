@@ -29,7 +29,8 @@ Mein Ziel ist es, eine Note zwischen 1,3 und 2,0 zu erreichen. Außerdem möchte
 In 2er Bereich, ich möchte Ende des Kurses lernen wie man komplette digitale Anwendung von Anfang bis Ende entwickeln und verstehen zu können.
 
 ### Emrah Rabotic
-(wird noch ergänzt)
+Ich strebe eine  gute Note (z. B. im Bereich 2–3) an.
+Ich möchte lernen, wie man vollständige digitale Anwendungen von Anfang bis Ende entwickelt und den gesamten Entwicklungsprozess dabei auch wirklich versteht.
 
 ---
 
