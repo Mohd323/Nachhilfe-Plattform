@@ -34,11 +34,21 @@ Ich möchte lernen, wie man vollständige digitale Anwendungen von Anfang bis En
 
 ---
 
+## Zielgruppe
+
+Unsere Plattform richtet sich an Schüler/innen der Klassen 10–13, die Unterstützung in Mathe und Naturwissenschaften suchen, insbesondere zur Vorbereitung auf Klausuren, MSA oder Abiturprüfungen.
+
+Auf der Angebotsseite richtet sich die Plattform an Studierende, Tutor/innen und erfahrene Nachhilfelehrer/innen, die ihr Wissen flexibel online oder vor Ort anbieten möchten.
+
+---
+
 ## Value Proposition
 
-- **Nutzer:** Schüler/innen und Nachhilfelehrer/innen  
-- **Problem:** Schwierigkeiten bei der Suche nach passenden Nachhilfelehrern  
-- **Lösung:** Eine Plattform, die Schüler/innen mit privaten Nachhilfelehrer/innen verbindet  
+Viele Schüler/innen der Oberstufe haben Schwierigkeiten, vertrauenswürdige und passende Nachhilfelehrer/innen für Mathe und Naturwissenschaften zu finden. Angebote sind oft unübersichtlich, enthalten wenig Informationen oder bieten keine Möglichkeit, Qualität und Erfahrung der Lehrkräfte einzuschätzen.
+
+Unsere Plattform löst dieses Problem, indem sie Schüler/innen gezielt mit geeigneten Nachhilfelehrer/innen verbindet. Nutzer/innen können Lehrerprofile nach Fach, Klassenstufe, Preis, Bewertung und Unterrichtsart (online oder vor Ort) filtern und vergleichen.
+
+Lehrer/innen erhalten gleichzeitig eine Plattform, um ihre Qualifikationen sichtbar zu machen und Nachhilfestunden flexibel anzubieten.
 
 ### Two-sided Plattform
 - Schüler/innen suchen Nachhilfe  
@@ -46,7 +56,49 @@ Ich möchte lernen, wie man vollständige digitale Anwendungen von Anfang bis En
 
 ---
 
+## Matching zwischen Schülern und Lehrern
+
+Unsere Plattform unterstützt Schüler/innen dabei, schnell passende Nachhilfelehrer/innen zu finden. Dafür bietet die Anwendung verschiedene Such- und Filtermöglichkeiten, darunter Fach, Klassenstufe, Preis, Unterrichtsart (online oder vor Ort), Verfügbarkeit und Bewertungen.
+
+Zusätzlich enthalten Lehrerprofile detaillierte Informationen wie Erfahrung, Qualifikation und kurze Beschreibungen ihrer Unterrichtsschwerpunkte. Ein Bewertungssystem hilft Schüler/innen dabei, vertrauenswürdige und geeignete Lehrkräfte leichter auszuwählen.
+
+---
+
+## Vertrauen und Sicherheit
+
+Um Vertrauen zwischen Schüler/innen und Nachhilfelehrer/innen aufzubauen, bietet die Plattform verschiedene Sicherheits- und Qualitätsmechanismen.
+
+Lehrerprofile enthalten Informationen zu Erfahrung, Qualifikation und Bewertungen früherer Schüler/innen.
+
+Nachhilfestunden können bewertet werden, wodurch vertrauenswürdige Lehrkräfte leichter erkennbar sind. Außerdem ermöglicht ein Meldesystem das Melden unangemessenen Verhaltens oder unseriöser Profile. Administratoren können gemeldete Nutzer überprüfen und gegebenenfalls sperren.
+
+### Verifizierung
+
+Alle Nutzer/innen (Schüler/innen und Nachhilfelehrer/innen) müssen ihre Profile verifizieren, beispielsweise durch eine E-Mail-Bestätigung oder Telefonnummer.
+
+#### Für Schüler/innen
+Schüler/innen müssen ihren aktuellen Schülerausweis als Bild oder PDF hochladen, um ihren Schülerstatus zu bestätigen.
+
+#### Für Studierende
+Studierende, die Schüler/innen unterrichten möchten, müssen eine aktuelle Studienbescheinigung sowie ihren Studierendenausweis hochladen, um ihre Qualifikationen und Kenntnisse im gewünschten Unterrichtsfach nachzuweisen.
+
+#### Für Lehrkräfte
+Lehrkräfte, die Schüler/innen außerhalb ihrer regulären Arbeitszeiten unterstützen möchten, müssen eines der folgenden Dokumente zur Bestätigung ihrer Identität und ihrer Lehrtätigkeit einreichen:
+
+- aktueller Arbeitsvertrag  
+- Arbeitsbescheinigung des aktuellen Arbeitgebers  
+- Arbeitszeugnis  
+
+#### Für Tutor/innen
+Tutor/innen müssen Nachweise einreichen, die ihre fachliche Qualifikation bestätigen, zum Beispiel:
+
+- Bachelor-Abschluss oder vergleichbarer Abschluss  
+- aktueller oder früherer Nachweis eines Nachhilfeinstituts / Nachhilfezentrums inklusive Informationen über die unterrichteten Fächer  
+
+---
+
 ##  Target Scope bzw. Geplante Screens
+- Startseite  
 - Registrierung  
 - Suche  
 - Buchung  
@@ -55,11 +107,14 @@ Ich möchte lernen, wie man vollständige digitale Anwendungen von Anfang bis En
 
 ## Ablauf der Nutzung
 
-1. Schüler registriert sich  
-2. Schüler sucht Lehrer  
-3. Schüler wählt Lehrer aus  
-4. Schüler sendet Buchungsanfrage  
-5. Lehrer akzeptiert  
+1. Schüler/in registriert sich  
+2. Schüler/in sucht passende Nachhilfelehrer/innen  
+3. Schüler/in filtert nach Fach, Preis, Bewertung und Verfügbarkeit  
+4. Schüler/in wählt einen Lehrer aus  
+5. Schüler/in sendet eine Buchungsanfrage  
+6. Lehrer/in akzeptiert oder lehnt die Anfrage ab  
+7. Nach der Nachhilfestunde kann eine Bewertung abgegeben werden  
+
 
 ---
 
