@@ -119,6 +119,9 @@ Tutor/innen m√ºssen Nachweise einreichen, die ihre fachliche Qualifikation best√
 ---
 
 ## UI Skizzen
+### Startseite
+![Startseite](mockups/Startseite.png)
+
 ### Registrierung / Login
 ![Login](mockups/Login.png)
 
@@ -128,5 +131,3 @@ Tutor/innen m√ºssen Nachweise einreichen, die ihre fachliche Qualifikation best√
 ### Buchung
 ![Buchung](mockups/Buchung.png)
 
-### Startseite
-![Startseite](mockups/Startseite.png)
