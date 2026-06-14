@@ -44,3 +44,76 @@ Bei unserem ersten Treffen haben wir mehrere Projektideen diskutiert.
 - Austausch nach Fachgebieten und Interessen.
 
 Da wir mehrere interessante Ideen hatten, beschlossen wir, die endgültige Entscheidung gemeinsam zu treffen.
+
+---
+
+# 3. WhatsApp-Abstimmung zur Projektauswahl
+
+Um demokratisch zu entscheiden, welche Idee umgesetzt werden soll, haben wir eine Umfrage in unserer WhatsApp-Gruppe erstellt.
+
+## WhatsApp-Umfrage
+
+![WhatsApp-Abstimmung](images/Whatsapp-Umfrage.png)
+
+Ergebnis:
+
+Alle Teammitglieder entschieden sich für die Nachhilfe-Plattform.
+
+---
+
+# 4. Entscheidung für die Nachhilfe-Plattform
+
+Nach der Abstimmung legten wir unsere Projektidee fest.
+
+## Nutzer
+
+- Schüler/innen
+- Studierende
+- Tutor/innen
+- Lehrkräfte
+
+## Problem
+
+Viele Schüler/innen haben Schwierigkeiten, vertrauenswürdige und passende Nachhilfelehrer/innen zu finden.
+
+## Lösung
+
+Eine Plattform, die Schüler/innen mit privaten Nachhilfelehrer/innen verbindet und eine einfache Suche sowie Buchung ermöglicht.
+
+---
+
+# 5. Persönliche Ziele und Repository
+
+Nach der Projektauswahl haben wir:
+
+- unsere persönlichen Ziele formuliert,
+- das GitHub-Repository erstellt,
+- GitHub Pages eingerichtet,
+- die erste Projektdokumentation vorbereitet.
+
+---
+
+# 6. Erste UI-Skizzen (KI-generiert)
+
+Zur Ideenfindung nutzten wir zunächst KI-generierte Entwürfe. Wir beschrieben unsere Vorstellungen und ließen erste Designs erstellen.
+
+Dabei entstanden erste Skizzen für:
+
+- Registrierung
+- Anmeldung
+- Suche
+- Buchung
+
+## Erste KI-Skizzen
+
+![KI Registrierung](images/ki-registrierung.png)
+
+![KI LehrerSuche](images/ki-lehrer.png)
+
+![KI Suche](images/ki-suche.png)
+
+![KI Buchung](images/ki-buchung.png)
+
+Diese Entwürfe dienten lediglich als Inspiration.
+
+---
