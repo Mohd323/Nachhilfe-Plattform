@@ -53,7 +53,7 @@ Um demokratisch zu entscheiden, welche Idee umgesetzt werden soll, haben wir ein
 
 ## WhatsApp-Umfrage
 
-![WhatsApp-Abstimmung](images/Whatsapp-Umfrage.png)
+![WhatsApp-Abstimmung](images/Whatsapp-Umfrage.jpg)
 
 Ergebnis:
 
@@ -106,13 +106,13 @@ Dabei entstanden erste Skizzen für:
 
 ## Erste KI-Skizzen
 
-![KI Registrierung](images/ki-registrierung.png)
+![KI Registrierung](images/ki-registrierung.jpg)
 
-![KI LehrerSuche](images/ki-lehrer.png)
+![KI LehrerSuche](images/ki-lehrer.jpg)
 
-![KI Suche](images/ki-suche.png)
+![KI Suche](images/ki-suche.jpg)
 
-![KI Buchung](images/ki-buchung.png)
+![KI Buchung](images/ki-buchung.jpg)
 
 Diese Entwürfe dienten lediglich als Inspiration.
 
@@ -126,11 +126,11 @@ Während unserer Diskussion stellten wir jedoch fest, dass unser Projekt als Web
 
 ## Überarbeitete Skizzen
 
-![Überarbeitete Skizze 1](images/Skizze1.png)
+![Überarbeitete Skizze 1](images/Skizze1.jpg)
 
-![Überarbeitete Skizze 2](images/Skizze2.png)
+![Überarbeitete Skizze 2](images/Skizze2.jpg)
 
-![Überarbeitete Skizze 3](images/Skizze3.png)
+![Überarbeitete Skizze 3](images/Skizze3.jpg)
 
 Diese Skizzen halfen uns dabei, Funktionen und Abläufe besser zu verstehen, wurden jedoch nicht als finale Lösung übernommen.
 
@@ -143,13 +143,13 @@ Auf Grundlage unserer bisherigen Überlegungen entwickelten wir anschließend ko
 Diese Version wurde als erster vollständiger Entwurf dem Dozenten vorgestellt.
 
 ## Finale Web-Skizzen (vor dem ersten Feedback)
-![Startseite](images/Startseite.png)
+![Startseite](images/Startseite.jpg)
 
-![Anmeldung](images/anmeldung.png)
+![Anmeldung](images/anmeldung.jpg)
 
-![Mobile Suche](images/suche.png)
+![Mobile Suche](images/suche.jpg)
 
-![Mobile Buchung](images/buchung.png)
+![Mobile Buchung](images/buchung.jpg)
 
 ---
 
@@ -252,7 +252,7 @@ Wir haben gemeinsam besprochen, welche Bereiche die einzelnen Teammitglieder bev
 
 ## Aufgabenverteilung
 
-![Aufgabenverteilung](images/aufgabenverteilung.png)
+![Aufgabenverteilung](images/aufgabenverteilung.jpg)
 
 ---
 
