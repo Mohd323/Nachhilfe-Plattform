@@ -24,3 +24,11 @@ Viele Schüler/innen haben Schwierigkeiten, passende Nachhilfelehrer/innen zu fi
 Die Anwendung basiert auf einer **zweiseitigen Plattform**:
 + **Seite 1:** Schüler/innen (Nachfrage)
 + **Seite 2:** Lehrer/innen (Angebot)
+
+## Dokumentation
+
+Die ausführliche Projektdokumentation wird über GitHub Pages veröffentlicht.
+
++ Die Hauptdokumentation befindet sich auf der Startseite (index.md).
++ Zusätzlich dokumentieren wir unsere Vorgehensweise, Entscheidungen, Feedbacks und Nachweise in der Seite Evidence (evidence.md).
++ Die Evidence-Seite kann über die Hauptdokumentation aufgerufen werden und zeigt die Entwicklung unseres Projekts von der ersten Idee bis zum aktuellen Stand.
