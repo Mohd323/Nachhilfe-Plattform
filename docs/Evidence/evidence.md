@@ -106,13 +106,13 @@ Dabei entstanden erste Skizzen für:
 
 ## Erste KI-Skizzen
 
-![KI Registrierung](images/ki-registrierung.jpg)
+<img src="images/ki-registrierung.jpg" alt="KI Registrierung" width="500">
 
-![KI LehrerSuche](images/ki-lehrer.jpg)
+<img src="images/ki-lehrer.jpg" alt="KI LehrerSuche" width="500">
 
-![KI Suche](images/ki-suche.jpg)
+<img src="images/ki-suche.jpg" alt="KI Suche" width="500">
 
-![KI Buchung](images/ki-buchung.jpg)
+<img src="images/ki-buchung.jpg" alt="KI Buchung" width="500">
 
 Diese Entwürfe dienten lediglich als Inspiration.
 
@@ -126,11 +126,11 @@ Während unserer Diskussion stellten wir jedoch fest, dass unser Projekt als Web
 
 ## Überarbeitete Skizzen
 
-![Überarbeitete Skizze 1](images/Skizze1.jpg)
+<img src="images/Skizze1.jpg" alt="Überarbeitete Skizze 1" width="500">
 
-![Überarbeitete Skizze 2](images/Skizze2.jpg)
+<img src="images/Skizze2.jpg" alt="Überarbeitete Skizze 2" width="500">
 
-![Überarbeitete Skizze 3](images/Skizze3.jpg)
+<img src="images/Skizze3.jpg" alt="Überarbeitete Skizze 3" width="500">
 
 Diese Skizzen halfen uns dabei, Funktionen und Abläufe besser zu verstehen, wurden jedoch nicht als finale Lösung übernommen.
 
@@ -143,13 +143,13 @@ Auf Grundlage unserer bisherigen Überlegungen entwickelten wir anschließend ko
 Diese Version wurde als erster vollständiger Entwurf dem Dozenten vorgestellt.
 
 ## Finale Web-Skizzen (vor dem ersten Feedback)
-![Startseite](images/Startseite.jpg)
+<img src="images/Startseite.jpg" alt="Startseite" width="600">
 
-![Anmeldung](images/anmeldung.jpg)
+<img src="images/anmeldung.jpg" alt="Anmeldung" width="600">
 
-![Mobile Suche](images/suche.jpg)
+<img src="images/suche.jpg" alt="Mobile Suche" width="600">
 
-![Mobile Buchung](images/buchung.jpg)
+<img src="images/buchung.jpg" alt="Mobile Buchung" width="600">
 
 ---
 
@@ -242,17 +242,19 @@ Dieser zeigt die wichtigsten Seiten und deren Beziehungen zueinander.
 
 ## Vernetzungsplan
 
-![Vernetzungsplan](images/vernetzungsplan-test.png)
+<img src="images/vernetzungsplan-test.png" alt="Vernetzungsplan" width="600">
+
+Die endgültige Version ist in der (`index.md`) dokumentiert.
 
 ---
 
 # 14. Aufgabenverteilung im Team
 
-Wir haben gemeinsam besprochen, welche Bereiche die einzelnen Teammitglieder bevorzugen und übernehmen möchten.
+Wir haben gemeinsam darüber gesprochen, welche Bereiche die einzelnen Teammitglieder bevorzugen und sich grundsätzlich vorstellen könnten zu übernehmen. Eine endgültige Aufgabenverteilung wurde zu diesem Zeitpunkt jedoch noch nicht festgelegt
 
 ## Aufgabenverteilung
 
-![Aufgabenverteilung](images/aufgabenverteilung.jpg)
+<img src="images/aufgabenverteilung.jpg" alt="Aufgabenverteilung" width="200">
 
 ---
 
