@@ -106,13 +106,13 @@ Dabei entstanden erste Skizzen für:
 
 ## Erste KI-Skizzen
 
-<img src="images/ki-registrierung.jpg" alt="KI Registrierung" width="500">
+<img src="images/ki-registrierung.jpg" alt="KI Registrierung" width="500" height="500">
 
-<img src="images/ki-lehrer.jpg" alt="KI LehrerSuche" width="500">
+<img src="images/ki-lehrer.jpg" alt="KI LehrerSuche" width="500" height="500">
 
-<img src="images/ki-suche.jpg" alt="KI Suche" width="500">
+<img src="images/ki-suche.jpg" alt="KI Suche" width="500" height="500">
 
-<img src="images/ki-buchung.jpg" alt="KI Buchung" width="500">
+<img src="images/ki-buchung.jpg" alt="KI Buchung" width="500" height="500">
 
 Diese Entwürfe dienten lediglich als Inspiration.
 
@@ -126,11 +126,11 @@ Während unserer Diskussion stellten wir jedoch fest, dass unser Projekt als Web
 
 ## Überarbeitete Skizzen
 
-<img src="images/Skizze1.jpg" alt="Überarbeitete Skizze 1" width="500">
+<img src="images/Skizze1.jpg" alt="Überarbeitete Skizze 1" width="500" height="500">
 
-<img src="images/Skizze2.jpg" alt="Überarbeitete Skizze 2" width="500">
+<img src="images/Skizze2.jpg" alt="Überarbeitete Skizze 2" width="500" height="500">
 
-<img src="images/Skizze3.jpg" alt="Überarbeitete Skizze 3" width="500">
+<img src="images/Skizze3.jpg" alt="Überarbeitete Skizze 3" width="500" height="500">
 
 Diese Skizzen halfen uns dabei, Funktionen und Abläufe besser zu verstehen, wurden jedoch nicht als finale Lösung übernommen.
 
