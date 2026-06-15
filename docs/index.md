@@ -133,6 +133,15 @@ Tutor/innen müssen Nachweise einreichen, die ihre fachliche Qualifikation best�
 
 ---
 
+## Vernetzungsplan
+Um einen besseren Überblick über die Navigation unserer Webanwendung zu erhalten, haben wir einen Vernetzungsplan erstellt. Dieser zeigt, welche Seiten die Nutzer/innen aufrufen können und wie die einzelnen Bereiche miteinander verbunden sind.
+
+![Vernetzungsplan](mockups/Plan.png)
+
+Der Plan verdeutlicht die wichtigsten Seiten der Plattform sowie die möglichen Wege, die Schüler/innen während der Nutzung durchlaufen können. Die Startseite dient dabei als zentraler Ausgangspunkt, zu dem jederzeit zurückgekehrt werden kann.
+
+---
+
 ## Weitere Dokumentation
 
 - [Evidence / Nachweise](Evidence/evidence.html)
