@@ -53,7 +53,7 @@ Um demokratisch zu entscheiden, welche Idee umgesetzt werden soll, haben wir ein
 
 ## WhatsApp-Umfrage
 
-![WhatsApp-Abstimmung](images/Whatsapp-Umfrage.jpg)
+<img src="images/Whatsapp-Umfrage.jpg" alt="WhatsApp-Abstimmung" width="200">
 
 Ergebnis:
 
