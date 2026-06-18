@@ -57,3 +57,12 @@ class LehrerFach(db.Model):
     fach_id = db.Column(db.Integer, db.ForeignKey("fach.id"), nullable=False)
     klassenstufen = db.Column(db.String(50), nullable=True)
     
+
+class Verfügbarkeit(db.Model):
+    __tablename__ = "verfügbarkeit"
+
+    id = db.Column(db.Integer, primary_key=True)
+    lehrer_profil_id = db.Column(db.Integer, db.ForeignKey("lehrer_profil.id"), nullable=False)
+    wochentag = db.Column(db.String(20), nullable=False)
+    von_uhrzeit = db.Column(db.Time, nullable=False)
+    bis_uhrzeit = db.Column(db.Time, nullable=False)
