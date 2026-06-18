@@ -68,7 +68,6 @@ class Verfügbarkeit(db.Model):
     bis_uhrzeit = db.Column(db.Time, nullable=False)
 
 
-
 class Verifizierungsdokument(db.Model):
     __tablename__ = "verifizierungsdokument"
 
@@ -79,3 +78,21 @@ class Verifizierungsdokument(db.Model):
     status = db.Column(db.String(30), nullable=False, default="ausstehend")
     hochgeladen_am = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     admin_notiz = db.Column(db.Text, nullable=True)
+
+
+class Buchung(db.Model):
+    __tablename__ = "buchung"
+
+    id = db.Column(db.Integer, primary_key=True)
+    schüler_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    lehrer_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    fach_id = db.Column(db.Integer, db.ForeignKey("fach.id"), nullable=False)
+    datum = db.Column(db.Date, nullable=False)
+    uhrzeit = db.Column(db.Time, nullable=False)
+    dauer_stunden = db.Column(db.Integer, nullable=False)
+    gesamtpreis = db.Column(db.Numeric(8, 2), nullable=False)
+    unterrichtsart = db.Column(db.String(30), nullable=False)
+    zahlungsart = db.Column(db.String(30), nullable=False)
+    status = db.Column(db.String(30), nullable=False, default="anfrage")
+    nachricht = db.Column(db.Text, nullable=True)
+    erstellt_am = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
