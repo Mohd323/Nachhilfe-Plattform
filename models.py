@@ -41,3 +41,19 @@ class LehrerProfil(db.Model):
     ort = db.Column(db.String(200), nullable=True)
     verifizierungs_status = db.Column(db.String(30), nullable=False, default="ausstehend")
 
+
+class Fach(db.Model):
+    __tablename__ = "fach"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), unique=True, nullable=False)
+
+
+class LehrerFach(db.Model):
+    __tablename__ = "lehrer_fach"
+
+    id = db.Column(db.Integer, primary_key=True)
+    lehrer_profil_id = db.Column(db.Integer, db.ForeignKey("lehrer_profil.id"), nullable=False)
+    fach_id = db.Column(db.Integer, db.ForeignKey("fach.id"), nullable=False)
+    klassenstufen = db.Column(db.String(50), nullable=True)
+    
