@@ -142,6 +142,28 @@ Der Plan verdeutlicht die wichtigsten Seiten der Plattform sowie die möglichen 
 
 ---
 
+## Datenmodell
+Zur Planung der technischen Umsetzung haben wir ein Datenmodell erstellt. Dieses beschreibt, welche Informationen in der Anwendung gespeichert werden und wie die einzelnen Bereiche miteinander verbunden sind.
+
+Das Datenmodell orientiert sich an unserem Happy Path und den Anforderungen unserer Nachhilfe-Plattform. 
+### Die wichtigsten Bereiche
+- User (Schüler/innen und Lehrer/innen)
+- Lehrerprofile
+- Schülerprofile
+- Fächer
+- Buchungen
+- Bewertungen
+- Verifizierung von Lehrkräften
+
+Dadurch können passende Nachhilfelehrer/innen gefunden, Buchungen verwaltet und Bewertungen gespeichert werden.
+
+### Datenmodell (Übersicht)
+
+![Datenmodell Übersicht](mockups/)
+
+
+---
+
 ## Weitere Dokumentation
 
 - [Evidence / Nachweise](Evidence/evidence.html)
