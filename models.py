@@ -66,3 +66,16 @@ class Verfügbarkeit(db.Model):
     wochentag = db.Column(db.String(20), nullable=False)
     von_uhrzeit = db.Column(db.Time, nullable=False)
     bis_uhrzeit = db.Column(db.Time, nullable=False)
+
+
+
+class Verifizierungsdokument(db.Model):
+    __tablename__ = "verifizierungsdokument"
+
+    id = db.Column(db.Integer, primary_key=True)
+    lehrer_profil_id = db.Column(db.Integer, db.ForeignKey("lehrer_profil.id"), nullable=False)
+    dokument_typ = db.Column(db.String(50), nullable=False)
+    datei_url = db.Column(db.Text, nullable=False)
+    status = db.Column(db.String(30), nullable=False, default="ausstehend")
+    hochgeladen_am = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    admin_notiz = db.Column(db.Text, nullable=True)
