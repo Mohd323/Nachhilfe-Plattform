@@ -184,6 +184,28 @@ Dadurch können passende Nachhilfelehrer/innen gefunden, Buchungen verwaltet und
 
 7. Verifizierung: Unterstützt die Überprüfung von Lehrkräften durch hochgeladene Nachweise und erhöht das Vertrauen in die Plattform.
 
+### Benutzerrollen
+#### Schüler/in
+Kann:
+- Konto erstellen
+- Anmelden
+- Profil verwalten
+- Lehrer suchen
+- Lehrerprofile ansehen
+- Nachhilfestunden buchen
+- Bewertungen abgeben
+- Eigene Buchungen verwalten
+
+#### Lehrer/in
+Kann:
+- Konto erstellen
+- Anmelden
+- Profil verwalten
+- Fächer und Preise festlegen
+- Buchungsanfragen erhalten
+- Buchungsanfragen annehmen oder ablehnen
+- Bewertungen erhalten
+
 ---
 
 ## Weitere Dokumentation
