@@ -162,27 +162,27 @@ Dadurch können passende Nachhilfelehrer/innen gefunden, Buchungen verwaltet und
 ![Datenmodell Übersicht](mockups/)
 
 ### Zentrale Entitäten
-1.#### User: speichert die grundlegenden Informationen aller Nutzer/innen wie:
+1. User: speichert die grundlegenden Informationen aller Nutzer/innen wie:
 - Name
 - E-Mail-Adresse
 - Passwort
 - Rolle (Schüler/in oder Lehrer/in)
 
-2.#### Schülerprofil: Ergänzende Informationen zu Schüler/innen.
+2. Schülerprofil: Ergänzende Informationen zu Schüler/innen.
 
-3.#### Lehrerprofil: Enthält Informationen zu Lehrkräften wie:
+3. Lehrerprofil: Enthält Informationen zu Lehrkräften wie:
 - Beschreibung
 - Preis
 - Qualifikation
 - Verifizierungsstatus
 
-4.#### Fach: Speichert die angebotenen Unterrichtsfächer.
+4. Fach: Speichert die angebotenen Unterrichtsfächer.
 
-5.#### Buchung: Verbindet Schüler/innen mit Lehrkräften und speichert Informationen zu gebuchten Nachhilfestunden.
+5. Buchung: Verbindet Schüler/innen mit Lehrkräften und speichert Informationen zu gebuchten Nachhilfestunden.
 
-6.#### Bewertung: Ermöglicht Schüler/innen die Bewertung abgeschlossener Nachhilfestunden.
+6. Bewertung: Ermöglicht Schüler/innen die Bewertung abgeschlossener Nachhilfestunden.
 
-7.#### Verifizierung: Unterstützt die Überprüfung von Lehrkräften durch hochgeladene Nachweise und erhöht das Vertrauen in die Plattform.
+7. Verifizierung: Unterstützt die Überprüfung von Lehrkräften durch hochgeladene Nachweise und erhöht das Vertrauen in die Plattform.
 
 ---
 
