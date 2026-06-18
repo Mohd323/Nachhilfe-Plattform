@@ -30,6 +30,14 @@ class LehrerProfil(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    lehrer_typ = db.Column(db.String(30), nullable=False)                        #student / lehrer / tutor
     beschreibung = db.Column(db.Text)
+    erfahrung_jahre = db.Column(db.Integer, nullable=True)
+    unterrichtsart = db.Column(db.String(30), nullable=False)                    #online / vor_ort / beides
     stundenpreis = db.Column(db.Float)
+    durchschnittsbewertung = db.Column(db.Numeric(3, 2), nullable=True, default=0)
+    bewertungsanzahl = db.Column(db.Integer, nullable=False, default=0)
+    verfuegbar = db.Column(db.Boolean, nullable=False, default=True)
+    ort = db.Column(db.String(200), nullable=True)
+    verifizierungs_status = db.Column(db.String(30), nullable=False, default="ausstehend")
 
