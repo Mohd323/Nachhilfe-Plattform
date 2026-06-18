@@ -12,3 +12,13 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     passwort = db.Column(db.String(255), nullable=False)
 
+
+#Schülerprofil
+class SchülerProfil(db.Model):
+    __tablename__ = "schüler_profile"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    klasse = db.Column(db.String(50))
+    ausweis_dokument_url = db.Column(db.Text, nullable=True)
+    verifizierungs_status = db.Column(db.String(30), nullable=False, default="ausstehend")
