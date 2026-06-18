@@ -159,7 +159,7 @@ Dadurch können passende Nachhilfelehrer/innen gefunden, Buchungen verwaltet und
 
 ### Datenmodell (Übersicht)
 
-![Datenmodell Übersicht](mockups/)
+![Datenmodell Übersicht](mockups/Datenmodell.png)
 
 ### Zentrale Entitäten
 1. User: speichert die grundlegenden Informationen aller Nutzer/innen wie:
