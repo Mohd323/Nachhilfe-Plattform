@@ -68,3 +68,65 @@ nav li a:hover {
 nav li a.active {
     text-decoration: underline;
 }
+
+.login-button {
+    background-color: #e6e6e6;
+    border-radius: 30px;
+    padding: 14px 35px;
+}
+
+/* Hauptbereich */
+.hero {
+    min-height: 560px;
+    text-align: center;
+    padding: 70px 30px;
+}
+
+.hero h2 {
+    font-size: 28px;
+    margin-bottom: 70px;
+}
+
+/* Karten */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #ffffff;
+    width: 230px;
+    min-height: 130px;
+    padding: 30px 20px;
+    border-radius: 25px;
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.card p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Verifizierte Lehrer Box */
+.verified-card {
+    background-color: #ffffff;
+    width: 520px;
+    margin: 35px auto 0;
+    padding: 25px;
+    border-radius: 25px;
+}
+
+.verified-card h3 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.verified-card p {
+    font-weight: bold;
+}
