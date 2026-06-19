@@ -85,8 +85,8 @@ class Buchung(db.Model):
     __tablename__ = "buchung"
 
     id = db.Column(db.Integer, primary_key=True)
-    schüler_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    lehrer_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    schüler_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    lehrer_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     fach_id = db.Column(db.Integer, db.ForeignKey("fach.id"), nullable=False)
     datum = db.Column(db.Date, nullable=False)
     uhrzeit = db.Column(db.Time, nullable=False)
@@ -104,8 +104,8 @@ class Bewertung(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     buchung_id = db.Column(db.Integer, db.ForeignKey("buchung.id"), unique=True, nullable=False)
-    bewerter_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    bewertet_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    bewerter_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    bewertet_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     sterne = db.Column(db.Integer, nullable=False)
     kommentar = db.Column(db.Text, nullable=True)
     erstellt_am = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
@@ -115,8 +115,8 @@ class Meldung(db.Model):
     __tablename__ = "meldung"
 
     id = db.Column(db.Integer, primary_key=True)
-    melder_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    gemeldeter_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    melder_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    gemeldeter_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     grund = db.Column(db.Text, nullable=False)
     status = db.Column(db.String(30), nullable=False, default="offen")
     erstellt_am = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
