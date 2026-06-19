@@ -71,3 +71,15 @@
 .login-btn:hover {
     background-color: #333333;                  /* etwas helleres Schwarz */
 }
+
+/* Link zur Registrierung */
+.register-link {
+    margin-top: 20px;                             /* Abstand nach oben */
+    font-size: 14px;                              /* Schriftgröße */
+}
+
+/* Registrierungslink */
+.register-link a {
+    color: #0077aa;                             /* blaue Linkfarbe */
+    text-decoration: underline;                   /* Link unterstreichen */
+}
