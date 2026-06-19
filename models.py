@@ -96,3 +96,26 @@ class Buchung(db.Model):
     status = db.Column(db.String(30), nullable=False, default="anfrage")
     nachricht = db.Column(db.Text, nullable=True)
     erstellt_am = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+
+class Bewertung(db.Model):
+    __tablename__ = "bewertung"
+
+    id = db.Column(db.Integer, primary_key=True)
+    buchung_id = db.Column(db.Integer, db.ForeignKey("buchung.id"), unique=True, nullable=False)
+    bewerter_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    bewertet_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    sterne = db.Column(db.Integer, nullable=False)
+    kommentar = db.Column(db.Text, nullable=True)
+    erstellt_am = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+
+class Meldung(db.Model):
+    __tablename__ = "meldung"
+
+    id = db.Column(db.Integer, primary_key=True)
+    melder_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    gemeldeter_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    grund = db.Column(db.Text, nullable=False)
+    status = db.Column(db.String(30), nullable=False, default="offen")
+    erstellt_am = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
