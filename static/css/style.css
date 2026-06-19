@@ -5,3 +5,27 @@ body {
     color: #2c2c2c;
     background-color: #d9d9d9;
 }
+
+/* Kopfbereich */
+header {
+    background-color: #ffffff;
+    padding: 15px 60px; /* Abstand zwischen Inhalt und Rand */
+    display: flex; /* horizontale Ausrichtung der Elemente */
+    justify-content: space-between; /* Elemente gleichmäßig auf dem horizontalen Raum verteilen */
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    max-width: 90px; /* Maximalbreite des Logos */
+    height: auto;
+}
+
+.logo p {
+    font-size: 12px;
+    margin: 0;
+}
