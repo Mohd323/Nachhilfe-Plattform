@@ -81,5 +81,38 @@
 /* Registrierungslink */
 .register-link a {
     color: #0077aa;                             /* blaue Linkfarbe */
-    text-decoration: underline;                   /* Link unterstreichen */
+    text-decoration: underline;                 /* Link unterstreichen */
+}
+
+
+/* Registrierungs-Seite */
+/* Bereich um die Registrierungs-Karte */
+.register-container {
+    display: flex;                              /* Inhalt horizontal ausrichten */
+    justify-content: center;                    /* Karte mittig platzieren */
+    align-items: center;                        /* Karte vertikal ausrichten */
+    min-height: 700px;                          /* Höhe des Bereichs */
+    background-color: #d9d9d9;                  /* grauer Hintergrund wie im Mockup */
+    padding: 40px 20px;                         /* Abstand innen */
+}
+
+/* Weiße Registrierungs-Karte */
+.register-card {
+    background-color: #ffffff;                  /* weißer Hintergrund */
+    width: 460px;                               /* Breite der Karte */
+    padding: 40px;                              /* Innenabstand */
+    border-radius: 25px;                        /* abgerundete Ecken */
+    text-align: center;                         /* Text zentrieren */
+}
+
+/* Überschrift der Registrierungs-Karte */
+.register-card h2 {
+    font-size: 32px; 
+    margin-bottom: 10px;                        /* Abstand nach unten */
+}
+
+/* kurzer Hinweistext */
+.register-card p {
+    font-weight: bold; 
+    margin-bottom: 25px;                        /* Abstand nach unten */
 }
