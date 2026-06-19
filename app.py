@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, session 
 from db import db
 from models import *
+from werkzeug.security import generate_password_hash, check_password_hash
+from forms import RegisterForm, LoginForm
 
 app = Flask(__name__)
 
