@@ -16,9 +16,27 @@ db.init_app(app)                                # Datenbank mit Flask verbinden
 @app.route('/')                                 # wenn jemand die Startseite aufruft (/), führe die Funktion darunter aus
 def startseite():                               # das ist die Python-Funktion für die Startseite
     return render_template('startseite.html')   # Flask sucht die Datei startseite.html im templates/ Ordner und schickt sie an den Browser
-@app.route('/login')
-def login():                                    
-     return render_template('login.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+
+        if user and check_password_hash(user.password_hash, form.passwort.data):
+            session['user_id'] = user.id
+            session['role'] = user.role
+            session['user_name'] = user.vorname
+
+            if user.role == "schueler":
+                return redirect(url_for('student_dashboard'))
+            elif user.role == "lehrer":
+                return redirect(url_for('teacher_dashboard'))
+
+        flash("E-Mail oder Passwort ist falsch.")
+
+    return render_template('login.html', form=form)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -49,6 +67,11 @@ def register():
 
     return render_template('register.html', form=form)
 
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash("Du wurdest ausgeloggt.")
+    return redirect(url_for('login'))
 
 @app.route('/impressum')
 def impressum():
