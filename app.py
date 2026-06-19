@@ -20,9 +20,35 @@ def startseite():                               # das ist die Python-Funktion f√
 def login():                                    
      return render_template('login.html')
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    return render_template('register.html')
+    form = RegisterForm()
+
+    if form.validate_on_submit():
+        existing_user = User.query.filter_by(email=form.email.data).first()
+
+        if existing_user:
+            flash("Diese E-Mail ist bereits registriert.")
+            return redirect(url_for('register'))
+
+        new_user = User(
+            vorname=form.vorname.data,
+            nachname=form.nachname.data,
+            email=form.email.data,
+            password_hash=generate_password_hash(form.passwort.data),
+            role=form.rolle.data,
+            status="aktiv",
+            email_verifiziert=False
+        )
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        flash("Registrierung erfolgreich. Bitte einloggen.")
+        return redirect(url_for('login'))
+
+    return render_template('register.html', form=form)
+
 
 @app.route('/impressum')
 def impressum():
