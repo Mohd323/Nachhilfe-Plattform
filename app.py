@@ -1,8 +1,15 @@
 from flask import Flask, render_template, redirect, url_for, session 
+from db import db
+from models import *
 
 app = Flask(__name__)
 
 app.secret_key = 'nachhilfe-geheim-123'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///nachhilfe.db'       # Datenbank-Konfiguration
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db.init_app(app)                                # Datenbank mit Flask verbinden
 
 @app.route('/')                                 # wenn jemand die Startseite aufruft (/), führe die Funktion darunter aus
 def startseite():                               # das ist die Python-Funktion für die Startseite
@@ -62,6 +69,9 @@ def teacher_appointments():
 @app.route('/anfragen')
 def teacher_requests():
     return render_template('teacher_requests.html')
+
+with app.app_context():                         # Tabellen automatisch erstellen
+    db.create_all()
 
 if __name__ == '__main__':                      # startet die App nur wenn du sie direkt ausführst
     app.run(debug=True)                         # startet den Webserver, debug=True zeigt Fehlermeldungen direkt im Browser
