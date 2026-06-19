@@ -1,12 +1,34 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+/* Login Seite */
+
+/* Bereich um die Login-Karte */
+.login-container {
+    display: flex;                                /* Inhalt horizontal ausrichten */
+    justify-content: center;                      /* Karte mittig platzieren */
+    align-items: center;                          /* Karte vertikal ausrichten */
+    min-height: 620px;                            /* Höhe des Bereichs */
+    background-color: #d9d9d9;                  /* grauer Hintergrund wie im Mockup */
+    padding: 40px 20px;                           /* Abstand innen */
 }
 
-h1 {
-    color: #2c3e50;
+/* Weiße Login-Karte */
+.login-card {
+    background-color: #ffffff;                  /* weißer Hintergrund */
+    width: 430px;                                 /* Breite der Karte */
+    padding: 40px;                                /* Innenabstand */
+    border-radius: 25px;                          /* abgerundete Ecken */
+    text-align: center;                           /* Text zentrieren */
 }
 
-p {
-    color: #555;
+/* Überschrift der Login-Karte */
+.login-card h2 {
+    font-size: 32px;                              /* Schriftgröße */
+    margin-bottom: 10px;                          /* Abstand nach unten */
 }
+
+/* kurzer Hinweistext */
+.login-card p {
+    font-weight: bold;                              
+    margin-bottom: 25px;                          /* Abstand nach unten */
+}
+
+
