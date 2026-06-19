@@ -130,3 +130,15 @@ nav li a.active {
 .verified-card p {
     font-weight: bold;
 }
+
+/* Fußbereich */
+footer {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+}
+
+footer a {
+    color: #0077aa;
+}
