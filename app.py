@@ -126,7 +126,17 @@ def my_requests():
 
 @app.route('/profil')
 def profile():
-    return render_template('profile.html')
+    user_data = {
+        "vorname": session.get("user_name", "Nutzer"),
+        "nachname": "",
+        "email": "beispiel@test.de",
+        "rolle": session.get("rolle", "schueler"),
+        "telefon": "Noch nicht angegeben"
+    }
+    return render_template(
+        'profile.html',
+        user=user_data
+    )
 
 @app.route('/termine')
 def teacher_appointments():
