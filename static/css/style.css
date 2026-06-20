@@ -493,3 +493,32 @@ footer a {
     text-align: center; 
     margin-bottom: 30px;                 /* Abstand nach unten */
 }
+
+/* Bereich mit Profildaten */
+.profile-info {
+    font-size: 18px; 
+    line-height: 1.8; /* Zeilenabstand */
+}
+
+/* Einzelne Profilzeilen */
+.profile-info p {
+    border-bottom: 1px solid #dddddd;                 /* Trennlinie */
+    padding-bottom: 10px;                             /* Abstand zur Linie */
+}
+
+/* Profil bearbeiten Button */
+.profile-edit-btn {
+    display: block;                                   /* als Block anzeigen */
+    width: fit-content;                               /* Breite nach Inhalt */
+    margin: 30px auto 0;                              /* mittig platzieren */
+    padding: 12px 25px;                               /* Innenabstand */
+    background-color: #5f9ea0;                        /* Hauptfarbe */
+    color: white;                                     /* weiße Schrift */
+    text-decoration: none;                            /* keine Unterstreichung */
+    border-radius: 10px;                              /* abgerundete Ecken */
+}
+
+/* Hover-Effekt */
+.profile-edit-btn:hover {
+    background-color: #4f888a;                        /* dunklere Farbe beim Überfahren */
+}
