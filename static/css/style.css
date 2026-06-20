@@ -474,7 +474,7 @@ footer a {
 /* Profilseite; profile.html */
 /* Gesamter Profilbereich */
 .profile-page-container {
-    display: flex; /
+    display: flex; 
     justify-content: center;             /* horizontal zentrieren */
     align-items: center;                 /* vertikal ausrichten */
     padding: 60px 20px;                  /* Innenabstand */
