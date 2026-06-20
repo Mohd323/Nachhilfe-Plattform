@@ -93,7 +93,13 @@ def booking():
 
 @app.route('/schueler-dashboard')
 def student_dashboard():
-    return render_template('student_dashboard.html')
+
+    student_name = session.get('user_name', 'Schüler')
+
+    return render_template(
+        'student_dashboard.html',
+        student_name=student_name
+    )
 
 @app.route('/lehrer-dashboard')
 def teacher_dashboard():
