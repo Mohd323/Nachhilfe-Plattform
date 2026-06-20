@@ -1,6 +1,8 @@
-from flask import Flask, render_template, redirect, url_for, session 
+from flask import Flask, render_template, redirect, url_for, session, flash
 from db import db
 from models import *
+from werkzeug.security import generate_password_hash, check_password_hash
+from forms import RegisterForm, LoginForm
 
 app = Flask(__name__)
 
@@ -14,13 +16,60 @@ db.init_app(app)                                # Datenbank mit Flask verbinden
 @app.route('/')                                 # wenn jemand die Startseite aufruft (/), führe die Funktion darunter aus
 def startseite():                               # das ist die Python-Funktion für die Startseite
     return render_template('startseite.html')   # Flask sucht die Datei startseite.html im templates/ Ordner und schickt sie an den Browser
-@app.route('/login')
-def login():                                    
-     return render_template('login.html')
 
-@app.route('/register')
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+
+        if user and check_password_hash(user.passwort, form.passwort.data):
+            session['user_id'] = user.id
+            session['rolle'] = user.rolle
+            session['user_name'] = user.vorname
+
+            if user.rolle == "schueler":
+                return redirect(url_for('student_dashboard'))
+            elif user.rolle == "lehrer":
+                return redirect(url_for('teacher_dashboard'))
+
+        flash("E-Mail oder Passwort ist falsch.")
+
+    return render_template('login.html', form=form)
+
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    return render_template('register.html')
+    form = RegisterForm()
+
+    if form.validate_on_submit():
+        existing_user = User.query.filter_by(email=form.email.data).first()
+
+        if existing_user:
+            flash("Diese E-Mail ist bereits registriert.")
+            return redirect(url_for('register'))
+
+        new_user = User(
+            vorname=form.vorname.data,
+            nachname=form.nachname.data,
+            email=form.email.data,
+            passwort=generate_password_hash(form.passwort.data),
+            rolle=form.rolle.data,
+        )
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        flash("Registrierung erfolgreich. Bitte einloggen.")
+        return redirect(url_for('login'))
+
+    return render_template('register.html', form=form)
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash("Du wurdest ausgeloggt.")
+    return redirect(url_for('login'))
 
 @app.route('/impressum')
 def impressum():

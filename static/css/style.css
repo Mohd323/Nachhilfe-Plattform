@@ -9,9 +9,9 @@ body {
 /* Kopfbereich */
 header {
     background-color: #ffffff;
-    padding: 15px 60px; /* Abstand zwischen Inhalt und Rand */
-    display: flex; /* horizontale Ausrichtung der Elemente */
-    justify-content: space-between; /* Elemente gleichmäßig auf dem horizontalen Raum verteilen */
+    padding: 15px 60px;                 /* Abstand zwischen Inhalt und Rand */
+    display: flex;                      /* horizontale Ausrichtung der Elemente */
+    justify-content: space-between;     /* Elemente gleichmäßig auf dem horizontalen Raum verteilen */
     align-items: center;
 }
 
@@ -21,7 +21,7 @@ header {
 }
 
 .logo img {
-    max-width: 90px; /* Maximalbreite des Logos */
+    max-width: 90px;                    /* Maximalbreite des Logos */
     height: auto;
 }
 
@@ -38,30 +38,30 @@ header h1 {
 
 /* Navbar */
 nav ul {
-    list-style-type: none; /* Entfernt Aufzählungspunkte */
+    list-style-type: none;                /* Entfernt Aufzählungspunkte */
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Behandelt Überlauf von Elementen */
+    overflow: hidden;                     /* Behandelt Überlauf von Elementen */
     display: flex;
     align-items: center;
     gap: 45px;
 }
 
 nav li {
-    float: left; /* Elemente werden nebeneinander platziert */
+    float: left;                          /* Elemente werden nebeneinander platziert */
 }
 
 nav li a {
-    display: block; /* Ändert das Anzeigeverhalten auf Block */
+    display: block;                       /* Ändert das Anzeigeverhalten auf Block */
     color: #2c2c2c;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none; /* Entfernt Unterstreichungen */
+    text-decoration: none;                /* Entfernt Unterstreichungen */
     font-weight: bold;
 }
 
 nav li a:hover {
-    background-color: #ddd; /* Hintergrundfarbe beim Überfahren */
+    background-color: #ddd;               /* Hintergrundfarbe beim Überfahren */
     border-radius: 20px;
 }
 
@@ -142,3 +142,150 @@ footer {
 footer a {
     color: #0077aa;
 }
+
+/* Login Seite */
+/* Bereich um die Login-Karte */
+.login-container {
+    display: flex;                                /* Inhalt horizontal ausrichten */
+    justify-content: center;                      /* Karte mittig platzieren */
+    align-items: center;                          /* Karte vertikal ausrichten */
+    min-height: 620px;                            /* Höhe des Bereichs */
+    background-color: #d9d9d9;                    /* grauer Hintergrund wie im Mockup */
+    padding: 40px 20px;                           /* Abstand innen */
+}
+
+/* Weiße Login-Karte */
+.login-card {
+    background-color: #ffffff;                    /* weißer Hintergrund */
+    width: 430px;                                 /* Breite der Karte */
+    padding: 40px;                                /* Innenabstand */
+    border-radius: 25px;                          /* abgerundete Ecken */
+    text-align: center;                           /* Text zentrieren */
+}
+
+/* Überschrift der Login-Karte */
+.login-card h2 {
+    font-size: 32px;                              /* Schriftgröße */
+    margin-bottom: 10px;                          /* Abstand nach unten */
+}
+
+/* kurzer Hinweistext */
+.login-card p {
+    font-weight: bold;                              
+    margin-bottom: 25px;                          /* Abstand nach unten */
+}
+
+/* Formulargruppen */
+.form-group {
+    margin-bottom: 20px;                          /* Abstand zwischen Eingabefeldern */
+    text-align: left;                             /* Label links ausrichten */
+}
+
+/* Formular-Label */
+.form-group label {
+    display: block;                               /* Label über dem Eingabefeld anzeigen */
+    margin-bottom: 8px;                           /* Abstand zum Eingabefeld */
+    font-weight: bold;                            /* Label fett */
+}
+
+/* Eingabefelder */
+.form-input {
+    width: 100%;                                  /* volle Breite */
+    padding: 14px;                                /* Innenabstand */
+    border: 1px solid #bfbfbf;                  /* grauer Rand */
+    border-radius: 10px;                          /* abgerundete Ecken */
+    box-sizing: border-box;                       /* Padding wird in Breite eingerechnet */
+    font-size: 16px;                             
+}
+
+/* Login-Button */
+.login-btn {
+    width: 100%;                                  /* volle Breite */
+    padding: 14px;                                
+    background-color: #000000; 
+    color: #ffffff;                             /* weiße Schrift */
+    border: none;                                 /* kein Rand */
+    border-radius: 10px;                          /* abgerundete Ecken */
+    font-size: 16px; 
+    font-weight: bold; 
+    cursor: pointer;                              /* Mauszeiger als Hand */
+}
+
+/* Login-Button beim Hover */
+.login-btn:hover {
+    background-color: #333333;                  /* etwas helleres Schwarz */
+}
+
+/* Link zur Registrierung */
+.register-link {
+    margin-top: 20px;                             /* Abstand nach oben */
+    font-size: 14px;                              /* Schriftgröße */
+}
+
+/* Registrierungslink */
+.register-link a {
+    color: #0077aa;                             /* blaue Linkfarbe */
+    text-decoration: underline;                 /* Link unterstreichen */
+}
+
+
+/* Registrierungs-Seite */
+/* Bereich um die Registrierungs-Karte */
+.register-container {
+    display: flex;                              /* Inhalt horizontal ausrichten */
+    justify-content: center;                    /* Karte mittig platzieren */
+    align-items: center;                        /* Karte vertikal ausrichten */
+    min-height: 700px;                          /* Höhe des Bereichs */
+    background-color: #d9d9d9;                  /* grauer Hintergrund wie im Mockup */
+    padding: 40px 20px;                         /* Abstand innen */
+}
+
+/* Weiße Registrierungs-Karte */
+.register-card {
+    background-color: #ffffff;                  /* weißer Hintergrund */
+    width: 460px;                               /* Breite der Karte */
+    padding: 40px;                              /* Innenabstand */
+    border-radius: 25px;                        /* abgerundete Ecken */
+    text-align: center;                         /* Text zentrieren */
+}
+
+/* Überschrift der Registrierungs-Karte */
+.register-card h2 {
+    font-size: 32px; 
+    margin-bottom: 10px;                        /* Abstand nach unten */
+}
+
+/* kurzer Hinweistext */
+.register-card p {
+    font-weight: bold; 
+    margin-bottom: 25px;                        /* Abstand nach unten */
+}
+
+/* Registrierungs-Button */
+.register-btn {
+    width: 100%;                                /* volle Breite */
+    padding: 14px;                              /* Innenabstand */
+    background-color: #000000;                  /* schwarzer Button */
+    color: #ffffff;                             /* weiße Schrift */
+    border: none;                               /* kein Rand */
+    border-radius: 10px;                        /* abgerundete Ecken */
+    font-size: 16px; 
+    font-weight: bold; 
+    cursor: pointer;                            /* Mauszeiger als Hand */
+}
+
+/* Registrierungs-Button beim Hover */
+.register-btn:hover {
+    background-color: #333333;                  /* etwas helleres Schwarz */
+}
+
+/* Link zum Login */
+.login-link {
+    margin-top: 20px; /* Abstand nach oben */
+    font-size: 14px; /* Schriftgröße */
+}
+
+/* Login-Link */
+.login-link a {
+    color: #0077aa; /* blaue Linkfarbe */
+    text-decoration: underline; /* Link unterstreichen */
