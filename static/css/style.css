@@ -290,3 +290,19 @@ footer a {
     color: #0077aa; /* blaue Linkfarbe */
     text-decoration: underline; /* Link unterstreichen */
 }
+
+/* Lehrer-Dashboard: teacher_dashboard.html */
+/* Kopfbereich des Dashboards */
+.dashboard-header {
+    text-align: center; 
+    margin-top: 50px; 
+}
+
+.dashboard-header h2 {
+    font-size: 34px; 
+    margin-bottom: 10px; 
+}
+
+.dashboard-header p {
+    font-size: 18px; 
+}
