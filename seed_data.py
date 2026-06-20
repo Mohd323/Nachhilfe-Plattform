@@ -2,16 +2,17 @@ from app import app
 from db import db
 from models import User, SchülerProfil, LehrerProfil, Fach, LehrerFach, Buchung, Bewertung
 from datetime import date, time
+from werkzeug.security import generate_password_hash
 
 with app.app_context():
 
     # 2 Schüler erstellen
-    schueler1 = User(vorname="Max", nachname="Mustermann", rolle="schueler", email="max@test.de", passwort="test123")   # Python Objekt erstellen mit den Werten, die in die Tabelle User sollen
-    schueler2 = User(vorname="Anna", nachname="Schmidt", rolle="schueler", email="anna@test.de", passwort="test123")
+    schueler1 = User(vorname="Max", nachname="Mustermann", rolle="schueler", email="max@test.de", passwort=generate_password_hash("test123"))   # Python Objekt erstellen mit den Werten, die in die Tabelle User sollen
+    schueler2 = User(vorname="Anna", nachname="Schmidt", rolle="schueler", email="anna@test.de", passwort=generate_password_hash("test123"))
 
     # 2 Lehrer erstellen
-    lehrer1 = User(vorname="Ali", nachname="Tyson", rolle="lehrer", email="ali@test.de", passwort="test123")
-    lehrer2 = User(vorname="Cristiano", nachname="Ronaldo", rolle="lehrer", email="cristiano@test.de", passwort="test123")
+    lehrer1 = User(vorname="Ali", nachname="Tyson", rolle="lehrer", email="ali@test.de", passwort=generate_password_hash("test123"))
+    lehrer2 = User(vorname="Cristiano", nachname="Ronaldo", rolle="lehrer", email="cristiano@test.de", passwort=generate_password_hash("test123"))
 
     db.session.add_all([schueler1, schueler2, lehrer1, lehrer2])    # ich sage damit der Datenbank "merk dir diese 4 neuen Einträge"
     db.session.commit()                                             # speichert die Einträge wirklich in nachhilfe.db, ohne commit() passiert nichts
