@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Nutzungsbedingungen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Nachhilfe Connect Logo">
+        <p>Gemeinsam besser lernen.</p>
+    </div>
+
+    <h1>Nachhilfe Connect</h1>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('startseite') }}">Startseite</a></li>
+            <li><a href="{{ url_for('teacher_search') }}">Suche</a></li>
+            <li><a href="{{ url_for('booking') }}">Buchung</a></li>
+            <li><a class="login-button" href="{{ url_for('login') }}">Log in</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="legal-container">
+    <section class="legal-card">
+        <h2>Nutzungsbedingungen</h2>
+
+        <p>
+            Die Plattform Nachhilfe Connect dient dazu, Schüler/innen
+            und Nachhilfelehrer/innen miteinander zu verbinden.
+        </p>
+
+        <h3>Verhalten der Nutzer/innen</h3>
+        <p>
+            Nutzer/innen verpflichten sich, wahrheitsgemäße Angaben zu machen
+            und respektvoll miteinander umzugehen.
+        </p>
+
+        <h3>Buchungen</h3>
+        <p>
+            Buchungsanfragen werden über die Plattform gestellt und müssen
+            von der Lehrkraft bestätigt werden.
+        </p>
+
+        <h3>Missbrauch</h3>
+        <p>
+            Unseriöse Profile oder unangemessenes Verhalten können gemeldet werden.
+        </p>
+
+        <h3>Projekt-Hinweis</h3>
+        <p>
+            Diese Nutzungsbedingungen sind Teil eines studentischen Projekts
+            und dienen nur der Demonstration.
+        </p>
+    </section>
+</main>
+
+</body>
+</html>
