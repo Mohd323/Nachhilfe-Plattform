@@ -89,7 +89,12 @@ def teacher_profile():
 
 @app.route('/buchung')
 def booking():
-    return render_template('booking.html')
+    teacher_name = "Nachhilfelehrer"
+
+    return render_template(
+        'booking.html',
+        teacher_name=teacher_name
+    )
 
 @app.route('/schueler-dashboard')
 def student_dashboard():
