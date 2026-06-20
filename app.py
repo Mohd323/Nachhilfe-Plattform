@@ -3,6 +3,7 @@ from db import db
 from models import *
 from werkzeug.security import generate_password_hash, check_password_hash
 from forms import RegisterForm, LoginForm
+from models import LehrerProfil, User, Fach, LehrerFach
 
 app = Flask(__name__)
 
@@ -81,11 +82,13 @@ def datenschutz():
 
 @app.route('/suche')
 def teacher_search():
-    return render_template('teacher_search.html')
+    lehrer_liste = LehrerProfil.query.all()
+    return render_template('teacher_search.html', lehrer_liste=lehrer_liste)
 
-@app.route('/lehrerprofil')
-def teacher_profile():
-    return render_template('teacher_profile.html')
+@app.route('/lehrerprofil/<int:id>')
+def teacher_profile(id):
+    lehrer = LehrerProfil.query.get(id)
+    return render_template('teacher_profile.html', lehrer=lehrer)
 
 @app.route('/buchung')
 def booking():
