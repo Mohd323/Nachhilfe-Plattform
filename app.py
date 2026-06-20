@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, session 
+from flask import Flask, render_template, redirect, url_for, session, flash
 from db import db
 from models import *
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -24,14 +24,14 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user and check_password_hash(user.password_hash, form.passwort.data):
+        if user and check_password_hash(user.passwort, form.passwort.data):
             session['user_id'] = user.id
-            session['role'] = user.role
+            session['rolle'] = user.rolle
             session['user_name'] = user.vorname
 
-            if user.role == "schueler":
+            if user.rolle == "schueler":
                 return redirect(url_for('student_dashboard'))
-            elif user.role == "lehrer":
+            elif user.rolle == "lehrer":
                 return redirect(url_for('teacher_dashboard'))
 
         flash("E-Mail oder Passwort ist falsch.")
@@ -53,10 +53,8 @@ def register():
             vorname=form.vorname.data,
             nachname=form.nachname.data,
             email=form.email.data,
-            password_hash=generate_password_hash(form.passwort.data),
-            role=form.rolle.data,
-            status="aktiv",
-            email_verifiziert=False
+            passwort=generate_password_hash(form.passwort.data),
+            rolle=form.rolle.data,
         )
 
         db.session.add(new_user)
