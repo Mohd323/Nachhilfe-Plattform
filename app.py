@@ -97,7 +97,13 @@ def student_dashboard():
 
 @app.route('/lehrer-dashboard')
 def teacher_dashboard():
-    return render_template('teacher_dashboard.html')
+
+    teacher_name = session.get('user_name', 'Lehrer')
+
+    return render_template(
+        'teacher_dashboard.html',
+        teacher_name=teacher_name
+    )
 
 @app.route('/meine-buchungen')
 def my_bookings():
