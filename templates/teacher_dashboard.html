@@ -33,6 +33,37 @@
          <p>Verwalte deine Nachhilfeangebote und Anfragen.</p>
         </section>
 
-        
+        <section class="dashboard-cards">
+            <div class="dashboard-card">
+             <h3>Meine Anfragen</h3>
+             <p>Neue Buchungsanfragen prüfen.</p>
+
+             <a href="{{ url_for('teacher_requests') }}">
+                Öffnen
+             </a>
+            </div>
+
+            <div class="dashboard-card">
+             <h3>Meine Termine</h3>
+             <p>Geplante Nachhilfestunden ansehen.</p>
+
+             <a href="{{ url_for('teacher_appointments') }}">
+                Öffnen
+             </a>
+            </div>
+
+            <div class="dashboard-card">
+             <h3>Mein Profil</h3>
+             <p>Profil und Informationen bearbeiten.</p>
+
+             <a href="{{ url_for('profile') }}">
+                Öffnen
+             </a>
+            </div>
+
+        </section>
+
+    </main>
+
 </body>
 </html>
