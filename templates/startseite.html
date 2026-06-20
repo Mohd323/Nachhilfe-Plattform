@@ -5,8 +5,65 @@
     <title>Nachhilfe Connect</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
-    <h1>Willkommen bei Nachhilfe Connect</h1>
-    <p>Finde den passenden Nachhilfelehrer für dich.</p>
+    <header>
+        <div class="logo">
+         <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Nachhilfe Connect Logo">
+         <p>Gemeinsam besser lernen.</p>
+        </div>
+
+        <h1>Nachhilfe Connect</h1>
+
+        <nav>
+            <ul>
+             <li><a class="active" href="{{ url_for('startseite') }}">Startseite</a></li>
+             <li><a href="{{ url_for('teacher_search') }}">Suche</a></li>
+             <li><a href="{{ url_for('booking') }}">Buchung</a></li>
+             <li><a class="login-button" href="{{ url_for('login') }}">Log in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Finde verifizierte Nachhilfelehrer für Mathe, Deutsch und Abiturvorbereitung</h2>
+
+            <div class="cards">
+             <div class="card">
+                <h3>Schnelle Suche</h3>
+                <p>Finde verfügbare Lehrer in deinem Fach in Sekunden.</p>
+             </div>
+
+             <div class="card">
+                <h3>Einfache Buchung</h3>
+                <p>Termin wählen und direkt buchen.</p>
+             </div>
+
+             <div class="card">
+                <h3>Bewertungen</h3>
+                <p>Echte Bewertungen von anderen Schülerinnen und Schülern.</p>
+             </div>
+
+             <div class="card">
+                <h3>Faire Preise</h3>
+                <p>Transparente Preise ab 15 € pro Stunde.</p>
+             </div>
+            </div>
+
+            <div class="verified-card">
+             <h3>Verifizierte Lehrer</h3>
+             <p>Geprüfte Profile für mehr Sicherheit und Vertrauen</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Nachhilfe Connect · 
+         <a href="#">Nutzungsbedingungen</a> · 
+         <a href="{{ url_for('datenschutz') }}">Datenschutz</a>
+        </p>
+    </footer>
+
 </body>
 </html>
