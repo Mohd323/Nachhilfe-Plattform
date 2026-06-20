@@ -400,3 +400,26 @@ footer a {
 .dashboard-card a:hover {
     background-color: #4f888a;
 }
+
+/* Buchungsseite: booking */
+/* Gesamter Buchungsbereich */
+.booking-container {
+    display: flex;                      /* Inhalt mittig ausrichten */
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+/* Buchungskarte */
+.booking-card {
+    background-color: white; 
+    width: 650px; 
+    padding: 40px;                      /* Innenabstand */
+    border-radius: 25px;                /* abgerundete Ecken */
+}
+
+/* Überschrift */
+.booking-card h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
