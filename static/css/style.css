@@ -290,3 +290,69 @@ footer a {
     color: #0077aa; /* blaue Linkfarbe */
     text-decoration: underline; /* Link unterstreichen */
 }
+
+/* Suchseite: teacher_search */
+.search-header {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.search-header h2 {
+    font-size: 32px;
+}
+
+/* Filterbereich */
+.filter-box {
+    display: flex;                    /* Elemente nebeneinander anzeigen */
+    justify-content: center;
+    gap: 15px;                        /* Abstand zwischen den Elementen */
+    margin: 30px;
+}
+
+/* Suchfeld und Dropdown-Menüs */
+.filter-box input,
+.filter-box select {
+    padding: 12px;                    /* Innenabstand */
+    border-radius: 10px;              /* abgerundete Ecken */
+    border: 1px solid #cccccc;
+}
+
+.filter-box button {
+    background-color: #5f9ea0;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    cursor: pointer;                   /* Hand beim Hover */
+}
+
+/* Lehrerkarten */
+.teacher-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;                  /* Zeilenumbruch bei wenig Platz */
+    margin: 50px;
+}
+
+.teacher-card {
+    background-color: white;
+    width: 250px;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.teacher-card h3 {
+    margin-top: 0;
+}
+
+.profile-btn {
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #5f9ea0;
+    color: white;
+    text-decoration: none;              /* Unterstreichung entfernen */
+    padding: 10px 18px;
+    border-radius: 10px;
+}
