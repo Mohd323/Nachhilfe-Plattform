@@ -356,3 +356,33 @@ footer a {
     padding: 10px 18px;
     border-radius: 10px;
 }
+
+/* Profilseite: teacher_profile.html */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.profile-card {
+    background-color: white;
+    width: 650px;
+    padding: 40px;
+    border-radius: 25px;
+}
+
+.profile-card h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Button "Nachhilfe buchen" */
+.booking-btn {
+    display: inline-block;
+    margin-top: 25px;
+    background-color: #5f9ea0;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+}
