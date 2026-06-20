@@ -470,3 +470,26 @@ footer a {
 .booking-btn:hover {
     background-color: #4f888a;
 }
+
+/* Profilseite; profile.html */
+/* Gesamter Profilbereich */
+.profile-page-container {
+    display: flex; /
+    justify-content: center;             /* horizontal zentrieren */
+    align-items: center;                 /* vertikal ausrichten */
+    padding: 60px 20px;                  /* Innenabstand */
+}
+
+/* Profilkarte */
+.profile-page-card {
+    background-color: white; 
+    width: 600px;                        /* Breite der Karte */
+    padding: 40px;                       /* Innenabstand */
+    border-radius: 25px;                 /* abgerundete Ecken */
+}
+
+/* Überschrift */
+.profile-page-card h2 {
+    text-align: center; 
+    margin-bottom: 30px;                 /* Abstand nach unten */
+}
