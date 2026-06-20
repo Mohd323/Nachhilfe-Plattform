@@ -345,3 +345,19 @@ footer a {
 .dashboard-card a:hover {
     background-color: #4f888a;
 }
+
+/* Schüler-Dashboard: student_dashboard */
+/* Begrüßungsbereich */
+.dashboard-header {
+    text-align: center;                             /* Text mittig */
+    margin-top: 50px;                               /* Abstand nach oben */
+}
+
+.dashboard-header h2 {
+    font-size: 34px; 
+    margin-bottom: 10px;                            /* Abstand */
+}
+
+.dashboard-header p {
+    font-size: 18px; 
+}
