@@ -306,3 +306,42 @@ footer a {
 .dashboard-header p {
     font-size: 18px; 
 }
+
+/* Kartenbereich */
+.dashboard-cards {
+    display: flex;                                 /* Karten nebeneinander */
+    justify-content: center;                       /* mittig ausrichten */
+    gap: 30px;                                     /* Abstand zwischen Karten */
+    flex-wrap: wrap;                               /* Umbruch bei kleinen Bildschirmen */
+    margin: 60px 30px;
+}
+
+/* Einzelne Dashboard-Karte */
+.dashboard-card {
+    background-color: white; 
+    width: 280px; 
+    padding: 30px;                                 /* Innenabstand */
+    border-radius: 20px; 
+    text-align: center; 
+}
+
+/* Kartenüberschrift */
+.dashboard-card h3 {
+    margin-top: 0;
+}
+
+/* Button/Link */
+.dashboard-card a {
+    display: inline-block;                         /* wie Button */
+    margin-top: 20px;                              /* Abstand nach oben */
+    padding: 10px 20px;                            /* Innenabstand */
+    background-color: #5f9ea0;                     /* gleiche Farbe wie Website */
+    color: white;
+    text-decoration: none;                         /* Unterstreichung entfernen */
+    border-radius: 10px; 
+}
+
+/* Hover-Effekt */
+.dashboard-card a:hover {
+    background-color: #4f888a;
+}
