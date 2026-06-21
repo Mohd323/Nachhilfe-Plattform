@@ -180,6 +180,23 @@ with app.app_context():                         # Tabellen automatisch erstellen
     db.create_all()
 
 # JSON APIs
+@app.route("/api/users")
+def api_users():
+    users = User.query.all()
+
+    return {
+        "users": [
+            {
+                "id": user.id,
+                "vorname": user.vorname,
+                "nachname": user.nachname,
+                "email": user.email,
+                "rolle": user.rolle,
+                "telefon": user.telefon
+            }
+            for user in users
+        ]
+    }
 
 
 
