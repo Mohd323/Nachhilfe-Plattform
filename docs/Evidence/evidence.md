@@ -333,6 +333,75 @@ Die Änderungen wurden über Pull Requests überprüft und anschließend zusamme
 
 ---
 
+# 18. Individuelle Beiträge
+
+### Mohd Alkhtib
+
+Meine Aufgaben umfassten sowohl organisatorische als auch technische Bereiche des Projekts. 
+
+Top 3 Beiträge:
+
+1. Organisation des Projekts
+    - Erstellung und Verwaltung von Git-Branches
+    - Aufgabenverteilung innerhalb des Teams
+    - Unterstützung beim Zusammenführen von Branches
+2. Entwicklung der Anwendung
+    - Mitarbeit an HTML-, CSS-, Python- und Jinja-Dateien
+    - Erstellung des Vernetzungsplans
+    - Unterstützung bei der Datenbankintegration
+3. Dokumentation
+    - Erstellung und Pflege von index.md und evidence.md
+    - Strukturierung der Projektdokumenatation
+
+Herausforderun: 
+Die größte Herausforderung war zunächst das Verständnis von GitHub, Flask und der Zusammenarbeit über mehrere Branches hinweg. Mit zunehmender Erfahrung wurden diese Themen einfacher, wodurch neue Herausforderungen entstanden, insbesondere die Verwaltung vieler voneinander abhängiger Dateien.
+
+Darauf bin ich stolz:
+Ich bin stolz darauf, gemeinsam mit meinem Team ein umfangreiches Projekt mit mehreren neuen Technologien erfolgreich umgesetzt zu haben.
+
+### Benyamin Hasan
+
+Top 3 Beiträge:
+
+1. Erstellung und Überarbeitung der UI-Skizzen
+2. Mitarbeit an Flask-, Python- und Datenbank-Komponenten
+3. Erstellung und Pflege von Dummy-Daten
+
+Herausforderung:
+Eine große Herausforderung war die Verknüpfung der Datenbank mit Flask und den HTML-Seiten. Dabei mussten mehrere Komponenten gleichzeitig funktionieren und korrekt miteinander kommunizieren.
+
+Darauf bin ich stolz:
+Ich bin stolz darauf, Aufgaben zuverlässig und schnell bearbeitet zu haben. Außerdem habe ich das Team bei Branches, Pull Requests und Merge-Prozessen unterstützt.
+
+### Abdullah Aldarwish
+
+Top 3 Beiträge:
+
+1. Erstellung des Datenmodells
+2. Mitarbeit an Datenbank, HTML und CSS
+3. Unterstützung bei Python-Komponenten
+
+Herausforderung:
+Die größte Herausforderung bestand darin, das Datenmodell korrekt zu planen und die Beziehungen zwischen den Tabellen zu verstehen.
+
+Darauf bin ich stolz:
+Zu Beginn erschien mir das gesamte Projekt sehr komplex. Durch Erklärungen, Übung und Teamarbeit konnte ich die Zusammenhänge verstehen und erfolgreich an der Umsetzung mitarbeiten.
+
+### Emrah Rabotic
+
+Top 3 Beiträge:
+
+1. Implementierung von Login und Registrierung
+2. Mitarbeit an Flask- und Python-Komponenten
+3. Erstellung von HTML- und CSS-Seiten
+
+Herausforderung:
+Die größte Herausforderung war das Erlernen neuer Technologien wie Flask und die Verknüpfung von Backend und Frontend.
+
+Darauf bin ich stolz:
+Ich hatte vor dem Projekt nur wenig Erfahrung mit Python. Deshalb bin ich besonders stolz darauf, dass ich aktiv an der Entwicklung zentraler Funktionen wie Login und Registrierung mitarbeiten konnte.
+
+---
 # Fazit
 
 Diese Dokumentation zeigt unseren Entwicklungsprozess von der ersten Idee bis zum aktuellen Stand der Nachhilfe-Plattform.
