@@ -146,6 +146,10 @@ def teacher_appointments():
 def teacher_requests():
     return render_template('teacher_requests.html')
 
+@app.route('/nutzungsbedingungen')
+def nutzungsbedingungen():
+    return render_template('nutzungsbedingungen.html')
+
 with app.app_context():                         # Tabellen automatisch erstellen
     db.create_all()
 
