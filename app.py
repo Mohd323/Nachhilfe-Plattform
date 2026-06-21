@@ -187,7 +187,8 @@ def api_users():
     return [
         {
             "id": user.id,
-            "name": user.name,
+            "vorname": user.vorname,
+            "nachname": user.nachname,
             "email": user.email,
             "role": user.role
         }
@@ -201,8 +202,10 @@ def api_teachers():
     return [
         {
             "id": teacher.id,
-            "name": teacher.name,
+            "vorname": user.vorname,
+            "nachname": user.nachname,
             "email": teacher.email
+            "rolle": user.rolle
         }
         for teacher in teachers
     ]
@@ -214,8 +217,10 @@ def api_students():
     return [
         {
             "id": student.id,
-            "name": student.name,
+            "vorname": user.vorname,
+            "nachname": user.nachname,
             "email": student.email
+            "rolle": user.rolle
         }
         for student in students
     ]
