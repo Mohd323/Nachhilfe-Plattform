@@ -179,6 +179,48 @@ def nutzungsbedingungen():
 with app.app_context():                         # Tabellen automatisch erstellen
     db.create_all()
 
+# JSON APIs
+@app.route("/api/users")                        #Alle Nutzer
+def api_users():
+    users = User.query.all()
+
+    return [
+        {
+            "id": user.id,
+            "name": user.name,
+            "email": user.email,
+            "role": user.role
+        }
+        for user in users
+    ]
+
+@app.route("/api/teachers")                    #Nur Lehrer
+def api_teachers():
+    teachers = User.query.filter_by(role="teacher").all()
+
+    return [
+        {
+            "id": teacher.id,
+            "name": teacher.name,
+            "email": teacher.email
+        }
+        for teacher in teachers
+    ]
+
+@app.route("/api/students")                    #Nur Schüler
+def api_students():
+    students = User.query.filter_by(role="student").all()
+
+    return [
+        {
+            "id": student.id,
+            "name": student.name,
+            "email": student.email
+        }
+        for student in students
+    ]
+
+
 if __name__ == '__main__':                      # startet die App nur wenn du sie direkt ausführst
     app.run(debug=True)                         # startet den Webserver, debug=True zeigt Fehlermeldungen direkt im Browser
     
