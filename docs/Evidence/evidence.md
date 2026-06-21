@@ -276,6 +276,44 @@ Zusätzlich erstellten wir:
 
 ---
 
+# 16. Technische Umsetzung
+
+Nach Abschluss der Planungsphase begann die technische Umsetzung der Anwendung. 
+
+## Verwendete Technologien 
+
+- Python
+- Flask
+- Jinja2
+- SQLite
+- SQLAlchemy
+- HTML
+- CSS
+- Github
+
+## Umgesetzte Funktionen
+
+- Registrierung
+- Login und Logout
+- Lehrer-Suche
+- Dynamische Lehrerprofile
+- Schüler-Dashboard
+- Lehrer-Dashboard
+- Buchungsseite
+- Profilseite
+
+## Datenbank
+
+Die Datenbank wurde mit SQLite umgesetzt
+
+Zur Entwicklung und zum Testen wurden zusätzlich Dummy-Daten erstellt, damit die wichtigsten Funktionen der PLattform bereits getestet werden können.
+
+## Datenbank Screenshot
+
+(Bild einfügen)
+
+---
+
 # Fazit
 
 Diese Dokumentation zeigt unseren Entwicklungsprozess von der ersten Idee bis zum aktuellen Stand der Nachhilfe-Plattform.
