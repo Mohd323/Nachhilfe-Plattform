@@ -184,45 +184,48 @@ with app.app_context():                         # Tabellen automatisch erstellen
 def api_users():
     users = User.query.all()
 
-    return [
+    return {
+        "users": [
         {
             "id": user.id,
             "vorname": user.vorname,
             "nachname": user.nachname,
             "email": user.email,
-            "role": user.role
+            "rolle": user.rolle
         }
         for user in users
     ]
 
-@app.route("/api/teachers")                    #Nur Lehrer
-def api_teachers():
-    teachers = User.query.filter_by(role="teacher").all()
+@app.route("/api/lehrer")                    #Nur Lehrer
+def api_lehrer():
+    lehrer_liste = User.query.filter_by(rolle="lehrer").all()
 
-    return [
+    return {
+        "lehrer": [
         {
-            "id": teacher.id,
-            "vorname": user.vorname,
-            "nachname": user.nachname,
-            "email": teacher.email
-            "rolle": user.rolle
+            "id": lehrer.id,
+            "vorname": lehrer.vorname,
+            "nachname": lehrer.nachname,
+            "email": lehrer.email
+            "rolle": lehrer.rolle
         }
-        for teacher in teachers
+        for lehrer in lehrer_liste
     ]
 
-@app.route("/api/students")                    #Nur Schüler
-def api_students():
-    students = User.query.filter_by(role="student").all()
+@app.route("/api/schueler")                    #Nur Schüler
+def api_schueler():
+    schueler_liste = User.query.filter_by(role="schueler").all()
 
-    return [
+    return {
+        "schueler": [
         {
-            "id": student.id,
-            "vorname": user.vorname,
-            "nachname": user.nachname,
-            "email": student.email
-            "rolle": user.rolle
+            "id": schueler.id,
+            "vorname": schueler.vorname,
+            "nachname": schueler.nachname,
+            "email": schueler.email
+            "rolle": schueler.rolle
         }
-        for student in students
+        for schueler in schueler_liste
     ]
 
 
