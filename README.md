@@ -51,3 +51,10 @@ Die ausführliche Projektdokumentation wird über GitHub Pages veröffentlicht.
 4. Abhängigkeiten installieren: pip isntall -r requirements.txt
 5. Anwendung starten: python app.py
 6. Browser öffnen: https://127.0.0.1:5000
+
+## JSON API
+
+Die Anwendung stellt eine einfache JSON-Schnittstelle bereit.
+
+Verfügbare API-Endpunkte:
+- http://127.0.0.1:5000/api/users → gibt alle registrierten Nutzer als JSON zurück
