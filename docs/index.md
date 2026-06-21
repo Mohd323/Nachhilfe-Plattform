@@ -100,8 +100,13 @@ Tutor/innen m체ssen Nachweise einreichen, die ihre fachliche Qualifikation best�
 ##  Target Scope bzw. Geplante Screens
 - Startseite  
 - Registrierung  
-- Suche  
+- Login
+- Lehrer-Suche
+- Lehrerprofil
 - Buchung  
+- Sch체ler-Dashboard
+- Lehrer-Dashboard
+- Profilseite
 
 ---
 
@@ -208,9 +213,9 @@ Kann:
 
 ---
 
-## Aktueller Implementiernugsstand
+## Aktueller Implementierungsstand
 
-F체r die First Submission wurde ein funktionsf채higer Prototyp umgesetzt-
+F체r die First Submission wurde ein funktionsf채higer Prototyp umgesetzt.
 
 Aktuell implementierte Funktionen:
 - Registrierung von Nutzer/innen
@@ -223,6 +228,7 @@ Aktuell implementierte Funktionen:
 - Profilseite
 - Datenbank mit SQLite und SQLAlchemy 
 - Testdaten (Dummy-Daten)
+- JSON API f체r Nutzerdaten
 
 Verwendete Technologien:
 
