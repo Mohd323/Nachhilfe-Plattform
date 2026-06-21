@@ -301,6 +301,7 @@ Nach Abschluss der Planungsphase begann die technische Umsetzung der Anwendung.
 - Lehrer-Dashboard
 - Buchungsseite
 - Profilseite
+- JSON API für Nutzerdaten (/api/users)
 
 ## Datenbank
 
@@ -308,9 +309,11 @@ Die Datenbank wurde mit SQLite umgesetzt
 
 Zur Entwicklung und zum Testen wurden zusätzlich Dummy-Daten erstellt, damit die wichtigsten Funktionen der PLattform bereits getestet werden können.
 
-## Datenbank Screenshot
+### Tabellenübersicht
+<img src="images/datenbank-tabellen.png" alt="Tabellenübersicht" width="250">
 
-(Bild einfügen)
+### Beispielinhalt der Tabelle users
+![Users](images/datenbank-users.png)
 
 ---
 
@@ -329,7 +332,13 @@ Die Änderungen wurden über Pull Requests überprüft und anschließend zusamme
 
 ### Pull-Request Beispiele
 
-(Bilder einfügen)
+Die folgende Abbildung zeigt einen Ausschnitt der im Projekt verwendeten Pull Requests. Dadurch konnten neue Funktionen zunächst in separaten Feature-Branches entwickelt und anschließend kontrolliert in die Hauptbranches integriert werden.
+
+![Pull Requests](images/pull_requests.png)
+
+---
+
+# 18. Design Decisions
 
 ---
 
