@@ -338,10 +338,6 @@ Die folgende Abbildung zeigt einen Ausschnitt der im Projekt verwendeten Pull Re
 
 ---
 
-# 18. Design Decisions
-
----
-
 # 18. Individuelle Beiträge
 
 ### Mohd Alkhtib
