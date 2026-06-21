@@ -180,53 +180,7 @@ with app.app_context():                         # Tabellen automatisch erstellen
     db.create_all()
 
 # JSON APIs
-@app.route("/api/users")                        #Alle Nutzer
-def api_users():
-    users = User.query.all()
 
-    return {
-        "users": [
-        {
-            "id": user.id,
-            "vorname": user.vorname,
-            "nachname": user.nachname,
-            "email": user.email,
-            "rolle": user.rolle
-        }
-        for user in users
-    ]
-
-@app.route("/api/lehrer")                    #Nur Lehrer
-def api_lehrer():
-    lehrer_liste = User.query.filter_by(rolle="lehrer").all()
-
-    return {
-        "lehrer": [
-        {
-            "id": lehrer.id,
-            "vorname": lehrer.vorname,
-            "nachname": lehrer.nachname,
-            "email": lehrer.email
-            "rolle": lehrer.rolle
-        }
-        for lehrer in lehrer_liste
-    ]
-
-@app.route("/api/schueler")                    #Nur Schüler
-def api_schueler():
-    schueler_liste = User.query.filter_by(role="schueler").all()
-
-    return {
-        "schueler": [
-        {
-            "id": schueler.id,
-            "vorname": schueler.vorname,
-            "nachname": schueler.nachname,
-            "email": schueler.email
-            "rolle": schueler.rolle
-        }
-        for schueler in schueler_liste
-    ]
 
 
 if __name__ == '__main__':                      # startet die App nur wenn du sie direkt ausführst
