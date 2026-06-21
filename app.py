@@ -98,7 +98,7 @@ def teacher_search():
     if unterrichtsart_filter:
         lehrer_liste = [
             l for l in lehrer_liste
-            if l.uneterrichtsart == unterrichtsart_filter
+            if l.unterrichtsart == unterrichtsart_filter
         ]
     
     if preis_filter: 
