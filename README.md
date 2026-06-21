@@ -32,3 +32,22 @@ Die ausführliche Projektdokumentation wird über GitHub Pages veröffentlicht.
 + Die Hauptdokumentation befindet sich auf der Startseite (index.md).
 + Zusätzlich dokumentieren wir unsere Vorgehensweise, Entscheidungen, Feedbacks und Nachweise in der Seite Evidence (evidence.md).
 + Die Evidence-Seite kann über die Hauptdokumentation aufgerufen werden und zeigt die Entwicklung unseres Projekts von der ersten Idee bis zum aktuellen Stand.
+
+## Verwendete Technologien
+
+- Python
+- Flask
+- Jinja2
+- SQLite
+- SQLAlchemy
+- HTML
+- CSS
+
+## Istallation und Start
+
+1. Repository klonen
+2. Virtuelle Umgebung erstellen: python -m venv .venv
+3. Virteulle Umgebung aktivieren: .venv\Script\activate
+4. Abhängigkeiten installieren: pip isntall -r requirements.txt
+5. Anwendung starten: python app.py
+6. Browser öffnen: https://127.0.0.1:5000
