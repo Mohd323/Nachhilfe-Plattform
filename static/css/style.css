@@ -385,4 +385,270 @@ footer a {
     text-decoration: none;
     padding: 12px 20px;
     border-radius: 10px;
+/* Lehrer-Dashboard: teacher_dashboard.html */
+/* Kopfbereich des Dashboards */
+.dashboard-header {
+    text-align: center; 
+    margin-top: 50px; 
+}
+
+.dashboard-header h2 {
+    font-size: 34px; 
+    margin-bottom: 10px; 
+}
+
+.dashboard-header p {
+    font-size: 18px; 
+}
+
+/* Kartenbereich */
+.dashboard-cards {
+    display: flex;                                 /* Karten nebeneinander */
+    justify-content: center;                       /* mittig ausrichten */
+    gap: 30px;                                     /* Abstand zwischen Karten */
+    flex-wrap: wrap;                               /* Umbruch bei kleinen Bildschirmen */
+    margin: 60px 30px;
+}
+
+/* Einzelne Dashboard-Karte */
+.dashboard-card {
+    background-color: white; 
+    width: 280px; 
+    padding: 30px;                                 /* Innenabstand */
+    border-radius: 20px; 
+    text-align: center; 
+}
+
+/* Kartenüberschrift */
+.dashboard-card h3 {
+    margin-top: 0;
+}
+
+/* Button/Link */
+.dashboard-card a {
+    display: inline-block;                         /* wie Button */
+    margin-top: 20px;                              /* Abstand nach oben */
+    padding: 10px 20px;                            /* Innenabstand */
+    background-color: #5f9ea0;                     /* gleiche Farbe wie Website */
+    color: white;
+    text-decoration: none;                         /* Unterstreichung entfernen */
+    border-radius: 10px; 
+}
+
+/* Hover-Effekt */
+.dashboard-card a:hover {
+    background-color: #4f888a;
+}
+
+/* Schüler-Dashboard: student_dashboard */
+/* Begrüßungsbereich */
+.dashboard-header {
+    text-align: center;                             /* Text mittig */
+    margin-top: 50px;                               /* Abstand nach oben */
+}
+
+.dashboard-header h2 {
+    font-size: 34px; 
+    margin-bottom: 10px;                            /* Abstand */
+}
+
+.dashboard-header p {
+    font-size: 18px; 
+}
+
+/* Kartenbereich */
+.dashboard-cards {
+    display: flex;                                 /* Karten nebeneinander */
+    justify-content: center; 
+    gap: 30px;                                     /* Abstand */
+    flex-wrap: wrap;                               /* Umbruch bei kleinen Bildschirmen */
+    margin: 60px 30px;
+}
+
+/* Einzelne Karte */
+.dashboard-card {
+    background-color: white; 
+    width: 280px; 
+    padding: 30px;                                /* Innenabstand */
+    border-radius: 20px;                          /* Rundung */
+    text-align: center; 
+}
+
+/* Überschrift */
+.dashboard-card h3 {
+    margin-top: 0;
+}
+
+/* Button */
+.dashboard-card a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #5f9ea0;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+/* Hover-Effekt */
+.dashboard-card a:hover {
+    background-color: #4f888a;
+}
+
+/* Buchungsseite: booking */
+/* Gesamter Buchungsbereich */
+.booking-container {
+    display: flex;                      /* Inhalt mittig ausrichten */
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+/* Buchungskarte */
+.booking-card {
+    background-color: white; 
+    width: 650px; 
+    padding: 40px;                      /* Innenabstand */
+    border-radius: 25px;                /* abgerundete Ecken */
+}
+
+/* Überschrift */
+.booking-card h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Lehrerinformation */
+.teacher-info {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Formulargruppe */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Formular-Label */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Eingabefelder */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* Buchungsbutton */
+.booking-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #5f9ea0;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Hover-Effekt */
+.booking-btn:hover {
+    background-color: #4f888a;
+}
+
+/* Profilseite; profile.html */
+/* Gesamter Profilbereich */
+.profile-page-container {
+    display: flex; 
+    justify-content: center;             /* horizontal zentrieren */
+    align-items: center;                 /* vertikal ausrichten */
+    padding: 60px 20px;                  /* Innenabstand */
+}
+
+/* Profilkarte */
+.profile-page-card {
+    background-color: white; 
+    width: 600px;                        /* Breite der Karte */
+    padding: 40px;                       /* Innenabstand */
+    border-radius: 25px;                 /* abgerundete Ecken */
+}
+
+/* Überschrift */
+.profile-page-card h2 {
+    text-align: center; 
+    margin-bottom: 30px;                 /* Abstand nach unten */
+}
+
+/* Bereich mit Profildaten */
+.profile-info {
+    font-size: 18px; 
+    line-height: 1.8; /* Zeilenabstand */
+}
+
+/* Einzelne Profilzeilen */
+.profile-info p {
+    border-bottom: 1px solid #dddddd;                 /* Trennlinie */
+    padding-bottom: 10px;                             /* Abstand zur Linie */
+}
+
+/* Profil bearbeiten Button */
+.profile-edit-btn {
+    display: block;                                   /* als Block anzeigen */
+    width: fit-content;                               /* Breite nach Inhalt */
+    margin: 30px auto 0;                              /* mittig platzieren */
+    padding: 12px 25px;                               /* Innenabstand */
+    background-color: #5f9ea0;                        /* Hauptfarbe */
+    color: white;                                     /* weiße Schrift */
+    text-decoration: none;                            /* keine Unterstreichung */
+    border-radius: 10px;                              /* abgerundete Ecken */
+}
+
+/* Hover-Effekt */
+.profile-edit-btn:hover {
+    background-color: #4f888a;                        /* dunklere Farbe beim Überfahren */
+}
+
+/* Rechtliche Seiten: Impressum, Datenschutz, Nutzungsbedingungen */
+/* Container für rechtliche Inhalte */
+.legal-container {
+    display: flex;                      /* Inhalt ausrichten */
+    justify-content: center;            /* horizontal zentrieren */
+    padding: 60px 20px; 
+    background-color: #d9d9d9; 
+}
+
+/* Weiße Inhaltskarte */
+.legal-card {
+    background-color: #ffffff; 
+    width: 800px; 
+    padding: 40px; 
+    border-radius: 25px; 
+    line-height: 1.7;                   /* Zeilenabstand */
+}
+
+/* Hauptüberschrift */
+.legal-card h2 {
+    text-align: center; 
+    font-size: 32px; 
+    margin-bottom: 30px;                /* Abstand nach unten */
+}
+
+/* Abschnittsüberschriften */
+.legal-card h3 {
+    margin-top: 25px;                   /* Abstand nach oben */
+    color: #2c3e50; 
+}
+
+/* Absatztexte */
+.legal-card p {
+    font-size: 16px; 
 }

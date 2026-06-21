@@ -115,15 +115,32 @@ def teacher_profile(id):
 
 @app.route('/buchung')
 def booking():
-    return render_template('booking.html')
+    teacher_name = "Nachhilfelehrer"
+
+    return render_template(
+        'booking.html',
+        teacher_name=teacher_name
+    )
 
 @app.route('/schueler-dashboard')
 def student_dashboard():
-    return render_template('student_dashboard.html')
+
+    student_name = session.get('user_name', 'Schüler')
+
+    return render_template(
+        'student_dashboard.html',
+        student_name=student_name
+    )
 
 @app.route('/lehrer-dashboard')
 def teacher_dashboard():
-    return render_template('teacher_dashboard.html')
+
+    teacher_name = session.get('user_name', 'Lehrer')
+
+    return render_template(
+        'teacher_dashboard.html',
+        teacher_name=teacher_name
+    )
 
 @app.route('/meine-buchungen')
 def my_bookings():
@@ -135,7 +152,17 @@ def my_requests():
 
 @app.route('/profil')
 def profile():
-    return render_template('profile.html')
+    user_data = {
+        "vorname": session.get("user_name", "Nutzer"),
+        "nachname": "",
+        "email": "beispiel@test.de",
+        "rolle": session.get("rolle", "schueler"),
+        "telefon": "Noch nicht angegeben"
+    }
+    return render_template(
+        'profile.html',
+        user=user_data
+    )
 
 @app.route('/termine')
 def teacher_appointments():
@@ -144,6 +171,10 @@ def teacher_appointments():
 @app.route('/anfragen')
 def teacher_requests():
     return render_template('teacher_requests.html')
+
+@app.route('/nutzungsbedingungen')
+def nutzungsbedingungen():
+    return render_template('nutzungsbedingungen.html')
 
 with app.app_context():                         # Tabellen automatisch erstellen
     db.create_all()
