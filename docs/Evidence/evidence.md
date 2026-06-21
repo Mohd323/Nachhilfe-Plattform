@@ -314,6 +314,25 @@ Zur Entwicklung und zum Testen wurden zusätzlich Dummy-Daten erstellt, damit di
 
 ---
 
+# 17. GitHub Workflow
+
+Während der Entwicklung arbeiteten wir mit mehreren Feature-Branches.
+
+Beispiele:
+
+- feature/login-register
+- feature/dummy-data
+- feature/teacher-search
+- feature/html-css
+
+Die Änderungen wurden über Pull Requests überprüft und anschließend zusammengeführt.
+
+### Pull-Request Beispiele
+
+(Bilder einfügen)
+
+---
+
 # Fazit
 
 Diese Dokumentation zeigt unseren Entwicklungsprozess von der ersten Idee bis zum aktuellen Stand der Nachhilfe-Plattform.
