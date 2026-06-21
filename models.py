@@ -31,6 +31,8 @@ class LehrerProfil(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user = db.relationship('User')
+    faecher = db.relationship('LehrerFach')
     lehrer_typ = db.Column(db.String(30), nullable=False)                        #student / lehrer / tutor
     beschreibung = db.Column(db.Text)
     erfahrung_jahre = db.Column(db.Integer, nullable=True)
@@ -57,6 +59,7 @@ class LehrerFach(db.Model):
     lehrer_profil_id = db.Column(db.Integer, db.ForeignKey("lehrer_profile.id"), nullable=False)
     fach_id = db.Column(db.Integer, db.ForeignKey("fach.id"), nullable=False)
     klassenstufen = db.Column(db.String(50), nullable=True)
+    fach = db.relationship('Fach')
     
 
 class Verfügbarkeit(db.Model):

@@ -8,7 +8,74 @@
 </head>
 
 <body>
-    <h1>TEST!!!</h1>
+    <header>
+        <div class="logo">
+         <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Nachhilfe Connect Logo">
+         <p>Gemeinsam besser lernen.</p>
+        </div>
 
+        <h1>Nachhilfe Connect</h1>
+
+        <nav>
+            <ul>
+             <li><a href="{{ url_for('startseite') }}">Startseite</a></li>
+             <li><a href="{{ url_for('teacher_search') }}">Suche</a></li>
+             <li><a href="{{ url_for('booking') }}">Buchung</a></li>
+             <li><a class="login-button" href="{{ url_for('login') }}">Log in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    <div class="register-container">
+        <div class="register-card">
+
+            <h2>Registrieren</h2>
+            <p>Erstellen Sie ein Konto bei Nachhilfe Connect.</p>
+
+            <form method="POST">
+
+                {{ form.hidden_tag() }}
+
+                <div class="form-group">
+                    {{ form.vorname.label }}
+                    {{ form.vorname(class="form-input") }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.nachname.label }}
+                    {{ form.nachname(class="form-input") }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.email.label }}
+                    {{ form.email(class="form-input") }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.passwort.label }}
+                    {{ form.passwort(class="form-input") }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.rolle.label }}
+                    {{ form.rolle(class="form-input") }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.submit(class="register-btn") }}
+                </div>
+
+            </form>
+
+             <p class="login-link">
+                Schon ein Konto?
+                <a href="{{ url_for('login') }}">Einloggen</a>
+             </p>
+
+        </div>
+    </div>
+    </main>
+          
 </body>
 </html>

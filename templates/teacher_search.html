@@ -8,7 +8,70 @@
 </head>
 
 <body>
-    <h1>TEST!!!</h1>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Nachhilfe Connect Logo">
+            <p>Gemeinsam besser lernen.</p>
+        </div>
 
+    <h1>Nachhilfe Connect</h1>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('startseite') }}">Startseite</a></li>
+            <li><a class="active" href="{{ url_for('teacher_search') }}">Suche</a></li>
+            <li><a href="{{ url_for('booking') }}">Buchung</a></li>
+            <li><a class="login-button" href="{{ url_for('login') }}">Log in</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <main>
+        <section class="search-header">
+            <h2>Nachhilfelehrer finden</h2>
+        </section>
+
+        <section class="filter-box">
+            <form method="GET" action=" {{ url_for('teacher_search') }} ">
+            <input type="text" name="fach" placeholder="Fach">
+            <select name="unterrichtsart">
+                <option value="">Unterrichtsart</option>
+                <option value="online">Online</option>
+                <option value="vor_ort">Vor Ort</option>
+                <option value="beides">Beides</option>
+            </select>
+
+            <select name="preis">
+                <option value="">Preis</option>
+                <option value="20">Bis 20€</option>
+                <option value="30">Bis 30€</option>
+                <option value="999">Über 30€</option>
+            </select>
+            <button type="submit">Suchen</button>
+            </form>
+        </section>
+
+        <section class="teacher-grid">
+
+            {% for lehrer in lehrer_liste %}
+            <div class="teacher-card">
+                <h3>{{ lehrer.user.vorname }} {{ lehrer.user.nachname }}</h3>
+                {% if lehrer.faecher %}
+                <p>{{ lehrer.faecher[0].fach.name }}</p>
+                {% endif %}
+                <p>{{ lehrer.stundenpreis }}€/h</p>
+                <p>{{ lehrer.unterrichtsart }}</p>
+               
+
+                <a href="{{ url_for('teacher_profile', id=lehrer.id) }}" class="profile-btn">
+                Profil ansehen
+                </a>
+            </div>
+            {% endfor %}
+
+        </section>
+        
+    </main>
+    
 </body>
 </html>
