@@ -43,14 +43,25 @@ Die ausführliche Projektdokumentation wird über GitHub Pages veröffentlicht.
 - HTML
 - CSS
 
-## Istallation und Start
+## Installation und Start
 
 1. Repository klonen
 2. Virtuelle Umgebung erstellen: python -m venv .venv
-3. Virteulle Umgebung aktivieren: .venv\Script\activate
+3. Virtuelle Umgebung aktivieren: .venv\Script\activate
 4. Abhängigkeiten installieren: pip isntall -r requirements.txt
-5. Anwendung starten: python app.py
-6. Browser öffnen: https://127.0.0.1:5000
+5. Testdaten erstellen: python seed_data.py
+6. Anwendung starten: python app.py
+7. Browser öffnen: https://127.0.0.1:5000
+
+## Happy Path testen
+
+1. Registrierung als Schüler/in durchführen
+2. Mit dem erstellten Konto einloggen
+3. Lehrer-Suche öffnen
+4. Nach Fach oder Preis filtern
+5. Lehrerprofil ansehen
+6. Buchungsseite aufrufen
+7. Dashboard und Profilseite testen
 
 ## JSON API
 
