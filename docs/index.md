@@ -105,7 +105,7 @@ Tutor/innen m체ssen Nachweise einreichen, die ihre fachliche Qualifikation best�
 
 ---
 
-## Ablauf der Nutzung
+## Happy Path
 
 1. Sch체ler/in registriert sich  
 2. Sch체ler/in sucht passende Nachhilfelehrer/innen  
@@ -205,6 +205,34 @@ Kann:
 - Buchungsanfragen erhalten
 - Buchungsanfragen annehmen oder ablehnen
 - Bewertungen erhalten
+
+---
+
+## Aktueller Implementiernugsstand
+
+F체r die First Submission wurde ein funktionsf채higer Prototyp umgesetzt-
+
+Aktuell implementierte Funktionen:
+- Registrierung von Nutzer/innen
+- Login und Logout
+- Lehrer-Suche mit Filtern
+- Dynamische Lehrerprofile
+- Sch체ler-Dashboard
+- Lehrer-Dashboard
+- Buchungsseite
+- Profilseite
+- Datenbank mit SQLite und SQLAlchemy 
+- Testdaten (Dummy-Daten)
+
+Verwendete Technologien:
+
+- Python
+- Flask
+- Jinja2
+- SQLite
+- SQLAlchemy
+- HTML
+- CSS
 
 ---
 
