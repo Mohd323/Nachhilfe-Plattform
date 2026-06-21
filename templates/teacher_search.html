@@ -32,21 +32,23 @@
         </section>
 
         <section class="filter-box">
-            <input type="text" placeholder="Fach">
-            <select>
-                <option>Unterrichtsart</option>
-                <option>Online</option>
-                <option>Vor Ort</option>
-                <option>Beides</option>
+            <form method="GET" action=" {{ url_for('teacher_search') }} ">
+            <input type="text" name="fach" placeholder="Fach">
+            <select name=" unterrichtsart">
+                <option value="">Unterrichtsart</option>
+                <option value="online">Online</option>
+                <option value="vor_ort">Vor Ort</option>
+                <option value="beides">Beides</option>
             </select>
 
-            <select>
-                <option>Preis</option>
-                <option>Bis 20€</option>
-                <option>Bis 30€</option>
-                <option>Über 30€</option>
+            <select name="preis">
+                <option value="">Preis</option>
+                <option value="20">Bis 20€</option>
+                <option value="30">Bis 30€</option>
+                <option value="999">Über 30€</option>
             </select>
-            <button>Suchen</button>
+            <button type="submit">Suchen</button>
+            </form>
         </section>
 
         <section class="teacher-grid">

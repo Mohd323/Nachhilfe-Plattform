@@ -4,6 +4,7 @@ from models import *
 from werkzeug.security import generate_password_hash, check_password_hash
 from forms import RegisterForm, LoginForm
 from models import LehrerProfil, User, Fach, LehrerFach
+from flask import request
 
 app = Flask(__name__)
 
@@ -82,7 +83,29 @@ def datenschutz():
 
 @app.route('/suche')
 def teacher_search():
+    fach_filter = request.args.get('fach')
+    unterrichtsart_filter = request.args.get('unterrichtsart')
+    preis_filter = request.args.get('preis')
+
     lehrer_liste = LehrerProfil.query.all()
+
+    if fach_filter: 
+        lehrer_liste = [
+            l for l in lehrer_liste
+            if any(lf.fach.name.lower() == fach_filter.lower() for lf in l.faecher)
+        ]
+    
+    if unterrichtsart_filter:
+        lehrer_liste = [
+            l for l in lehrer_liste
+            if l.uneterrichtsart == unterrichtsart_filter
+        ]
+    
+    if preis_filter: 
+        lehrer_liste = [
+            l for l in lehrer_liste
+            if l.stundenpreis <= float(preis_filter)
+        ]
     return render_template('teacher_search.html', lehrer_liste=lehrer_liste)
 
 @app.route('/lehrerprofil/<int:id>')
