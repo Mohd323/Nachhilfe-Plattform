@@ -29,10 +29,12 @@ Dadurch mussten identische CSS-Regeln nicht mehrfach in verschiedenen Dateien ge
 Die Entscheidung wurde von Mohd Alkhtib vorgeschlagen und anschließend im Team abgestimmt.
 
 #### Regarded Options
+
 | Option | Vorteile | Nachteile |
 |---|---|---|
 | Eine CSS-Datei pro Seite | Bessere Trennung der einzelnen Seitendesigns | Viele doppelte CSS-Regeln, höherer Pflegeaufwand |
 | Eine zentrale CSS-Datei | Wiederverwendung gemeinsamer Komponenten, einfachere Wartung, konsistentes Design | Datei wird mit zunehmender Projektgröße größer |
+
 
 #### Begründung
 Da viele Seiten dieselbe Navigation und ähnliche Layout-Komponenten verwenden, wäre bei mehreren CSS-Dateien derselbe Code mehrfach vorhanden gewesen.
