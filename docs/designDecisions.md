@@ -274,3 +274,42 @@ Für den Umfang unseres Projekts war diese Lösung die übersichtlichste und war
 - Login-Seite
 - Registrierungsseite
 
+###  Design Decision 2: Passwort-Hashing statt Klartextspeicherung
+#### Problem Statement
+
+Bei der Entwicklung des Login- und Registrierungssystems musste entschieden werden, wie Passwörter gespeichert werden sollen.
+
+Dabei stellte sich die Frage, ob Passwörter direkt als Klartext in der Datenbank gespeichert werden oder ob sie vor der Speicherung verschlüsselt bzw. gehasht werden.
+
+#### Decision
+
+Wir haben uns für Passwort-Hashing mit den Werkzeug-Funktionen entschieden:
+
+- `generate_password_hash()`
+- `check_password_hash()`
+
+Dadurch werden Passwörter nicht direkt in der Datenbank gespeichert.
+
+Die Entscheidung wurde von Emrah Rabotic vorbereitet und anschließend im Team abgestimmt.
+
+#### Regarded Options
+
+| Option | Vorteile | Nachteile |
+|---|---|---|
+| Speicherung als Klartext | Einfach umzusetzen | Sehr unsicher, Passwörter sind direkt sichtbar |
+| Passwort-Hashing mit Werkzeug | Höhere Sicherheit, bewährte Lösung in Flask-Projekten | Etwas mehr Implementierungsaufwand |
+
+#### Begründung
+
+Die Speicherung von Passwörtern im Klartext stellt ein Sicherheitsrisiko dar. Jeder mit Zugriff auf die Datenbank könnte die Passwörter aller Nutzer/innen lesen.
+
+Durch die Verwendung von Passwort-Hashing werden nur verschlüsselte Hash-Werte gespeichert. Beim Login wird das eingegebene Passwort mit dem gespeicherten Hash verglichen.
+
+Dadurch wird die Sicherheit der Anwendung verbessert und gleichzeitig eine professionelle Vorgehensweise umgesetzt.
+
+#### Nachweise
+
+- `app.py`
+- Funktionen `generate_password_hash()`
+- Funktionen `check_password_hash()`
+- Registrierungs- und Login-Prozess
