@@ -654,3 +654,15 @@ footer a {
 .legal-card p {
     font-size: 16px; 
 }
+
+/* Flash-Meldungen */
+.flash-message {
+    background-color: #dff5e1;
+    color: #1f6b2a;
+    padding: 15px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
