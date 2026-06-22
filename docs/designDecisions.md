@@ -131,3 +131,48 @@ Für unser Projekt war diese Struktur sinnvoll, weil sie besser zum geplanten Ha
 - Datenmodell in `index.md`
 - Umsetzung in `models.py`
 - Datenbank-Screenshot in `evidence.md`
+
+### Design Decision 2: SQLite als Datenbank
+
+#### Problem Statement
+
+Für die Nachhilfe-Plattform musste entschieden werden, welche Datenbanktechnologie verwendet wird.
+
+Die Anwendung sollte lokal auf einem Windows- oder MacOS-System ausführbar sein und ohne komplizierte Serverinstallation funktionieren. Gleichzeitig mussten Nutzer/innen, Profile, Fächer, Buchungen und Bewertungen gespeichert werden können.
+
+#### Decision
+
+Wir haben uns für SQLite als Datenbank entschieden.
+
+SQLite speichert die Daten in einer lokalen Datenbankdatei und benötigt keinen zusätzlichen Datenbankserver. Dadurch konnte die Anwendung einfacher eingerichtet, getestet und für die First Submission vorbereitet werden.
+
+Die Entscheidung wurde von Abdullah Aldarwish vorbereitet und anschließend im Team abgestimmt.
+
+#### Regarded Options
+
+| Option | Vorteile | Nachteile |
+|---|---|---|
+| SQLite | Einfach einzurichten, keine Serverinstallation nötig, gut für lokale Entwicklung geeignet | Weniger geeignet für große produktive Anwendungen |
+| MySQL oder PostgreSQL | Leistungsfähiger und besser für große Anwendungen geeignet | Zusätzliche Installation und Konfiguration notwendig |
+| Keine Datenbank, nur feste Dummy-Daten im Code | Sehr einfach für erste Tests | Keine echte Speicherung, passt nicht zu Login, Profilen und Buchungen |
+
+#### Begründung
+
+SQLite wurde gewählt, weil es für den Umfang unseres Hochschulprojekts ausreichend ist und die Anwendung dadurch leicht lokal gestartet werden kann.
+
+Außerdem passt SQLite gut zu Flask und SQLAlchemy. Die Datenbankdatei kann direkt im Projekt verwendet werden, wodurch der Prüfer die Anwendung einfacher reproduzieren kann.
+
+Für die First Submission war SQLite deshalb die einfachste und sinnvollste Lösung.
+
+#### Nachweise
+
+- Datei `instance/nachhilfe.db`
+- Datenbank-Screenshot in `evidence.md`
+- Datenbankkonfiguration in `app.py`
+
+  ---
+
+## Emrah 
+###  Design Decision 1: 
+
+---
