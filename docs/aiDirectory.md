@@ -6,7 +6,7 @@ Dieses Dokument listet alle KI-basierten Hilfsmittel auf, die im Rahmen dieses P
 
 | Tool | Verwendungszweck |
 | --- | --- |
-| [Tool] | [Verwendungszweck] |
+| ChatGPT | Unterstützung bei der Formulierung und Überarbeitung von Projektdokumentation (README, index.md, evidence.md), sprachliche Korrekturen, Strukturierung von Design Decisions sowie allgemeine Verständnisfragen zu Git, GitHub, Flask, Jinja2 und SQLite sowie Hilfe beim Debuggen einfacher Fehlermeldungen (z. B. fehlende Klammern, Syntaxfehler, falsche Variablennamen oder Tippfehler). |
 
 ## Benyamin Hasan
 

@@ -47,11 +47,11 @@ Die ausführliche Projektdokumentation wird über GitHub Pages veröffentlicht.
 
 1. Repository klonen
 2. Virtuelle Umgebung erstellen: python -m venv .venv
-3. Virtuelle Umgebung aktivieren: .venv\Script\activate
-4. Abhängigkeiten installieren: pip isntall -r requirements.txt
+3. Virtuelle Umgebung aktivieren: .venv\Scripts\activate
+4. Abhängigkeiten installieren: pip install -r requirements.txt
 5. Testdaten erstellen: python seed_data.py
 6. Anwendung starten: python app.py
-7. Browser öffnen: https://127.0.0.1:5000
+7. Browser öffnen: http://127.0.0.1:5000
 
 ## Happy Path testen
 

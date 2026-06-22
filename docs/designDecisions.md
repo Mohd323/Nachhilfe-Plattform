@@ -1,5 +1,5 @@
 ---
-title: Evidence / Raw Material
+title: Design Decisions
 nav_order: 2
 ---
 
@@ -54,7 +54,7 @@ Die Herausforderung war, eine passende Balance zwischen Vollständigkeit und Üb
 Es wurden mehrere Versionen des Vernetzungsplans erstellt und miteinander verglichen.
 
 Die erste Version mit dem Titel „Webseitenstruktur & Vernetzungsplan“ war sehr detailliert. Sie enthielt viele Informationen, Rollen, Funktionen und technische Hinweise. Dadurch war sie zwar vollständig, aber für unsere Dokumentation zu komplex und schwer überschaubar. 
-<img src="evidence/images/V1.jpg" alt="ersteVersion" width="350">
+<img src="Evidence/images/V1.jpg" alt="ersteVersion" width="350">
 
 Die zweite Version ohne Titel war einfacher aufgebaut. Diese Version war jedoch inhaltlich nicht überzeugend, da die Struktur nicht klar genug waren. (in der "evidence.md" dokumentiert)
 

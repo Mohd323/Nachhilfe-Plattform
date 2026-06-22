@@ -246,3 +246,4 @@ Verwendete Technologien:
 
 - [Evidence / Nachweise](Evidence/evidence.html)
 - [Design Decisions](designDecisions.html) 
+- [AI-Directory](aiDirectory.md)
