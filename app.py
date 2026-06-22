@@ -121,7 +121,48 @@ def booking():
      return redirect(url_for('teacher_search'))
 
 @app.route('/buchung/<int:lehrer_id>', methods=['GET', 'POST'])
-def booking_teacher(lehrer_id): ## muss noch eränzt
+def booking_teacher(lehrer_id): 
+
+     if 'user_id' not in session:
+        flash("Bitte zuerst einloggen.")
+        return redirect(url_for('login'))
+
+    if session.get('rolle') != 'schueler':
+        flash("Nur Schüler/innen können eine Buchung erstellen.")
+        return redirect(url_for('teacher_search'))
+
+    lehrer = LehrerProfil.query.get(lehrer_id)
+
+    if lehrer is None:
+        flash("Lehrer wurde nicht gefunden.")
+        return redirect(url_for('teacher_search'))
+
+    if request.method == 'POST':
+        fach_id = request.form.get('fach_id')
+        datum = request.form.get('datum')
+        uhrzeit = request.form.get('uhrzeit')
+        dauer_stunden = int(request.form.get('dauer_stunden'))
+        unterrichtsart = request.form.get('unterrichtsart')
+        zahlungsart = request.form.get('zahlungsart')
+        nachricht = request.form.get('nachricht')
+
+        gesamtpreis = lehrer.stundenpreis * dauer_stunden
+
+        neue_buchung = Buchung(
+            schüler_id=session['user_id'],
+            lehrer_id=lehrer.user_id,
+            fach_id=fach_id,
+            datum=date.fromisoformat(datum),
+            uhrzeit=time.fromisoformat(uhrzeit),
+            dauer_stunden=dauer_stunden,
+            gesamtpreis=gesamtpreis,
+            unterrichtsart=unterrichtsart,
+            zahlungsart=zahlungsart,
+            status="anfrage",
+            nachricht=nachricht
+        )
+        #muss noch ergänzt werden
+    )
 
 
 
