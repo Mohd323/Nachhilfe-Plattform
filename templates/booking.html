@@ -32,30 +32,65 @@
         <div class="booking-card">
             <h2>Nachhilfe buchen</h2>
             <p class="teacher-info">
-                Lehrer: <strong>{{ teacher_name }}</strong>
+                Lehrer: <strong>{{ lehrer.user.vorname }} {{ lehrer.user.nachname }}</strong>
             </p>
-            <form>
+
+            <p class="teacher-info">
+                Preis: <strong>{{ lehrer.stundenpreis }} € / Stunde</strong>
+            </p>
+
+            <form method="POST" action="{{ url_for('booking_teacher', lehrer_id=lehrer.id) }}">
+                
+                <div class="form-group">
+                    <label>Fach</label>
+                    <select name="fach_id" required>
+                        {% for lehrer_fach in lehrer.faecher %}
+                            <option value="{{ lehrer_fach.fach.id }}">
+                                {{ lehrer_fach.fach.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
                 <div class="form-group">
                     <label>Datum</label>
-                    <input type="date">
+                    <input type="date" name="datum" required>
                 </div>
                 
                 <div class="form-group">
                     <label>Uhrzeit</label>
-                    <input type="time">
+                    <input type="time" name="uhrzeit" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Dauer</label>
+                    <select name="dauer_stunden" required>
+                        <option value="1">1 Stunde</option>
+                        <option value="2">2 Stunden</option>
+                        <option value="3">3 Stunden</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label>Unterrichtsart</label>
-                    <select>
-                        <option>Online</option>
-                        <option>Vor Ort</option>
+                    <select name="unterrichtsart" required>
+                        <option value="online">Online</option>
+                        <option value="vor_ort">Vor Ort</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Zahlungsart</label>
+                    <select name="zahlungsart" required>
+                        <option value="paypal">PayPal</option>
+                        <option value="ueberweisung">Überweisung</option>
+                        <option value="bar">Barzahlung</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label>Nachricht</label>
-                    <textarea rows="5" placeholder="Beschreibe kurz dein Anliegen"></textarea>
+                    <textarea name="nachricht" rows="5" placeholder="Beschreibe kurz dein Anliegen"></textarea>
                 </div>
 
                 <button type="submit" class="booking-btn">
@@ -65,8 +100,7 @@
         </div>
     </section>
 
-</main>
-    
+</main> 
 
 </body>
 </html>
