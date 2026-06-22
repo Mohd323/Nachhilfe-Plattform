@@ -80,6 +80,6 @@ Durch diese Entscheidung konnten wir klarer festlegen, welche Seiten für die Um
 ---
 
 ## Benyamin Hasan
-####  Design Decision 1: 
+###  Design Decision 1: 
 
 ---
