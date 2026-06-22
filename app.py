@@ -222,7 +222,36 @@ def teacher_appointments():
 
 @app.route('/anfragen')
 def teacher_requests():
-    return render_template('teacher_requests.html')
+    if 'user_id' not in session or session.get('rolle') != 'lehrer':
+        flash("Bitte als Lehrer einloggen.")
+        return redirect(url_for('login'))
+
+    lehrer_user_id = session['user_id']
+    anfragen = Buchung.query.filter_by(lehrer_id=lehrer_user_id, status="anfrage").all()
+
+    return render_template('teacher_requests.html', anfragen=anfragen) 
+
+@app.route('/anfragen/<int:buchung_id>/<aktion>')
+def bearbeite_anfrage(buchung_id, aktion):
+    if 'user_id' not in session or session.get('rolle') != 'lehrer':
+        flash("Bitte als Lehrer einloggen.")
+        return redirect(url_for('login'))
+
+    buchung = Buchung.query.get(buchung_id)
+
+    if buchung is None:
+        flash("Buchung wurde nicht gefunden.")
+        return redirect(url_for('teacher_requests'))
+
+    if aktion == 'akzeptieren':
+        buchung.status = 'bestaetigt'
+        flash("Buchung wurde akzeptiert.")
+    elif aktion == 'ablehnen':
+        buchung.status = 'abgelehnt'
+        flash("Buchung wurde abgelehnt.")
+
+    db.session.commit()
+    return redirect(url_for('teacher_requests'))
 
 @app.route('/nutzungsbedingungen')
 def nutzungsbedingungen():
