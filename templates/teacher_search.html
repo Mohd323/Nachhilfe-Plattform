@@ -27,6 +27,17 @@
     </header>
 
     <main>
+    
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-message">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+
         <section class="search-header">
             <h2>Nachhilfelehrer finden</h2>
         </section>
