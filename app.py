@@ -117,13 +117,13 @@ def teacher_profile(id):
 #Buchung
 @app.route('/buchung')
 def booking():
-     flash("Bitte wähle zuerst einen Lehrer aus.")
-     return redirect(url_for('teacher_search'))
+    flash("Bitte wähle zuerst einen Lehrer aus.")
+    return redirect(url_for('teacher_search'))
 
 @app.route('/buchung/<int:lehrer_id>', methods=['GET', 'POST'])
-def booking_teacher(lehrer_id): 
+def booking_teacher(lehrer_id):
 
-     if 'user_id' not in session:
+    if 'user_id' not in session:
         flash("Bitte zuerst einloggen.")
         return redirect(url_for('login'))
 
