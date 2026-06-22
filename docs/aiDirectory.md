@@ -24,4 +24,4 @@ Dieses Dokument listet alle KI-basierten Hilfsmittel auf, die im Rahmen dieses P
 
 | Tool | Verwendungszweck |
 | --- | --- |
-| [Tool] | [Verwendungszweck] |
+| ChatGPT | Unterstützung bei Verständnisfragen zu Flask, Python, Login- und Registrierungsfunktionen, Hilfe beim Debuggen einfacher Fehlermeldungen, sprachliche Korrekturen sowie Unterstützung bei der Projektdokumentation.  |
