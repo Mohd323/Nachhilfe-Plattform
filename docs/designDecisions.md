@@ -170,9 +170,49 @@ Für die First Submission war SQLite deshalb die einfachste und sinnvollste Lös
 - Datenbank-Screenshot in `evidence.md`
 - Datenbankkonfiguration in `app.py`
 
-  ---
+---
 
 ## Emrah 
-###  Design Decision 1: 
+###  Design Decision 1: Umsetzung von Login und Registrierung mit Flask-WTF
+#### Problem Statement
 
----
+Für die Nachhilfe-Plattform musste entschieden werden, wie Login und Registrierung umgesetzt werden sollen.
+
+Dabei stellte sich die Frage, ob die Eingaben direkt über normale HTML-Formulare verarbeitet werden oder ob ein Formular-Framework verwendet wird. Außerdem musste entschieden werden, ob Login und Registrierung auf einer gemeinsamen Seite oder auf getrennten Seiten umgesetzt werden.
+
+#### Decision
+
+Wir haben uns für Flask-WTF und WTForms entschieden.
+
+Zusätzlich wurden Login und Registrierung als zwei getrennte Funktionen mit eigenen Routen umgesetzt:
+
+- `/login`
+- `/register`
+
+Dadurch konnten die Formulare einfacher validiert und die Benutzerführung klarer gestaltet werden.
+
+Die Entscheidung wurde von Emrah Rabotic vorbereitet und anschließend im Team abgestimmt.
+
+#### Regarded Options
+
+| Option | Vorteile | Nachteile |
+|---|---|---|
+| Normale HTML-Formulare ohne WTForms | Einfacher Einstieg, weniger zusätzliche Bibliotheken | Mehr manueller Code für Validierung und Fehlerbehandlung |
+| Flask-WTF mit WTForms und getrennten Routen | Strukturierte Formulare, integrierte Validierung, bessere Wartbarkeit | Zusätzliche Einarbeitung notwendig |
+| Login und Registrierung auf einer gemeinsamen Seite | Weniger Seiten | Komplexere Logik und schlechtere Übersicht |
+
+#### Begründung
+
+Flask-WTF bietet bereits viele Funktionen für die Formularverarbeitung und Validierung. Dadurch konnten Pflichtfelder, E-Mail-Adressen und Passwortregeln einfacher überprüft werden.
+
+Außerdem sorgen getrennte Seiten für Login und Registrierung für einen klaren Ablauf und eine bessere Benutzerfreundlichkeit. Nutzer/innen wissen dadurch sofort, ob sie sich anmelden oder registrieren möchten.
+
+Für den Umfang unseres Projekts war diese Lösung die übersichtlichste und wartungsfreundlichste Variante.
+
+#### Nachweise
+
+- `forms.py`
+- `app.py`
+- Login-Seite
+- Registrierungsseite
+
