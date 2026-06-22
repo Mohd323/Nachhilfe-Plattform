@@ -77,3 +77,9 @@ Außerdem unterstützt sie unseren Happy Path besser: Von der Startseite über R
 
 Durch diese Entscheidung konnten wir klarer festlegen, welche Seiten für die Umsetzung wichtig sind und wie die Navigation in der Anwendung aufgebaut sein soll.
 
+---
+
+## Benyamin Hasan
+####  Design Decision 1: 
+
+---
