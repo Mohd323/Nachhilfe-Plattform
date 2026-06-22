@@ -80,6 +80,54 @@ Durch diese Entscheidung konnten wir klarer festlegen, welche Seiten für die Um
 ---
 
 ## Benyamin Hasan
-####  Design Decision 1: 
+###  Design Decision 1: 
 
 ---
+
+## Abdullah Aldarwish
+### Design Decision 1: Gestaltung des Datenmodells
+
+#### Problem Statement
+
+Für die Nachhilfe-Plattform musste ein Datenmodell erstellt werden, das die wichtigsten Bereiche der Anwendung abbildet.
+
+Dabei musste entschieden werden, ob die Plattform mit wenigen einfachen Tabellen umgesetzt wird oder ob mehrere Tabellen mit klaren Beziehungen verwendet werden. Besonders wichtig war die Frage, wie Nutzer/innen, Schülerprofile, Lehrerprofile, Fächer, Buchungen und Bewertungen miteinander verbunden werden.
+
+#### Decision
+
+Wir haben uns für ein detailliertes Datenmodell mit mehreren verbundenen Tabellen entschieden.
+
+Dazu gehören unter anderem:
+
+- User
+- SchülerProfil
+- LehrerProfil
+- Fach
+- LehrerFach
+- Buchung
+- Bewertung
+- Meldung
+- Verifizierungsdokument
+
+Die Entscheidung wurde von Abdullah Aldarwish vorbereitet und anschließend im Team abgestimmt.
+
+#### Regarded Options
+
+| Option | Vorteile | Nachteile |
+|---|---|---|
+| Einfaches Datenmodell mit wenigen Tabellen | Schnell umzusetzen, weniger Komplexität | Viele Informationen müssten in wenigen Tabellen gespeichert werden, schlechter erweiterbar |
+| Detailliertes Datenmodell mit mehreren Tabellen | Klare Struktur, bessere Beziehungen zwischen Daten, näher an der echten Anwendung | Mehr Planungsaufwand und komplexere Umsetzung |
+
+#### Begründung
+
+Die detaillierte Lösung wurde gewählt, weil unsere Plattform mehrere unterschiedliche Bereiche benötigt. Schüler/innen, Lehrer/innen, Fächer, Buchungen und Bewertungen haben unterschiedliche Informationen und sollten deshalb sauber voneinander getrennt werden.
+
+Durch die getrennten Tabellen können Daten besser miteinander verknüpft werden. Zum Beispiel kann eine Buchung eindeutig mit einem Schüler, einem Lehrer und einem Fach verbunden werden.
+
+Für unser Projekt war diese Struktur sinnvoll, weil sie besser zum geplanten Happy Path und zu den Anforderungen der Nachhilfe-Plattform passt.
+
+#### Nachweise
+
+- Datenmodell in `index.md`
+- Umsetzung in `models.py`
+- Datenbank-Screenshot in `evidence.md`
