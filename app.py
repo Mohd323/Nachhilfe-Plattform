@@ -202,6 +202,7 @@ def my_bookings():
 def my_requests():
     return render_template('my_requests.html')
 
+# profil
 @app.route('/profil')
 def profile():
     if 'user_id' not in session:
@@ -218,6 +219,35 @@ def profile():
         'profile.html',
         user=user
     )
+
+@app.route('/profil/bearbeiten', methods=['GET', 'POST'])
+def profile_edit():
+    if 'user_id' not in session:
+        flash("Bitte zuerst einloggen.")
+        return redirect(url_for('login'))
+
+    user = User.query.get(session['user_id'])
+
+    if user is None:
+        flash("Nutzer wurde nicht gefunden.")
+        return redirect(url_for('login'))
+
+    if request.method == 'POST':
+        neue_email = request.form.get('email')
+        neue_telefonnummer = request.form.get('telefon')
+
+        if neue_email:
+            user.email = neue_email
+
+        user.telefon = neue_telefonnummer
+
+        db.session.commit()
+
+        flash("Profil wurde erfolgreich aktualisiert.")
+        return redirect(url_for('profile'))
+
+    return render_template('profile_edit.html', user=user)
+    
 
 @app.route('/termine')
 def teacher_appointments():
