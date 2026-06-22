@@ -17,8 +17,7 @@ Dieses Dokument listet alle KI-basierten Hilfsmittel auf, die im Rahmen dieses P
 ## Abdullah Aldarwish
 
 | Tool | Verwendungszweck |
-| --- | --- |
-| [Tool] | [Verwendungszweck] |
+| Claude | Unterstützung bei der Formulierung und Überarbeitung von Dokumentationstexten, sprachlichen Korrekturen, Strukturierung von Inhalten sowie bei allgemeinen Verständnisfragen zu Datenbanken, Datenmodellen, HTML, CSS und Python. |
 
 ## Emrah Rabotic
 
