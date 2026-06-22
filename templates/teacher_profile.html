@@ -38,7 +38,7 @@
                     {{ lehrer.beschreibung }}
                  </p>
 
-              <a href="{{ url_for('booking') }}" class="booking-btn">
+              <a href="{{ url_for('booking_teacher', lehrer_id=lehrer.id) }}"  class="booking-btn">
                 Nachhilfe buchen
               </a>
             </div>
