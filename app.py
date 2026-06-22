@@ -204,16 +204,19 @@ def my_requests():
 
 @app.route('/profil')
 def profile():
-    user_data = {
-        "vorname": session.get("user_name", "Nutzer"),
-        "nachname": "",
-        "email": "beispiel@test.de",
-        "rolle": session.get("rolle", "schueler"),
-        "telefon": "Noch nicht angegeben"
-    }
+    if 'user_id' not in session:
+        flash("Bitte zuerst einloggen.")
+        return redirect(url_for('login'))
+
+    user = User.query.get(session['user_id'])
+
+    if user is None:
+        flash("Nutzer wurde nicht gefunden.")
+        return redirect(url_for('login'))
+
     return render_template(
         'profile.html',
-        user=user_data
+        user=user
     )
 
 @app.route('/termine')
