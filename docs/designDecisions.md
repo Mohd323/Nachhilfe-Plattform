@@ -80,7 +80,65 @@ Durch diese Entscheidung konnten wir klarer festlegen, welche Seiten für die Um
 ---
 
 ## Benyamin Hasan
-###  Design Decision 1: 
+###  Design Decision 1: Lösung des Merge-Konflikts in forms.py
+
+#### Problem Statement
+
+Beim Mergen des Branches feature/login-register in main trat ein Konflikt in der Datei forms.py auf. Mein lokaler Stand von forms.py war noch leer (die Datei war nur angelegt, aber nicht befüllt), während der Branch feature/login-register bereits die fertigen WTForms-Klassen RegisterForm und LoginForm mit Validierung für E-Mail, Passwort und Rolle enthielt.
+
+Git konnte nicht automatisch entscheiden, welcher Inhalt in main übernommen werden soll, da beide Branches die Datei unterschiedlich verändert hatten.
+
+#### Decision
+
+Ich habe mich entschieden, den vollständigen Code aus feature/login-register zu übernehmen und meinen leeren Stand zu verwerfen.
+
+Die Entscheidung wurde von Benyamin Hasan getroffen, da der Konflikt inhaltlich eindeutig war.
+
+#### Regarded Options
+
+| Option | Vorteile | Nachteile |
+|---|---|---|
+| Manuelles Lösen durch Übernahme des vollständigen Codes | Sofort gelöst, kein Datenverlust, Verständnis für Konfliktmarker gewonnen | Bei komplexeren Konflikten höheres Fehlerrisiko |
+| Merge abbrechen und Teammitglied selbst mergen lassen | Person mit mehr Kontext löst es korrekt | Verzögerung, da auf Teammitglied gewartet werden muss |
+
+#### Begründung
+
+Da mein Stand von forms.py leer war und keinen eigenen Code enthielt, der erhalten werden musste, war die Übernahme des vollständigen Codes aus dem Feature-Branch die naheliegende und risikoärmste Lösung. Eine Kombination beider Versionen war nicht sinnvoll, da es nichts gab, das kombiniert werden konnte.
+
+#### Nachweise
+
+- Merge-Konflikt-Meldung im Terminal: `CONFLICT (content): Merge conflict in forms.py`
+- Commit-Verlauf in main nach dem Merge von feature/login-register
+- Datei `forms.py` mit den übernommenen Klassen RegisterForm und LoginForm
+
+### Design Decision 2: Datum und Uhrzeit in Testdaten für SQLAlchemy
+
+#### Problem Statement
+
+Beim Erstellen von Testdaten in seed_data.py sollten Buchungen mit festem Datum und fester Uhrzeit angelegt werden. Der erste Versuch übergab Datum und Uhrzeit als reine Zeichenketten (datum="2026-06-25", uhrzeit="14:00"). Beim Ausführen von seed_data.py schlug dies fehl mit der Fehlermeldung TypeError: SQLite Date type only accepts Python date objects as input, da die Spalten datum und uhrzeit in models.py als db.Date und db.Time definiert sind.
+
+#### Decision
+
+Ich habe das Python-Modul datetime importiert und Datum sowie Uhrzeit als echte date- und time-Objekte übergeben (date(2026, 6, 25), time(14, 0)), statt das Datenmodell selbst zu ändern.
+
+Die Entscheidung wurde von Benyamin Hasan getroffen.
+
+#### Regarded Options
+
+| Option | Vorteile | Nachteile |
+|---|---|---|
+| Verwendung von date()/time()-Objekten | Entspricht direkt der Erwartung von SQLAlchemy, keine Änderung am Datenmodell nötig, garantiert gültige Werte | Erfordert zusätzlichen Import |
+| Änderung der Spaltentypen in models.py zu String | Würde Zeichenketten direkt erlauben | Würde ungültige Eingaben ermöglichen, Änderung am Datenmodell würde Absprache mit Person 2 erfordern |
+
+#### Begründung
+
+Die Verwendung von date()- und time()-Objekten war die naheliegendere Lösung, weil sie keine Absprache mit dem Team erforderte und die Datenintegrität der Datenbank nicht schwächt. Eine Änderung der Spaltentypen hätte zudem alle anderen Stellen im Projekt betroffen, die diese Spalten verwenden.
+
+#### Nachweise
+
+- Fehlermeldung im Terminal bei der ersten Ausführung von seed_data.py
+- Erfolgreiche Ausführung nach der Korrektur, mit Ausgabe "Testdaten erfolgreich erstellt!"
+- Commit-Verlauf der Datei seed_data.py
 
 ---
 
