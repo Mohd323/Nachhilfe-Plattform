@@ -161,7 +161,15 @@ def booking_teacher(lehrer_id):
             status="anfrage",
             nachricht=nachricht
         )
-        #muss noch ergänzt werden
+        db.session.add(neue_buchung)
+        db.session.commit()
+
+        flash("Buchungsanfrage wurde erfolgreich gesendet.")
+        return redirect(url_for('student_dashboard'))
+
+    return render_template(
+        'booking.html',
+        lehrer=lehrer
     )
 
 
