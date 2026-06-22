@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from forms import RegisterForm, LoginForm
 from models import LehrerProfil, User, Fach, LehrerFach
 from flask import request
+from datetime import date, time
 
 app = Flask(__name__)
 
@@ -113,14 +114,16 @@ def teacher_profile(id):
     lehrer = LehrerProfil.query.get(id)
     return render_template('teacher_profile.html', lehrer=lehrer)
 
+#Buchung
 @app.route('/buchung')
 def booking():
-    teacher_name = "Nachhilfelehrer"
+     flash("Bitte wähle zuerst einen Lehrer aus.")
+     return redirect(url_for('teacher_search'))
 
-    return render_template(
-        'booking.html',
-        teacher_name=teacher_name
-    )
+@app.route('/buchung/<int:lehrer_id>', methods=['GET', 'POST'])
+def booking_teacher(lehrer_id): ## muss noch eränzt
+
+
 
 @app.route('/schueler-dashboard')
 def student_dashboard():
