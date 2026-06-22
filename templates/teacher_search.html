@@ -57,7 +57,7 @@
             <div class="teacher-card">
                 <h3>{{ lehrer.user.vorname }} {{ lehrer.user.nachname }}</h3>
                 {% if lehrer.faecher %}
-                <p>{{ lehrer.faecher[0].fach.name }}</p>
+                <p>{% for lf in lehrer.faecher %}{{ lf.fach.name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
                 {% endif %}
                 <p>{{ lehrer.stundenpreis }}€/h</p>
                 <p>{{ lehrer.unterrichtsart }}</p>
