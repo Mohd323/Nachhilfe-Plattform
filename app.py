@@ -194,6 +194,51 @@ def teacher_dashboard():
         teacher_name=teacher_name
     )
 
+@app.route('/lehrerprofil-erstellen', methods=['GET', 'POST'])
+def lehrerprofil_erstellen():
+    if 'user_id' not in session or session.get('rolle') != 'lehrer':
+        flash("Bitte als Lehrer einloggen.")
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    bestehendes_profil = LehrerProfil.query.filter_by(user_id=user_id).first()
+
+    if bestehendes_profil:
+        flash("Du hast bereits ein Lehrerprofil.")
+        return redirect(url_for('teacher_dashboard'))
+
+    if request.method == 'POST':
+        lehrer_typ = request.form.get('lehrer_typ')
+        beschreibung = request.form.get('beschreibung')
+        unterrichtsart = request.form.get('unterrichtsart')
+        stundenpreis = float(request.form.get('stundenpreis'))
+        ort = request.form.get('ort')
+        fach_id = request.form.get('fach_id')
+
+        neues_profil = LehrerProfil(
+            user_id=user_id,
+            lehrer_typ=lehrer_typ,
+            beschreibung=beschreibung,
+            unterrichtsart=unterrichtsart,
+            stundenpreis=stundenpreis,
+            ort=ort
+        )
+        db.session.add(neues_profil)
+        db.session.commit()
+
+        neue_verknuepfung = LehrerFach(
+            lehrer_profil_id=neues_profil.id,
+            fach_id=fach_id
+        )
+        db.session.add(neue_verknuepfung)
+        db.session.commit()
+
+        flash("Dein Lehrerprofil wurde erfolgreich erstellt!")
+        return redirect(url_for('teacher_dashboard'))
+
+    alle_faecher = Fach.query.all()
+    return render_template('lehrerprofil_erstellen.html', faecher=alle_faecher)
+
 @app.route('/meine-buchungen')
 def my_bookings():
     if 'user_id' not in session or session.get('rolle') != 'schueler':
