@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Nachhilfe anbieten</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+<header>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Nachhilfe Connect Logo">
+        <p>Gemeinsam besser lernen.</p>
+    </div>
+
+    <h1>Nachhilfe Connect</h1>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('teacher_dashboard') }}">Dashboard</a></li>
+            <li><a class="active" href="{{ url_for('nachhilfe_anbieten') }}">Nachhilfe anbieten</a></li>
+            <li><a class="login-button" href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="booking-container">
+        <div class="booking-card">
+
+            <h2>Nachhilfe anbieten</h2>
+
+            <form method="POST">
+
+                <div class="form-group">
+                    <label>Rolle</label>
+                    <select name="lehrer_typ" required>
+                        <option value="student">Student/in</option>
+                        <option value="tutor">Tutor/in</option>
+                        <option value="lehrer">Lehrer/in</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Fach</label>
+                    <input type="text" name="fach" placeholder="z.B. Mathe, Physik, Chemie" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Klassenstufen</label>
+                    <input type="text" name="klassenstufen" placeholder="z.B. 10-13" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Beschreibung</label>
+                    <textarea name="beschreibung" rows="4" placeholder="Beschreibe dein Angebot" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Unterrichtsart</label>
+                    <select name="unterrichtsart" required>
+                        <option value="online">Online</option>
+                        <option value="vor_ort">Vor Ort</option>
+                        <option value="beides">Beides</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Stundenpreis (€)</label>
+                    <input type="number" name="stundenpreis" min="1" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Ort</label>
+                    <input type="text" name="ort" placeholder="z.B. Berlin">
+                </div>
+
+                <button type="submit" class="booking-btn">
+                    Angebot speichern
+                </button>
+
+            </form>
+
+        </div>
+    </section>
+</main>
+
+</body>
+</html>
