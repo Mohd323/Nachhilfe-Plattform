@@ -47,9 +47,9 @@
                 <p><strong>Nachname:</strong> {{ user.nachname }}</p>
                 <p><strong>E-Mail:</strong> {{ user.email }}</p>
                 <p><strong>Rolle:</strong> {{ user.rolle }}</p>
-                <p><strong>Telefon:</strong> {{ user.telefon }}</p>
+                <p><strong>Telefon:</strong> {{ user.telefon or "Noch nicht angegeben" }}</p>
             </div>
-            <a href="#" class="profile-edit-btn">Profil bearbeiten</a>
+            <a href="{{ url_for('profile_edit') }}" class="profile-edit-btn">Profil bearbeiten</a>
         </div>
     </section>
     </main>
