@@ -295,7 +295,7 @@ def lehrerprofil_erstellen():
 def my_bookings():
     if 'user_id' not in session or session.get('rolle') != 'schueler':
         flash("Bitte als Schüler einloggen.")
-        return redirect(url_for('login)'))
+        return redirect(url_for('login'))
     
     schueler_id = session['user_id']
     buchungen = Buchung.query.filter_by(schüler_id=schueler_id).all()
