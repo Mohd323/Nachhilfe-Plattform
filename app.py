@@ -112,7 +112,24 @@ def teacher_search():
 @app.route('/lehrerprofil/<int:id>')
 def teacher_profile(id):
     lehrer = LehrerProfil.query.get(id)
-    return render_template('teacher_profile.html', lehrer=lehrer)
+
+    bewertungen = []
+
+    for buchung in lehrer.user.buchungen_als_lehrer:
+        if buchung.bewertung:
+            bewertungen.append(buchung.bewertung)
+
+    if bewertungen:
+        durchschnitt = sum(b.sterne for b in bewertungen) / len(bewertungen)
+    else:
+        durchschnitt = 0
+
+    return render_template(
+        'teacher_profile.html',
+        lehrer=lehrer,
+        bewertungen=bewertungen,
+        durchschnitt=durchschnitt
+    )
 
 #Buchung
 @app.route('/buchung')
@@ -173,26 +190,61 @@ def booking_teacher(lehrer_id):
     )
 
 
-
+#Dashboard
 @app.route('/schueler-dashboard')
 def student_dashboard():
+    if 'user_id' not in session:
+        flash("Bitte zuerst einloggen.")
+        return redirect(url_for('login'))
 
-    student_name = session.get('user_name', 'Schüler')
+    if session.get('rolle') != 'schueler':
+        flash("Diese Seite ist nur für Schüler/innen.")
+        return redirect(url_for('login'))
+
+    student = User.query.get(session['user_id'])
+
+    buchungen = Buchung.query.filter_by(schüler_id=student.id).all()
+
+    offene_buchungen = [b for b in buchungen if b.status == "anfrage"]
+    bestaetigte_buchungen = [b for b in buchungen if b.status == "bestaetigt"]
 
     return render_template(
         'student_dashboard.html',
-        student_name=student_name
+        student_name=student.vorname,
+        buchungen_anzahl=len(buchungen),
+        offene_buchungen_anzahl=len(offene_buchungen),
+        bestaetigte_buchungen_anzahl=len(bestaetigte_buchungen),
+        letzte_buchungen=buchungen[-3:]
     )
+
 
 @app.route('/lehrer-dashboard')
 def teacher_dashboard():
+    if 'user_id' not in session:
+        flash("Bitte zuerst einloggen.")
+        return redirect(url_for('login'))
 
-    teacher_name = session.get('user_name', 'Lehrer')
+    if session.get('rolle') != 'lehrer':
+        flash("Diese Seite ist nur für Lehrer/innen.")
+        return redirect(url_for('login'))
+
+    teacher = User.query.get(session['user_id'])
+
+    buchungen = Buchung.query.filter_by(lehrer_id=teacher.id).all()
+
+    offene_anfragen = [b for b in buchungen if b.status == "anfrage"]
+    bestaetigte_termine = [b for b in buchungen if b.status == "bestaetigt"]
+    abgelehnte_anfragen = [b for b in buchungen if b.status == "abgelehnt"]
 
     return render_template(
         'teacher_dashboard.html',
-        teacher_name=teacher_name
+        teacher_name=teacher.vorname,
+        anfragen_anzahl=len(offene_anfragen),
+        termine_anzahl=len(bestaetigte_termine),
+        abgelehnte_anzahl=len(abgelehnte_anfragen),
+        letzte_anfragen=offene_anfragen[-3:]
     )
+    
 
 @app.route('/lehrerprofil-erstellen', methods=['GET', 'POST'])
 def lehrerprofil_erstellen():
@@ -324,10 +376,22 @@ def profile_edit():
         neue_email = request.form.get('email')
         neue_telefonnummer = request.form.get('telefon')
 
+        aktuelles_passwort = request.form.get('aktuelles_passwort')
+        neues_passwort = request.form.get('neues_passwort')
+
         if neue_email:
             user.email = neue_email
 
         user.telefon = neue_telefonnummer
+
+        # Passwort ändern
+        if neues_passwort:
+
+            if not check_password_hash(user.passwort, aktuelles_passwort):
+                flash("Aktuelles Passwort ist falsch.")
+                return redirect(url_for('profile_edit'))
+
+            user.passwort = generate_password_hash(neues_passwort)
 
         db.session.commit()
 

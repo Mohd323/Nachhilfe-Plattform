@@ -19,8 +19,6 @@
         <nav>
             <ul>
              <li><a href="{{ url_for('startseite') }}">Startseite</a></li>
-             <li><a href="{{ url_for('teacher_search') }}">Suche</a></li>
-             <li><a href="{{ url_for('booking') }}">Buchung</a></li>
              <li><a class="login-button" href="{{ url_for('login') }}">Log in</a></li>
             </ul>
         </nav>
@@ -71,6 +69,10 @@
                 <div class="form-group">
                     {{ form.rolle.label }}
                     {{ form.rolle(class="form-input") }}
+                    
+                    <small class="rolle-hinweis">
+                    Hinweis: Für Studierende und Tutor/innen wählen Sie bitte die Rolle „Lehrer/in“.
+                    </small>
                 </div>
 
                 <div class="form-group">
