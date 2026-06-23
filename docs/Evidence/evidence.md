@@ -420,6 +420,26 @@ Darauf bin ich stolz:
 Ich hatte vor dem Projekt nur wenig Erfahrung mit Python. Deshalb bin ich besonders stolz darauf, dass ich aktiv an der Entwicklung zentraler Funktionen wie Login und Registrierung mitarbeiten konnte.
 
 ---
+
+# 19. Demonstrationsvideo
+
+Zur Dokumentation des aktuellen Projektstands wurde ein Demonstrationsvideo erstellt.
+
+Das Video zeigt die wichtigsten Funktionen der Nachhilfe-Plattform:
+
+* Registrierung und Login
+* Lehrer-Suche
+* Lehrerprofil
+* Buchungsanfrage
+* Schüler-Dashboard
+* Lehrer-Dashboard
+* Verwaltung von Anfragen und Terminen
+* Bewertungssystem
+
+Das Demonstrationsvideo dient als Nachweis der implementierten Funktionen und des aktuellen Entwicklungsstands.
+
+---
+
 # Fazit
 
 Diese Dokumentation zeigt unseren Entwicklungsprozess von der ersten Idee bis zum aktuellen Stand der Nachhilfe-Plattform.
