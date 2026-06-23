@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Bewertung abgeben</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Nachhilfe Connect Logo">
+            <p>Gemeinsam besser lernen.</p>
+        </div>
+
+        <h1>Nachhilfe Connect</h1>
+
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('startseite') }}">Startseite</a></li>
+                <li><a href="{{ url_for('teacher_search') }}">Suche</a></li>
+                <li><a href="{{ url_for('my_bookings') }}">Meine Buchungen</a></li>
+                <li><a class="login-button" href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard-header">
+            <h2>Bewertung abgeben</h2>
+            <p>Wie war deine Nachhilfestunde am {{ buchung.datum }}?</p>
+        </section>
+
+        <section class="filter-box">
+            <form method="POST" action="{{ url_for('bewertung_abgeben', buchung_id=buchung.id) }}">
+                <select name="sterne" required>
+                    <option value="">Sterne</option>
+                    <option value="1">1 Stern</option>
+                    <option value="2">2 Sterne</option>
+                    <option value="3">3 Sterne</option>
+                    <option value="4">4 Sterne</option>
+                    <option value="5">5 Sterne</option>
+                </select>
+
+                <input type="text" name="kommentar" placeholder="Dein Kommentar (optional)">
+
+                <button type="submit">Bewertung abschicken</button>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>

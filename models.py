@@ -12,12 +12,12 @@ class User(db.Model):
     telefon = db.Column(db.String(30), nullable=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     passwort = db.Column(db.String(255), nullable=False)
+    buchungen_als_lehrer = db.relationship('Buchung', foreign_keys='Buchung.lehrer_id')
 
 
 #Schülerprofil
 class SchülerProfil(db.Model):
     __tablename__ = "schüler_profile"
-
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     klasse = db.Column(db.String(50))
@@ -91,6 +91,7 @@ class Buchung(db.Model):
     schüler_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     lehrer_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     fach_id = db.Column(db.Integer, db.ForeignKey("fach.id"), nullable=False)
+    bewertung = db.relationship('Bewertung', uselist=False) 
     datum = db.Column(db.Date, nullable=False)
     uhrzeit = db.Column(db.Time, nullable=False)
     dauer_stunden = db.Column(db.Integer, nullable=False)

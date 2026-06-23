@@ -32,7 +32,16 @@
                  <h2>{{ lehrer.user.vorname }} {{ lehrer.user.nachname }}</h2>
                  <p><strong>Preis:</strong> {{ lehrer.stundenpreis }}€/h</p>
                  <p><strong>Unterrichtsart</strong> {{ lehrer.unterrichtsart }}</p>
-                 <p><strong>Bewertung:</strong> {{ lehrer.durchschnittsbewertung }} / 5</p>
+                 <p><strong>Durchschnittsbewertung:</strong> {{ lehrer.durchschnittsbewertung }} / 5</p>
+
+            {% if lehrer.user.buchungen_als_lehrer %}
+                    <p><strong>Bewertungen:</strong></p>
+                    {% for buchung in lehrer.user.buchungen_als_lehrer %}
+                        {% if buchung.bewertung %}
+                            <p>⭐ {{ buchung.bewertung.sterne }} / 5 — {{ buchung.bewertung.kommentar }}</p>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
                  <p><strong>Beschreibung:</strong></p>
                  <p>
                     {{ lehrer.beschreibung }}

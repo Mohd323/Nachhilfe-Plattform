@@ -196,7 +196,50 @@ def teacher_dashboard():
 
 @app.route('/meine-buchungen')
 def my_bookings():
-    return render_template('my_bookings.html')
+    if 'user_id' not in session or session.get('rolle') != 'schueler':
+        flash("Bitte als Schüler einloggen.")
+        return redirect(url_for('login)'))
+    
+    schueler_id = session['user_id']
+    buchungen = Buchung.query.filter_by(schüler_id=schueler_id).all()
+
+    return render_template('my_bookings.html', buchungen=buchungen)
+
+@app.route('/bewertung/<int:buchung_id>', methods=['GET', 'POST'])
+def bewertung_abgeben(buchung_id):
+    if 'user_id' not in session or session.get('rolle') != 'schueler':
+        flash("Bitte als Schüler einloggen.")
+        return redirect(url_for('login'))
+
+    buchung = Buchung.query.get(buchung_id)
+
+    if buchung is None:
+        flash("Buchung wurde nicht gefunden.")
+        return redirect(url_for('my_bookings'))
+
+    bereits_bewertet = Bewertung.query.filter_by(buchung_id=buchung_id).first()
+    if bereits_bewertet:
+        flash("Diese Buchung wurde bereits bewertet.")
+        return redirect(url_for('my_bookings'))
+
+    if request.method == 'POST':
+        sterne = int(request.form.get('sterne'))
+        kommentar = request.form.get('kommentar')
+
+        neue_bewertung = Bewertung(
+            buchung_id=buchung.id,
+            bewerter_id=session['user_id'],
+            bewertet_id=buchung.lehrer_id,
+            sterne=sterne,
+            kommentar=kommentar
+        )
+        db.session.add(neue_bewertung)
+        db.session.commit()
+
+        flash("Vielen Dank für deine Bewertung!")
+        return redirect(url_for('my_bookings'))
+
+    return render_template('bewertung.html', buchung=buchung)
 
 @app.route('/meine-anfragen')
 def my_requests():
