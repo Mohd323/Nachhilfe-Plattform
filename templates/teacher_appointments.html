@@ -37,7 +37,7 @@
         {% if termine %}
             {% for termin in termine %}
                 <div class="dashboard-card">
-                    <p><strong>Schüler-ID:</strong> {{ termin.schüler_id }}</p>
+                    <p><strong>Schüler:</strong> {{ termin.schueler.vorname }} {{ termin.schueler.nachname }}</p>
                     <p><strong>Datum:</strong> {{ termin.datum }}</p>
                     <p><strong>Uhrzeit:</strong> {{ termin.uhrzeit }}</p>
                     <p><strong>Dauer:</strong> {{ termin.dauer_stunden }} Stunde(n)</p>
