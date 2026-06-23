@@ -666,3 +666,22 @@ footer a {
     text-align: center;
     font-weight: bold;
 }
+
+
+/* Profil speichern Button: profile_edit.html */
+.profile-save-btn {
+    width: 100%; /* volle Breite */
+    padding: 14px; /* Innenabstand */
+    background-color: #5f9ea0; /* Hauptfarbe */
+    color: white; /* weiße Schrift */
+    border: none; /* kein Rand */
+    border-radius: 10px; /* abgerundete Ecken */
+    font-size: 16px; /* Schriftgröße */
+    font-weight: bold; /* fette Schrift */
+    cursor: pointer; /* Mauszeiger als Hand */
+}
+
+/* Hover-Effekt für Speichern-Button */
+.profile-save-btn:hover {
+    background-color: #4f888a; /* dunklere Farbe */
+}
