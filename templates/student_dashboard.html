@@ -47,7 +47,7 @@
         <section class="dashboard-cards">
 
         <div class="dashboard-card">
-            <h3>>Lehrer suchen</h3>
+            <h3>Lehrer suchen</h3>
             <p>Finde passende Nachhilfelehrer und buche einen Termin.</p>
              <a href="{{ url_for('teacher_search') }}">Jetzt suchen</a>
         </div>
@@ -61,13 +61,11 @@
         <div class="dashboard-card">
             <h3>Offene Anfragen</h3>
             <p>{{ offene_buchungen_anzahl }}</p>
-            <a href="{{ url_for('my_bookings') }}">Ansehen</a>
         </div>
 
         <div class="dashboard-card">
             <h3>Bestätigte Termine</h3>
             <p>{{ bestaetigte_buchungen_anzahl }}</p>
-            <a href="{{ url_for('my_bookings') }}">Ansehen</a>
         </div>
 
     </section>
