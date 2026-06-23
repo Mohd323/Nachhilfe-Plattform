@@ -6,10 +6,15 @@ from forms import RegisterForm, LoginForm
 from models import LehrerProfil, User, Fach, LehrerFach
 from flask import request
 from datetime import date, time
+from werkzeug.utils import secure_filename
+import os
 
 app = Flask(__name__)
 
 app.secret_key = 'nachhilfe-geheim-123'
+
+UPLOAD_FOLDER = 'static/uploads'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///nachhilfe.db'       # Datenbank-Konfiguration
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -25,6 +30,7 @@ def login():
     form = LoginForm()
 
     if form.validate_on_submit():
+        
         user = User.query.filter_by(email=form.email.data).first()
 
         if user and check_password_hash(user.passwort, form.passwort.data):
@@ -46,6 +52,21 @@ def register():
     form = RegisterForm()
 
     if form.validate_on_submit():
+        nachweis = request.files.get('nachweis')
+        if not nachweis:
+             flash("Bitte lade ein Verifizierungsdokument hoch.")
+             return redirect(url_for('register'))
+        
+        dateiname = secure_filename(nachweis.filename)
+
+        os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+        speicherpfad = os.path.join(
+            app.config['UPLOAD_FOLDER'],
+            dateiname
+        )
+
+        nachweis.save(speicherpfad)
+
         existing_user = User.query.filter_by(email=form.email.data).first()
 
         if existing_user:
@@ -62,6 +83,27 @@ def register():
 
         db.session.add(new_user)
         db.session.commit()
+
+        if new_user.rolle == "schueler":
+            profil = SchülerProfil(
+                user_id=new_user.id,
+                ausweis_dokument_url=speicherpfad
+            )
+            db.session.add(profil)
+
+        else:
+            profil = LehrerProfil(
+                user_id=new_user.id,
+                lehrer_typ="tutor"
+            )
+            db.session.add(profil)
+
+            dokument = Verifizierungsdokument(
+                lehrer_profil_id=profil.id,
+                dokument_typ="Nachweis",
+                datei_url=speicherpfad
+            )
+            db.session.commit()
 
         flash("Registrierung erfolgreich. Bitte einloggen.")
         return redirect(url_for('login'))

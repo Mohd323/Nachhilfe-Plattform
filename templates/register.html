@@ -42,7 +42,7 @@
             <h2>Registrieren</h2>
             <p>Erstellen Sie ein Konto bei Nachhilfe Connect.</p>
 
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
 
                 {{ form.hidden_tag() }}
 
@@ -72,6 +72,28 @@
                     
                     <small class="rolle-hinweis">
                     Hinweis: Für Studierende und Tutor/innen wählen Sie bitte die Rolle „Lehrer/in“.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label>Verifizierungsdokument</label>
+
+                    <input type="file"
+                        name="nachweis"
+                        class="form-input"
+                        accept=".pdf,.jpg,.jpeg,.png"
+                        required>
+
+                    <small class="rolle-hinweis">
+                        Schüler/innen laden bitte ihren Schülerausweis hoch.
+                        Lehrer/innen, Studierende und Tutor/innen laden bitte einen geeigneten Nachweis hoch
+                        (z. B. Immatrikulationsbescheinigung, Tutorennachweis oder Lehramtsnachweis).
+                    </small>
+
+                    <small class="rolle-hinweis">
+                        Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.
+                        Die Dokumente dienen ausschließlich der Verifizierung Ihres Profils.
+                        Falls Sie keine Verifizierung wünschen, können Sie Ihr Profil jederzeit löschen.
                     </small>
                 </div>
 
