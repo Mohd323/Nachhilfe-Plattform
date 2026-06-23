@@ -279,10 +279,22 @@ def profile_edit():
         neue_email = request.form.get('email')
         neue_telefonnummer = request.form.get('telefon')
 
+        aktuelles_passwort = request.form.get('aktuelles_passwort')
+        neues_passwort = request.form.get('neues_passwort')
+
         if neue_email:
             user.email = neue_email
 
         user.telefon = neue_telefonnummer
+
+        # Passwort ändern
+        if neues_passwort:
+
+            if not check_password_hash(user.passwort, aktuelles_passwort):
+                flash("Aktuelles Passwort ist falsch.")
+                return redirect(url_for('profile_edit'))
+
+            user.passwort = generate_password_hash(neues_passwort)
 
         db.session.commit()
 
