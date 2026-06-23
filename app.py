@@ -403,7 +403,18 @@ def profile_edit():
 
 @app.route('/termine')
 def teacher_appointments():
-    return render_template('teacher_appointments.html')
+    if 'user_id' not in session or session.get('rolle') != 'lehrer':
+        flash("Bitte als Lehrer einloggen.")
+        return redirect(url_for('login'))
+
+    lehrer_user_id = session['user_id']
+
+    termine = Buchung.query.filter_by(
+        lehrer_id=lehrer_user_id,
+        status="bestaetigt"
+    ).all()
+
+    return render_template('teacher_appointments.html', termine=termine)
 
 @app.route('/anfragen')
 def teacher_requests():
