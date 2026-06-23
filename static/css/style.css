@@ -569,6 +569,16 @@ footer a {
     cursor: pointer;
 }
 
+.bewertung-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #5f9ea0;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
 /* Hover-Effekt */
 .booking-btn:hover {
     background-color: #4f888a;

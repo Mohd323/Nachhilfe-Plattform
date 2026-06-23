@@ -91,6 +91,8 @@ class Buchung(db.Model):
     schüler_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     lehrer_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     fach_id = db.Column(db.Integer, db.ForeignKey("fach.id"), nullable=False)
+    schueler = db.relationship('User', foreign_keys=[schüler_id])
+    lehrer = db.relationship('User', foreign_keys=[lehrer_id])
     bewertung = db.relationship('Bewertung', uselist=False) 
     datum = db.Column(db.Date, nullable=False)
     uhrzeit = db.Column(db.Time, nullable=False)

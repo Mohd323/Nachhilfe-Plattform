@@ -112,7 +112,24 @@ def teacher_search():
 @app.route('/lehrerprofil/<int:id>')
 def teacher_profile(id):
     lehrer = LehrerProfil.query.get(id)
-    return render_template('teacher_profile.html', lehrer=lehrer)
+
+    bewertungen = []
+
+    for buchung in lehrer.user.buchungen_als_lehrer:
+        if buchung.bewertung:
+            bewertungen.append(buchung.bewertung)
+
+    if bewertungen:
+        durchschnitt = sum(b.sterne for b in bewertungen) / len(bewertungen)
+    else:
+        durchschnitt = 0
+
+    return render_template(
+        'teacher_profile.html',
+        lehrer=lehrer,
+        bewertungen=bewertungen,
+        durchschnitt=durchschnitt
+    )
 
 #Buchung
 @app.route('/buchung')
