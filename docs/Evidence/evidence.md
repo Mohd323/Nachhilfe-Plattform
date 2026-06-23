@@ -350,13 +350,16 @@ Top 3 Beiträge:
     - Erstellung und Verwaltung von Git-Branches
     - Aufgabenverteilung innerhalb des Teams
     - Unterstützung beim Zusammenführen von Branches
+    (siehe Commits 25f373b, f944ca2, fdfc2eb – Merge Pull Requests)
 2. Entwicklung der Anwendung
     - Mitarbeit an HTML-, CSS-, Python- und Jinja-Dateien
     - Erstellung des Vernetzungsplans
     - Unterstützung bei der Datenbankintegration
+    (siehe Commits eeaec7f "Grundstruktur der Seiten und CSS angelegt", d0173b2 "Fehler 2 Lösung models.py", 6c661ce "Vernetzungsplan zugefügt") 
 3. Dokumentation
     - Erstellung und Pflege von index.md und evidence.md
     - Strukturierung der Projektdokumenatation
+    (siehe Commits 918fda1 "evidence ist fertig", f0f3114 "Update index.md")
 
 Herausforderun: 
 Die größte Herausforderung war zunächst das Verständnis von GitHub, Flask und der Zusammenarbeit über mehrere Branches hinweg. Mit zunehmender Erfahrung wurden diese Themen einfacher, wodurch neue Herausforderungen entstanden, insbesondere die Verwaltung vieler voneinander abhängiger Dateien.
@@ -369,8 +372,11 @@ Ich bin stolz darauf, gemeinsam mit meinem Team ein umfangreiches Projekt mit me
 Top 3 Beiträge:
 
 1. Erstellung und Überarbeitung der UI-Skizzen
+(siehe Commits f769a20, 79a1c99 "Add files via upload" Mockups)
 2. Mitarbeit an Flask-, Python- und Datenbank-Komponenten
+(siehe Commits ddc66b3 "Alle Routen in app.py hinzugefügt", a142dae "Lehrersuche und Lehrerprofil mit echten Datenbank-Daten verbunden", b310dd3 "Filterlogik für Fach, Preis und Unterrichtsart implementiert")
 3. Erstellung und Pflege von Dummy-Daten
+(siehe Commit 1815f1b "Testdaten in seed_data.py erstellt und erfolgreich getestet") 
 
 Herausforderung:
 Eine große Herausforderung war die Verknüpfung der Datenbank mit Flask und den HTML-Seiten. Dabei mussten mehrere Komponenten gleichzeitig funktionieren und korrekt miteinander kommunizieren.
@@ -383,8 +389,11 @@ Ich bin stolz darauf, Aufgaben zuverlässig und schnell bearbeitet zu haben. Au�
 Top 3 Beiträge:
 
 1. Erstellung des Datenmodells
+(siehe Commits f7b3dc6 "Tabelle User einfügen", 6c0dc87 "SchülerProfil-Tabelle ergänzt", 615e7c4 "Lehrerprofil-Tabelle", 3a0268d "Tabellen Fach and LehrerFach zugefügt", b34a80d "Verifizierungsdokument ergänzt", e1cbba6 "Verfügbarkeit Tabelle ergänzt", b84fe9f "Add Bewertung and Meldung Tabellen")
 2. Mitarbeit an Datenbank, HTML und CSS
+(siehe Commits dea35ed "Initialisiere SQLAlchemy in db.py", 98ce04a "Datenbank für die Flask konfigurieren und initialisieren", d70890d "teacher_profile.html fertig")
 3. Unterstützung bei Python-Komponenten
+(siehe Commits 5ee77e6 "update app.py", 05fbe2e "teacher_name zur Buchungsroute hinzugefügt")
 
 Herausforderung:
 Die größte Herausforderung bestand darin, das Datenmodell korrekt zu planen und die Beziehungen zwischen den Tabellen zu verstehen.
@@ -397,8 +406,12 @@ Zu Beginn erschien mir das gesamte Projekt sehr komplex. Durch Erklärungen, Üb
 Top 3 Beiträge:
 
 1. Implementierung von Login und Registrierung
+(siehe Commits c0f9285 "Login und Registrierung erstellt", e88f716 "Implementierung einer Anmeldefunktionalität", 3562b3a "Implementierung der Benutzerregistrierung mit Validierung und Speicherung in der Datenbank")
 2. Mitarbeit an Flask- und Python-Komponenten
+(siehe Commits b8da9d1 "JSON-API hinzugefügt", b74a465 "JSON-API hinzugefügt", bcdab00 "password hashing Funktion und forms importieren")
 3. Erstellung von HTML- und CSS-Seiten
+(siehe Commits 01c3a63 "teacher_search.html fertig", 133da4c "booking.html fertig", dcfe111 "Update CSS Datei")
+
 
 Herausforderung:
 Die größte Herausforderung war das Erlernen neuer Technologien wie Flask und die Verknüpfung von Backend und Frontend.

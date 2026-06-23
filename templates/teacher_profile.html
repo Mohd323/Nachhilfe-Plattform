@@ -18,10 +18,9 @@
 
         <nav>
             <ul>
-                <li><a href="{{ url_for('startseite') }}">Startseite</a></li>
-                <li><a href="{{ url_for('teacher_search') }}">Suche</a></li>
-                <li><a href="{{ url_for('booking') }}">Buchung</a></li>
-                <li><a class="login-button" href="{{ url_for('login') }}">Log in</a></li>
+            <li><a href="{{ url_for('student_dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('teacher_search') }}">Suche</a></li>
+            <li><a class="login-button" href="{{ url_for('logout') }}">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -32,13 +31,24 @@
                  <h2>{{ lehrer.user.vorname }} {{ lehrer.user.nachname }}</h2>
                  <p><strong>Preis:</strong> {{ lehrer.stundenpreis }}€/h</p>
                  <p><strong>Unterrichtsart</strong> {{ lehrer.unterrichtsart }}</p>
-                 <p><strong>Bewertung:</strong> {{ lehrer.durchschnittsbewertung }} / 5</p>
+                 <p><strong>Durchschnittsbewertung:</strong> {{ "%.1f"|format(durchschnitt) }} / 5</p>
+
+            {% if bewertungen  %}
+                    <p><strong>Bewertungen:</strong></p>
+                    {% for bewertung in bewertungen  %}
+                            <p>⭐ {{ bewertung.sterne }} / 5 — {{ bewertung.kommentar }}</p>
+                    {% endfor %}
+
+                    {% else %}
+                    <p><strong>Bewertungen:</strong> Noch keine Bewertungen vorhanden.</p>
+            {% endif %}
+            
                  <p><strong>Beschreibung:</strong></p>
                  <p>
                     {{ lehrer.beschreibung }}
                  </p>
 
-              <a href="{{ url_for('booking') }}" class="booking-btn">
+              <a href="{{ url_for('booking_teacher', lehrer_id=lehrer.id) }}"  class="booking-btn">
                 Nachhilfe buchen
               </a>
             </div>

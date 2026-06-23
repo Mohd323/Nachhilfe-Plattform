@@ -100,6 +100,36 @@ with app.app_context():
     db.session.add(bewertung1)                      # bei nur einem Eintrag benutzt man add() statt add_all()
     db.session.commit()
 
-    print("Testdaten erfolgreich erstellt!")        # zeigt mir am ende eine Bestätigung im Terminal
+  # 2 weitere Schüler
+    schueler3 = User(vorname="Lena", nachname="Hoffmann", rolle="schueler", email="lena@test.de", passwort=generate_password_hash("test123"))
+    schueler4 = User(vorname="David", nachname="Schulz", rolle="schueler", email="david@test.de", passwort=generate_password_hash("test123"))
+
+    # 2 weitere Lehrer
+    lehrer3 = User(vorname="Sara", nachname="Klein", rolle="lehrer", email="sara@test.de", passwort=generate_password_hash("test123"))
+    lehrer4 = User(vorname="Tom", nachname="Fischer", rolle="lehrer", email="tom2@test.de", passwort=generate_password_hash("test123"))
+
+    db.session.add_all([schueler3, schueler4, lehrer3, lehrer4])
+    db.session.commit()
+
+    # Profile für die neuen Schüler
+    profil_schueler3 = SchülerProfil(user_id=schueler3.id, klasse="12a")
+    profil_schueler4 = SchülerProfil(user_id=schueler4.id, klasse="10c")
+
+    # Profile für die neuen Lehrer
+    profil_lehrer3 = LehrerProfil(user_id=lehrer3.id, lehrer_typ="lehrer", beschreibung="Chemielehrerin mit langjähriger Erfahrung", unterrichtsart="vor_ort", stundenpreis=22.0, ort="Berlin")
+    profil_lehrer4 = LehrerProfil(user_id=lehrer4.id, lehrer_typ="tutor", beschreibung="Tutor für Mathe und Physik", unterrichtsart="online", stundenpreis=20.0, ort="Berlin")
+
+    db.session.add_all([profil_schueler3, profil_schueler4, profil_lehrer3, profil_lehrer4])
+    db.session.commit()
+
+    # Fach-Verknüpfungen für die neuen Lehrer
+    lehrer3_fach = LehrerFach(lehrer_profil_id=profil_lehrer3.id, fach_id=chemie.id, klassenstufen="9-13")
+    lehrer4_fach_mathe = LehrerFach(lehrer_profil_id=profil_lehrer4.id, fach_id=mathe.id, klassenstufen="9-12")
+    lehrer4_fach_physik = LehrerFach(lehrer_profil_id=profil_lehrer4.id, fach_id=physik.id, klassenstufen="9-12")
+
+    db.session.add_all([lehrer3_fach, lehrer4_fach_mathe, lehrer4_fach_physik])
+    db.session.commit()
+
+    print("Testdaten erfolgreich erstellt!")      # zeigt mir am ende eine Bestätigung im Terminal
 
 

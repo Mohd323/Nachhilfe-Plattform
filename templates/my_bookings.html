@@ -8,7 +8,61 @@
 </head>
 
 <body>
-    <h1>TEST!!!</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p style="color: red; text-align: center;">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Nachhilfe Connect Logo">
+            <p>Gemeinsam besser lernen.</p>
+        </div>
+
+        <h1>Nachhilfe Connect</h1>
+
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('student_dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('teacher_search') }}">Suche</a></li>
+                <li><a class="login-button" href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard-header">
+            <h2>Meine Buchungen</h2>
+            <p>Hier siehst du alle deine Buchungen.</p>
+        </section>
+
+        <section class="requests-list">
+            {% if buchungen %}
+                {% for buchung in buchungen %}
+                <div class="dashboard-card">
+                    <p><strong>Lehrer:</strong> {{ buchung.lehrer.vorname }} {{ buchung.lehrer.nachname }}</p>
+                    <p><strong>Datum:</strong> {{ buchung.datum }}</p>
+                    <p><strong>Uhrzeit:</strong> {{ buchung.uhrzeit }}</p>
+                    <p><strong>Status:</strong> {{ buchung.status }}</p>
+                    <p><strong>Preis:</strong> {{ buchung.gesamtpreis }}€</p>
+
+                {% if buchung.status == 'bestaetigt' and not buchung.bewertung %}
+                    <a href="{{ url_for('bewertung_abgeben', buchung_id=buchung.id) }}" class="bewertung-btn">
+                       Bewertung abgeben
+                     </a>
+                {% elif buchung.status == 'bestaetigt' and buchung.bewertung %}
+                    <p>✅ Bereits bewertet</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Du hast noch keine Buchungen.</p>
+        {% endif %}
+    </section>
+</main>
 
 </body>
 </html>

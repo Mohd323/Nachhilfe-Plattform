@@ -28,6 +28,17 @@
     </header>
 
     <main>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-message">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+
     <section class="profile-page-container">
         <div class="profile-page-card">
             <h2>Mein Profil</h2>
@@ -36,9 +47,9 @@
                 <p><strong>Nachname:</strong> {{ user.nachname }}</p>
                 <p><strong>E-Mail:</strong> {{ user.email }}</p>
                 <p><strong>Rolle:</strong> {{ user.rolle }}</p>
-                <p><strong>Telefon:</strong> {{ user.telefon }}</p>
+                <p><strong>Telefon:</strong> {{ user.telefon or "Noch nicht angegeben" }}</p>
             </div>
-            <a href="#" class="profile-edit-btn">Profil bearbeiten</a>
+            <a href="{{ url_for('profile_edit') }}" class="profile-edit-btn">Profil bearbeiten</a>
         </div>
     </section>
     </main>

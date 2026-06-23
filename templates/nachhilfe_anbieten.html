@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Nachhilfe anbieten</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+<header>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Nachhilfe Connect Logo">
+        <p>Gemeinsam besser lernen.</p>
+    </div>
+
+    <h1>Nachhilfe Connect</h1>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('teacher_dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('teacher_requests') }}">Meine Anfragen</a></li>
+            <li><a href="{{ url_for('teacher_appointments') }}">Meine Termine</a></li>
+            <li><a href="{{ url_for('profile') }}">Profil</a></li>
+            <li><a class="login-button" href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="booking-container">
+        <div class="booking-card">
+
+            {% if lehrer_profil %}
+                <h2>Nachhilfeangebot bearbeiten</h2>
+            {% else %}
+                <h2>Nachhilfeangebot erstellen</h2>
+            {% endif %}
+
+            <form method="POST">
+
+                <div class="form-group">
+                    <label>Rolle</label>
+                    <select name="lehrer_typ" required>
+                        <option value="student">Student/in</option>
+                        <option value="tutor">Tutor/in</option>
+                        <option value="lehrer">Lehrer/in</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Fach</label>
+                    <input type="text"
+                           name="fach"
+                           placeholder="z.B. Mathe"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Klassenstufen</label>
+                    <input type="text"
+                           name="klassenstufen"
+                           placeholder="z.B. 10-13">
+                </div>
+
+                <div class="form-group">
+                    <label>Beschreibung</label>
+                    <textarea name="beschreibung" rows="4" required>{{ lehrer_profil.beschreibung if lehrer_profil else '' }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Unterrichtsart</label>
+                    <select name="unterrichtsart" required>
+                        <option value="online">Online</option>
+                        <option value="vor_ort">Vor Ort</option>
+                        <option value="beides">Beides</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Stundenpreis (€)</label>
+                    <input type="number"
+                           name="stundenpreis"
+                           min="1"
+                           step="0.01"
+                           value="{{ lehrer_profil.stundenpreis if lehrer_profil else '' }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Ort</label>
+                    <input type="text"
+                           name="ort"
+                           value="{{ lehrer_profil.ort if lehrer_profil else '' }}">
+                </div>
+
+                {% if lehrer_profil %}
+                    <button type="submit" class="booking-btn">
+                        Angebot aktualisieren
+                    </button>
+                {% else %}
+                    <button type="submit" class="booking-btn">
+                        Angebot erstellen
+                    </button>
+                {% endif %}
+
+            </form>
+
+        </div>
+    </section>
+</main>
+
+
+</body>
+</html>

@@ -8,7 +8,52 @@
 </head>
 
 <body>
-    <h1>TEST!!!</h1>
+   <header>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Nachhilfe Connect Logo">
+        <p>Gemeinsam besser lernen.</p>
+    </div>
+
+    <h1>Nachhilfe Connect</h1>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('teacher_dashboard') }}">Mein Dashboard</a></li>
+            <li><a href="{{ url_for('teacher_requests') }}">Meine Anfragen</a></li>
+            <li><a class="active" href="{{ url_for('teacher_appointments') }}">Meine Termine</a></li>
+            <li><a href="{{ url_for('profile') }}">Profil</a></li>
+            <li><a class="login-button" href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="dashboard-header">
+        <h2>Meine Termine</h2>
+        <p>Hier siehst du alle bestätigten Nachhilfetermine.</p>
+    </section>
+
+    <section class="requests-list">
+        {% if termine %}
+            {% for termin in termine %}
+                <div class="dashboard-card">
+                    <p><strong>Schüler:</strong> {{ termin.schueler.vorname }} {{ termin.schueler.nachname }}</p>
+                    <p><strong>Datum:</strong> {{ termin.datum }}</p>
+                    <p><strong>Uhrzeit:</strong> {{ termin.uhrzeit }}</p>
+                    <p><strong>Dauer:</strong> {{ termin.dauer_stunden }} Stunde(n)</p>
+                    <p><strong>Preis:</strong> {{ termin.gesamtpreis }} €</p>
+                    <p><strong>Unterrichtsart:</strong> {{ termin.unterrichtsart }}</p>
+                    <p><strong>Status:</strong> {{ termin.status }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="dashboard-card">
+                <h3>Keine bestätigten Termine</h3>
+                <p>Aktuell hast du keine bestätigten Nachhilfetermine.</p>
+            </div>
+        {% endif %}
+    </section>
+</main>
 
 </body>
 </html>

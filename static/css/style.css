@@ -279,6 +279,13 @@ footer a {
     background-color: #333333;                  /* etwas helleres Schwarz */
 }
 
+.rolle-hinweis{
+    display:block;
+    margin-top:5px;
+    font-size:14px;
+    color:#666;
+}
+
 /* Link zum Login */
 .login-link {
     margin-top: 20px; /* Abstand nach oben */
@@ -562,9 +569,27 @@ footer a {
     cursor: pointer;
 }
 
+.bewertung-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #5f9ea0;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
 /* Hover-Effekt */
 .booking-btn:hover {
     background-color: #4f888a;
+}
+
+/* Liste für Buchungen / Anfragen */
+.requests-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 50px 30px;
 }
 
 /* Profilseite; profile.html */
@@ -653,4 +678,35 @@ footer a {
 /* Absatztexte */
 .legal-card p {
     font-size: 16px; 
+}
+
+/* Flash-Meldungen */
+.flash-message {
+    background-color: #dff5e1;
+    color: #1f6b2a;
+    padding: 15px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* Profil speichern Button: profile_edit.html */
+.profile-save-btn {
+    width: 100%; /* volle Breite */
+    padding: 14px; /* Innenabstand */
+    background-color: #5f9ea0; /* Hauptfarbe */
+    color: white; /* weiße Schrift */
+    border: none; /* kein Rand */
+    border-radius: 10px; /* abgerundete Ecken */
+    font-size: 16px; /* Schriftgröße */
+    font-weight: bold; /* fette Schrift */
+    cursor: pointer; /* Mauszeiger als Hand */
+}
+
+/* Hover-Effekt für Speichern-Button */
+.profile-save-btn:hover {
+    background-color: #4f888a; /* dunklere Farbe */
 }

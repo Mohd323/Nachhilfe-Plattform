@@ -18,9 +18,9 @@
 
     <nav>
         <ul>
-            <li><a href="{{ url_for('startseite') }}">Startseite</a></li>
-            <li><a href="{{ url_for('teacher_search') }}">Suche</a></li>
-            <li><a href="{{ url_for('booking') }}">Buchung</a></li>
+            <li><a href="{{ url_for('student_dashboard') }}">Mein Dashboard</a></li>
+            <li><a href="{{ url_for('teacher_search') }}">Lehrer suchen</a></li>
+            <li><a href="{{ url_for('my_bookings') }}">Meine Buchungen</a></li>
             <li><a href="{{ url_for('profile') }}">Profil</a></li>
             <li><a class="login-button" href="{{ url_for('logout') }}">Logout</a></li>
         </ul>
@@ -28,39 +28,69 @@
     </header>
 
 <main>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-message">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+
     <section class="dashboard-header">
         <h2>Willkommen {{ student_name }} 👋</h2>
-        <p>Verwalte deine Nachhilfe und finde passende Lehrer.</p>
+        <p>Suche passende Lehrer, buche Nachhilfe und verwalte deine Buchungen.</p>
     </section>
 
         <section class="dashboard-cards">
 
         <div class="dashboard-card">
             <h3>Lehrer suchen</h3>
-            <p>Passende Nachhilfelehrer finden.</p>
-
-            <a href="{{ url_for('teacher_search') }}">
-                Öffnen
-            </a>
+            <p>Finde passende Nachhilfelehrer und buche einen Termin.</p>
+             <a href="{{ url_for('teacher_search') }}">Jetzt suchen</a>
         </div>
 
         <div class="dashboard-card">
-            <h3>Meine Buchungen</h3>
-            <p>Geplante Nachhilfestunden ansehen.</p>
-
-            <a href="{{ url_for('my_bookings') }}">
-                Öffnen
-            </a>
+            <h3>Alle Buchungen</h3>
+            <p>{{ buchungen_anzahl }}</p>
+            <a href="{{ url_for('my_bookings') }}">Ansehen</a>
         </div>
 
         <div class="dashboard-card">
-            <h3>Mein Profil</h3>
-            <p>Persönliche Daten bearbeiten.</p>
-
-            <a href="{{ url_for('profile') }}">
-                Öffnen
-            </a>
+            <h3>Offene Anfragen</h3>
+            <p>{{ offene_buchungen_anzahl }}</p>
         </div>
+
+        <div class="dashboard-card">
+            <h3>Bestätigte Termine</h3>
+            <p>{{ bestaetigte_buchungen_anzahl }}</p>
+        </div>
+
+    </section>
+
+    <section class="dashboard-header">
+        <h2>Letzte Buchungen</h2>
+    </section>
+
+    <section class="dashboard-cards">
+        {% if letzte_buchungen %}
+            {% for buchung in letzte_buchungen %}
+                <div class="dashboard-card">
+                    <h3>{{ buchung.status }}</h3>
+                    <p><strong>Datum:</strong> {{ buchung.datum }}</p>
+                    <p><strong>Uhrzeit:</strong> {{ buchung.uhrzeit }}</p>
+                    <p><strong>Preis:</strong> {{ buchung.gesamtpreis }} €</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="dashboard-card">
+                <h3>Noch keine Buchungen</h3>
+                <p>Du hast bisher keine Nachhilfe gebucht.</p>
+                <a href="{{ url_for('teacher_search') }}">Lehrer suchen</a>
+            </div>
+        {% endif %}
     </section>
     
 </main>
