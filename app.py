@@ -472,9 +472,9 @@ def nachhilfe_anbieten():
         stundenpreis = float(request.form.get('stundenpreis'))
         ort = request.form.get('ort')
 
-        lehrer_profil = LehrerProfil.query.filter_by(user_id=user_id).first()
-
+         # Neues Profil anlegen
         if lehrer_profil is None:
+
             lehrer_profil = LehrerProfil(
                 user_id=user_id,
                 lehrer_typ=lehrer_typ,
@@ -484,42 +484,61 @@ def nachhilfe_anbieten():
                 ort=ort,
                 verfuegbar=True
             )
+
             db.session.add(lehrer_profil)
             db.session.commit()
+
+        # Vorhandenes Profil aktualisieren
         else:
+
             lehrer_profil.lehrer_typ = lehrer_typ
             lehrer_profil.beschreibung = beschreibung
             lehrer_profil.unterrichtsart = unterrichtsart
             lehrer_profil.stundenpreis = stundenpreis
             lehrer_profil.ort = ort
-            lehrer_profil.verfuegbar = True
+
             db.session.commit()
 
+        # Fach suchen oder anlegen
         fach = Fach.query.filter_by(name=fach_name).first()
 
         if fach is None:
             fach = Fach(name=fach_name)
+
             db.session.add(fach)
             db.session.commit()
 
+        # Vorhandene Fach-Zuordnung prüfen
         vorhandenes_fach = LehrerFach.query.filter_by(
-            lehrer_profil_id=lehrer_profil.id,
-            fach_id=fach.id
+            lehrer_profil_id=lehrer_profil.id
         ).first()
 
+        # Neues Fach speichern
         if vorhandenes_fach is None:
-            lehrer_fach = LehrerFach(
+
+            neues_fach = LehrerFach(
                 lehrer_profil_id=lehrer_profil.id,
                 fach_id=fach.id,
                 klassenstufen=klassenstufen
             )
-            db.session.add(lehrer_fach)
-            db.session.commit()
 
-        flash("Dein Nachhilfe-Angebot wurde gespeichert.")
+            db.session.add(neues_fach)
+
+        # Fach aktualisieren
+        else:
+
+            vorhandenes_fach.fach_id = fach.id
+            vorhandenes_fach.klassenstufen = klassenstufen
+
+        db.session.commit()
+
+        flash("Dein Nachhilfeangebot wurde gespeichert.")
         return redirect(url_for('teacher_dashboard'))
 
-    return render_template('nachhilfe_anbieten.html')
+    return render_template(
+        'nachhilfe_anbieten.html',
+        lehrer_profil=lehrer_profil
+    )
 
 @app.route('/nutzungsbedingungen')
 def nutzungsbedingungen():
