@@ -173,16 +173,33 @@ def booking_teacher(lehrer_id):
     )
 
 
-
+#Dashboard
 @app.route('/schueler-dashboard')
 def student_dashboard():
+    if 'user_id' not in session:
+        flash("Bitte zuerst einloggen.")
+        return redirect(url_for('login'))
 
-    student_name = session.get('user_name', 'Schüler')
+    if session.get('rolle') != 'schueler':
+        flash("Diese Seite ist nur für Schüler/innen.")
+        return redirect(url_for('login'))
+
+    student = User.query.get(session['user_id'])
+
+    buchungen = Buchung.query.filter_by(schüler_id=student.id).all()
+
+    offene_buchungen = [b for b in buchungen if b.status == "anfrage"]
+    bestaetigte_buchungen = [b for b in buchungen if b.status == "bestaetigt"]
 
     return render_template(
         'student_dashboard.html',
-        student_name=student_name
+        student_name=student.vorname,
+        buchungen_anzahl=len(buchungen),
+        offene_buchungen_anzahl=len(offene_buchungen),
+        bestaetigte_buchungen_anzahl=len(bestaetigte_buchungen),
+        letzte_buchungen=buchungen[-3:]
     )
+
 
 @app.route('/lehrer-dashboard')
 def teacher_dashboard():
