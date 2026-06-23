@@ -30,7 +30,11 @@
     <section class="booking-container">
         <div class="booking-card">
 
-            <h2>Nachhilfe anbieten</h2>
+            {% if lehrer_profil %}
+                <h2>Nachhilfeangebot bearbeiten</h2>
+            {% else %}
+                <h2>Nachhilfeangebot erstellen</h2>
+            {% endif %}
 
             <form method="POST">
 
@@ -45,17 +49,22 @@
 
                 <div class="form-group">
                     <label>Fach</label>
-                    <input type="text" name="fach" placeholder="z.B. Mathe, Physik, Chemie" required>
+                    <input type="text"
+                           name="fach"
+                           placeholder="z.B. Mathe"
+                           required>
                 </div>
 
                 <div class="form-group">
                     <label>Klassenstufen</label>
-                    <input type="text" name="klassenstufen" placeholder="z.B. 10-13" required>
+                    <input type="text"
+                           name="klassenstufen"
+                           placeholder="z.B. 10-13">
                 </div>
 
                 <div class="form-group">
                     <label>Beschreibung</label>
-                    <textarea name="beschreibung" rows="4" placeholder="Beschreibe dein Angebot" required></textarea>
+                    <textarea name="beschreibung" rows="4" required>{{ lehrer_profil.beschreibung if lehrer_profil else '' }}</textarea>
                 </div>
 
                 <div class="form-group">
@@ -69,23 +78,37 @@
 
                 <div class="form-group">
                     <label>Stundenpreis (€)</label>
-                    <input type="number" name="stundenpreis" min="1" step="0.01" required>
+                    <input type="number"
+                           name="stundenpreis"
+                           min="1"
+                           step="0.01"
+                           value="{{ lehrer_profil.stundenpreis if lehrer_profil else '' }}"
+                           required>
                 </div>
 
                 <div class="form-group">
                     <label>Ort</label>
-                    <input type="text" name="ort" placeholder="z.B. Berlin">
+                    <input type="text"
+                           name="ort"
+                           value="{{ lehrer_profil.ort if lehrer_profil else '' }}">
                 </div>
 
-                <button type="submit" class="booking-btn">
-                    Angebot speichern
-                </button>
+                {% if lehrer_profil %}
+                    <button type="submit" class="booking-btn">
+                        Angebot aktualisieren
+                    </button>
+                {% else %}
+                    <button type="submit" class="booking-btn">
+                        Angebot erstellen
+                    </button>
+                {% endif %}
 
             </form>
 
         </div>
     </section>
 </main>
+
 
 </body>
 </html>
