@@ -461,6 +461,8 @@ def nachhilfe_anbieten():
 
     user_id = session['user_id']
 
+    lehrer_profil = LehrerProfil.query.filter_by(user_id=user_id).first()
+
     if request.method == 'POST':
         lehrer_typ = request.form.get('lehrer_typ')
         fach_name = request.form.get('fach')
