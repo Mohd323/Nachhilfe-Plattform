@@ -793,9 +793,9 @@ def admin_meldung_erledigen(meldung_id):
         return redirect(url_for('admin_meldungen'))
 
 
-        @app.route('/admin/nutzer/<int:user_id>/entsperren', methods=['POST'])
-        @admin_required
-        def admin_nutzer_entsperren(user_id):
+@app.route('/admin/nutzer/<int:user_id>/entsperren', methods=['POST'])
+@admin_required
+def admin_nutzer_entsperren(user_id):
         
             nutzer = User.query.get(user_id)
         
