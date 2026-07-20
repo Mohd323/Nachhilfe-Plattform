@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meldungen verwalten</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-left">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+            <p>Gemeinsam besser lernen.</p>
+        </div>
+
+        <h1>Nachhilfe Connect</h1>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('admin_dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('admin_dokumente') }}">Dokumente</a></li>
+            <li><a class="active" href="{{ url_for('admin_meldungen') }}">Meldungen</a></li>
+            <li><a class="login-button" href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<main>
+
+    <section class="dashboard-header">
+        <h2>Gemeldete Profile</h2>
+        <p>Hier können gemeldete Nutzer überprüft werden.</p>
+    </section>
+
+    <section class="requests-list">
+
+        {% if meldungen %}
+
+            {% for meldung in meldungen %}
+
+                <div class="request-card">
+
+                    <h3>Meldung #{{ meldung.id }}</h3>
+
+                    <p><strong>Grund:</strong> {{ meldung.grund }}</p>
+
+                    <p><strong>Status:</strong> {{ meldung.status }}</p>
+
+                    <p><strong>Datum:</strong> {{ meldung.erstellt_am }}</p>
+
+                    <form method="POST"
+                          action="{{ url_for('admin_meldung_erledigen',
+                          meldung_id=meldung.id) }}">
+
+                        <button class="booking-btn">
+                            Als erledigt markieren
+                        </button>
+
+                    </form>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="dashboard-card">
+                <h3>Keine Meldungen vorhanden</h3>
+            </div>
+
+        {% endif %}
+
+    </section>
+
+</main>
+
+</body>
+</html>
