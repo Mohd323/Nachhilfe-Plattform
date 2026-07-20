@@ -128,8 +128,37 @@ class Meldung(db.Model):
     __tablename__ = "meldung"
 
     id = db.Column(db.Integer, primary_key=True)
-    melder_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    gemeldeter_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+
+    melder_id = db.Column(
+        db.Integer,
+        db.ForeignKey("users.id"),
+        nullable=False
+    )
+
+    gemeldeter_id = db.Column(
+        db.Integer,
+        db.ForeignKey("users.id"),
+        nullable=False
+    )
+
+    melder = db.relationship(
+        "User",
+        foreign_keys=[melder_id]
+    )
+
+    gemeldeter = db.relationship(
+        "User",
+        foreign_keys=[gemeldeter_id]
+    )
+
     grund = db.Column(db.Text, nullable=False)
-    status = db.Column(db.String(30), nullable=False, default="offen")
-    erstellt_am = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    status = db.Column(
+        db.String(30),
+        nullable=False,
+        default="offen"
+    )
+    erstellt_am = db.Column(
+        db.DateTime,
+        nullable=False,
+        default=datetime.utcnow
+    )
