@@ -731,6 +731,20 @@ def admin_dokument_bearbeiten(dokument_id, aktion):
     db.session.commit()
 
     return redirect(url_for('admin_dokumente'))
+
+
+@app.route('/admin/meldungen')
+@admin_required
+def admin_meldungen():
+
+    meldungen = Meldung.query.order_by(
+        Meldung.erstellt_am.desc()
+    ).all()
+
+    return render_template(
+        'admin_meldungen.html',
+        meldungen=meldungen
+    )
     
 
 
