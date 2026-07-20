@@ -9,6 +9,8 @@ from datetime import date, time
 from werkzeug.utils import secure_filename
 import os
 import re
+from functools import wraps
+
 app = Flask(__name__)
 
 app.secret_key = 'nachhilfe-geheim-123'
@@ -20,6 +22,22 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///nachhilfe.db'       # Datenba
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)                                # Datenbank mit Flask verbinden
+
+def admin_required(funktion):
+    @wraps(funktion)
+    def geschuetzte_funktion(*args, **kwargs):
+
+        if 'user_id' not in session:
+            flash("Bitte zuerst einloggen.")
+            return redirect(url_for('login'))
+
+        if session.get('rolle') != 'admin':
+            flash("Diese Seite ist nur für Administratoren.")
+            return redirect(url_for('startseite'))
+
+        return funktion(*args, **kwargs)
+
+    return geschuetzte_funktion
 
 @app.route('/')                                 # wenn jemand die Startseite aufruft (/), führe die Funktion darunter aus
 def startseite():                               # das ist die Python-Funktion für die Startseite
@@ -42,6 +60,8 @@ def login():
                 return redirect(url_for('student_dashboard'))
             elif user.rolle == "lehrer":
                 return redirect(url_for('teacher_dashboard'))
+            elif user.rolle == "admin":
+                return redirect(url_for('admin_dashboard'))
 
         flash("E-Mail oder Passwort ist falsch.")
 
@@ -631,6 +651,118 @@ def nachhilfe_anbieten():
 @app.route('/nutzungsbedingungen')
 def nutzungsbedingungen():
     return render_template('nutzungsbedingungen.html')
+
+#ADMIN
+@app.route('/admin')
+@admin_required
+def admin_dashboard():
+
+    offene_dokumente = Verifizierungsdokument.query.filter_by(
+        status="ausstehend"
+    ).count()
+
+    offene_meldungen = Meldung.query.filter_by(
+        status="offen"
+    ).count()
+
+    nutzer_anzahl = User.query.count()
+
+    return render_template(
+        'admin_dashboard.html',
+        offene_dokumente=offene_dokumente,
+        offene_meldungen=offene_meldungen,
+        nutzer_anzahl=nutzer_anzahl
+    )
+
+@app.route('/admin/dokumente')
+@admin_required
+def admin_dokumente():
+
+    dokumente = Verifizierungsdokument.query.order_by(
+        Verifizierungsdokument.hochgeladen_am.desc()
+    ).all()
+
+    return render_template(
+        'admin_dokumente.html',
+        dokumente=dokumente
+    )
+
+
+@app.route(
+    '/admin/dokument/<int:dokument_id>/<aktion>',
+    methods=['POST']
+)
+@admin_required
+def admin_dokument_bearbeiten(dokument_id, aktion):
+
+    dokument = Verifizierungsdokument.query.get(dokument_id)
+
+    if dokument is None:
+        flash("Dokument wurde nicht gefunden.")
+        return redirect(url_for('admin_dokumente'))
+
+    if aktion == "akzeptieren":
+        dokument.status = "verifiziert"
+
+        lehrer_profil = LehrerProfil.query.get(
+            dokument.lehrer_profil_id
+        )
+
+        if lehrer_profil:
+            lehrer_profil.verifizierungs_status = "verifiziert"
+
+        flash("Das Dokument wurde akzeptiert.")
+
+    elif aktion == "ablehnen":
+        dokument.status = "abgelehnt"
+
+        lehrer_profil = LehrerProfil.query.get(
+            dokument.lehrer_profil_id
+        )
+
+        if lehrer_profil:
+            lehrer_profil.verifizierungs_status = "abgelehnt"
+
+        flash("Das Dokument wurde abgelehnt.")
+
+    else:
+        flash("Ungültige Aktion.")
+
+    db.session.commit()
+
+    return redirect(url_for('admin_dokumente'))
+
+
+@app.route('/admin/meldungen')
+@admin_required
+def admin_meldungen():
+
+    meldungen = Meldung.query.order_by(
+        Meldung.erstellt_am.desc()
+    ).all()
+
+    return render_template(
+        'admin_meldungen.html',
+        meldungen=meldungen
+    )
+
+@app.route('/admin/meldung/<int:meldung_id>', methods=['POST'])
+@admin_required
+def admin_meldung_erledigen(meldung_id):
+
+    meldung = Meldung.query.get(meldung_id)
+
+    if meldung is None:
+        flash("Meldung wurde nicht gefunden.")
+        return redirect(url_for('admin_meldungen'))
+
+    meldung.status = "erledigt"
+
+    db.session.commit()
+
+    flash("Meldung wurde als erledigt markiert.")
+
+    return redirect(url_for('admin_meldungen'))
 
 
 with app.app_context():                         # Tabellen automatisch erstellen
