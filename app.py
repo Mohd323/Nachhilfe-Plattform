@@ -745,7 +745,24 @@ def admin_meldungen():
         'admin_meldungen.html',
         meldungen=meldungen
     )
-    
+
+@app.route('/admin/meldung/<int:meldung_id>', methods=['POST'])
+@admin_required
+def admin_meldung_erledigen(meldung_id):
+
+    meldung = Meldung.query.get(meldung_id)
+
+    if meldung is None:
+        flash("Meldung wurde nicht gefunden.")
+        return redirect(url_for('admin_meldungen'))
+
+    meldung.status = "erledigt"
+
+    db.session.commit()
+
+    flash("Meldung wurde als erledigt markiert.")
+
+    return redirect(url_for('admin_meldungen'))
 
 
 with app.app_context():                         # Tabellen automatisch erstellen
