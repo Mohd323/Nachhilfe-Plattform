@@ -9,6 +9,8 @@ from datetime import date, time
 from werkzeug.utils import secure_filename
 import os
 import re
+from functools import wraps
+
 app = Flask(__name__)
 
 app.secret_key = 'nachhilfe-geheim-123'
@@ -20,6 +22,22 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///nachhilfe.db'       # Datenba
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)                                # Datenbank mit Flask verbinden
+
+def admin_required(funktion):
+    @wraps(funktion)
+    def geschuetzte_funktion(*args, **kwargs):
+
+        if 'user_id' not in session:
+            flash("Bitte zuerst einloggen.")
+            return redirect(url_for('login'))
+
+        if session.get('rolle') != 'admin':
+            flash("Diese Seite ist nur für Administratoren.")
+            return redirect(url_for('startseite'))
+
+        return funktion(*args, **kwargs)
+
+    return geschuetzte_funktion
 
 @app.route('/')                                 # wenn jemand die Startseite aufruft (/), führe die Funktion darunter aus
 def startseite():                               # das ist die Python-Funktion für die Startseite
@@ -42,6 +60,8 @@ def login():
                 return redirect(url_for('student_dashboard'))
             elif user.rolle == "lehrer":
                 return redirect(url_for('teacher_dashboard'))
+            elif user.rolle == "admin":
+                return redirect(url_for('admin_dashboard'))
 
         flash("E-Mail oder Passwort ist falsch.")
 
@@ -631,6 +651,44 @@ def nachhilfe_anbieten():
 @app.route('/nutzungsbedingungen')
 def nutzungsbedingungen():
     return render_template('nutzungsbedingungen.html')
+
+#ADMIN
+@app.route('/admin')
+@admin_required
+def admin_dashboard():
+
+    offene_dokumente = Verifizierungsdokument.query.filter_by(
+        status="ausstehend"
+    ).count()
+
+    offene_meldungen = Meldung.query.filter_by(
+        status="offen"
+    ).count()
+
+    nutzer_anzahl = User.query.count()
+
+    return render_template(
+        'admin_dashboard.html',
+        offene_dokumente=offene_dokumente,
+        offene_meldungen=offene_meldungen,
+        nutzer_anzahl=nutzer_anzahl
+    )
+
+@app.route('/admin/dokumente')
+@admin_required
+def admin_dokumente():
+
+    dokumente = Verifizierungsdokument.query.order_by(
+        Verifizierungsdokument.hochgeladen_am.desc()
+    ).all()
+
+    return render_template(
+        'admin_dokumente.html',
+        dokumente=dokumente
+    )
+
+
+
 
 
 with app.app_context():                         # Tabellen automatisch erstellen
