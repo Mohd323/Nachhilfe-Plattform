@@ -94,16 +94,21 @@ def register():
         else:
             profil = LehrerProfil(
                 user_id=new_user.id,
-                lehrer_typ="tutor"
+                lehrer_typ="tutor",
+                unterrichtsart="online",
+                stundenpreis=0.0
             )
             db.session.add(profil)
+            db.session.flush()  # Erzeugt profil.id, ohne schon endgültig zu speichern
 
             dokument = Verifizierungsdokument(
                 lehrer_profil_id=profil.id,
                 dokument_typ="Nachweis",
                 datei_url=speicherpfad
             )
-            db.session.commit()
+            db.session.add(dokument)
+
+        db.session.commit()
 
         flash("Registrierung erfolgreich. Bitte einloggen.")
         return redirect(url_for('login'))
