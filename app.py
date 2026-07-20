@@ -794,25 +794,26 @@ def admin_nutzer_sperren(user_id):
     return redirect(url_for('admin_meldungen'))
 
 
-        @app.route('/admin/nutzer/<int:user_id>/entsperren', methods=['POST'])
-        @admin_required
-        def admin_nutzer_entsperren(user_id):
-        
-            nutzer = User.query.get(user_id)
-        
-            if nutzer is None:
-                flash("Nutzer wurde nicht gefunden.")
-                return redirect(url_for('admin_meldungen'))
-        
-            nutzer.ist_gesperrt = False
-            db.session.commit()
-        
-            flash(
-                f"{nutzer.vorname} {nutzer.nachname} wurde entsperrt."
-            )
-        
-            return redirect(url_for('admin_meldungen'))
+@app.route('/admin/nutzer/<int:user_id>/entsperren', methods=['POST'])
+@admin_required
+def admin_nutzer_entsperren(user_id):
 
+    nutzer = User.query.get(user_id)
+
+    if nutzer is None:
+        flash("Nutzer wurde nicht gefunden.")
+        return redirect(url_for('admin_meldungen'))
+
+    nutzer.ist_gesperrt = False
+
+    db.session.commit()
+
+    flash(
+        f"{nutzer.vorname} {nutzer.nachname} wurde entsperrt."
+    )
+
+    return redirect(url_for('admin_meldungen'))
+    
 
 with app.app_context():                         # Tabellen automatisch erstellen
     db.create_all()
