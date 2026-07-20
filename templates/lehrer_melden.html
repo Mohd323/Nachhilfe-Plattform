@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lehrer melden</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <div class="header-left">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="Nachhilfe Connect Logo">
+            <p>Gemeinsam besser lernen.</p>
+        </div>
+
+        <h1>Nachhilfe Connect</h1>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('startseite') }}">Startseite</a></li>
+            <li><a href="{{ url_for('teacher_search') }}">Suche</a></li>
+            <li><a href="{{ url_for('student_dashboard') }}">Dashboard</a></li>
+            <li><a class="login-button" href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-message">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <section class="booking-container">
+
+        <div class="booking-card">
+
+            <h2>Lehrer melden</h2>
+
+            <p>
+                Du meldest:
+                <strong>
+                    {{ lehrer.user.vorname }}
+                    {{ lehrer.user.nachname }}
+                </strong>
+            </p>
+
+            <form method="POST">
+
+                <div class="form-group">
+                    <label for="grund">Grund der Meldung</label>
+
+                    <textarea
+                        id="grund"
+                        name="grund"
+                        rows="6"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="booking-btn">
+                    Meldung senden
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>
