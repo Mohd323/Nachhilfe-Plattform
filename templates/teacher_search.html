@@ -28,7 +28,7 @@
     </header>
 
     <main>
-    
+
         {% with messages = get_flashed_messages() %}
         {% if messages %}
             <div class="flash-message">
@@ -44,46 +44,101 @@
         </section>
 
         <section class="filter-box">
-            <form method="GET" action=" {{ url_for('teacher_search') }} ">
-            <input type="text" name="fach" placeholder="Fach">
-            <select name="unterrichtsart">
-                <option value="">Unterrichtsart</option>
-                <option value="online">Online</option>
-                <option value="vor_ort">Vor Ort</option>
-                <option value="beides">Beides</option>
-            </select>
+            <form method="GET" action="{{ url_for('teacher_search') }}">
+                <input type="text" name="fach" placeholder="Fach" value="{{ filter_werte.get('fach', '') }}">
 
-            <select name="preis">
-                <option value="">Preis</option>
-                <option value="20">Bis 20€</option>
-                <option value="30">Bis 30€</option>
-                <option value="999">Über 30€</option>
-            </select>
-            <button type="submit">Suchen</button>
+                <select name="unterrichtsart">
+                    <option value="">Unterrichtsart</option>
+                    <option value="online" {% if filter_werte.get('unterrichtsart') == 'online' %}selected{% endif %}>Online</option>
+                    <option value="vor_ort" {% if filter_werte.get('unterrichtsart') == 'vor_ort' %}selected{% endif %}>Vor Ort</option>
+                    <option value="beides" {% if filter_werte.get('unterrichtsart') == 'beides' %}selected{% endif %}>Beides</option>
+                </select>
+
+                <select name="preis">
+                    <option value="">Preis</option>
+                    <option value="20" {% if filter_werte.get('preis') == '20' %}selected{% endif %}>Bis 20€</option>
+                    <option value="30" {% if filter_werte.get('preis') == '30' %}selected{% endif %}>Bis 30€</option>
+                    <option value="999" {% if filter_werte.get('preis') == '999' %}selected{% endif %}>Über 30€</option>
+                </select>
+
+                <select name="bewertung">
+                    <option value="">Bewertung</option>
+                    <option value="4.5" {% if filter_werte.get('bewertung') == '4.5' %}selected{% endif %}>Ab 4,5 ⭐</option>
+                    <option value="4" {% if filter_werte.get('bewertung') == '4' %}selected{% endif %}>Ab 4 ⭐</option>
+                    <option value="3" {% if filter_werte.get('bewertung') == '3' %}selected{% endif %}>Ab 3 ⭐</option>
+                </select>
+
+                <select name="klassenstufe">
+                    <option value="">Klassenstufe</option>
+                    {% for stufe in range(1, 14) %}
+                    <option value="{{ stufe }}" {% if filter_werte.get('klassenstufe')|string == stufe|string %}selected{% endif %}>Klasse {{ stufe }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="sortierung">
+                    <option value="">Sortierung</option>
+                    <option value="bewertung" {% if filter_werte.get('sortierung') == 'bewertung' %}selected{% endif %}>Beste Bewertung</option>
+                    <option value="preis_aufsteigend" {% if filter_werte.get('sortierung') == 'preis_aufsteigend' %}selected{% endif %}>Preis aufsteigend</option>
+                    <option value="preis_absteigend" {% if filter_werte.get('sortierung') == 'preis_absteigend' %}selected{% endif %}>Preis absteigend</option>
+                </select>
+
+                <label class="filter-checkbox">
+                    <input type="checkbox" name="verfuegbar" value="1" {% if filter_werte.get('verfuegbar') %}checked{% endif %}>
+                    Nur verfügbare Lehrer
+                </label>
+
+                <button type="submit">Suchen</button>
+                <a href="{{ url_for('teacher_search') }}" class="reset-btn">Filter zurücksetzen</a>
             </form>
+        </section>
+
+        <section class="search-results-info">
+            <p>{{ lehrer_liste|length }} Lehrer{{ 'in' if lehrer_liste|length == 1 else 'innen und Lehrer' }} gefunden</p>
         </section>
 
         <section class="teacher-grid">
 
             {% for lehrer in lehrer_liste %}
             <div class="teacher-card">
-                <h3>{{ lehrer.user.vorname }} {{ lehrer.user.nachname }}</h3>
-                {% if lehrer.faecher %}
-                <p>{% for lf in lehrer.faecher %}{{ lf.fach.name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+                {% if lehrer.verfuegbar %}
+                <span class="badge badge-verfuegbar">Verfügbar</span>
+                {% else %}
+                <span class="badge badge-nicht-verfuegbar">Nicht verfügbar</span>
                 {% endif %}
-                <p>{{ lehrer.stundenpreis }}€/h</p>
-                <p>{{ lehrer.unterrichtsart }}</p>
-               
+
+                <h3>{{ lehrer.user.vorname }} {{ lehrer.user.nachname }}</h3>
+
+                <p class="teacher-rating">
+                    {% if lehrer.durchschnittsbewertung %}
+                        ⭐ {{ "%.1f"|format(lehrer.durchschnittsbewertung|float) }} / 5
+                        <span class="rating-count">({{ lehrer.bewertungsanzahl }})</span>
+                    {% else %}
+                        <span class="rating-count">Noch keine Bewertungen</span>
+                    {% endif %}
+                </p>
+
+                {% if lehrer.faecher %}
+                <div class="teacher-tags">
+                    {% for lf in lehrer.faecher %}
+                    <span class="tag">{{ lf.fach.name }}{% if lf.klassenstufen %} (Kl. {{ lf.klassenstufen }}){% endif %}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <p class="teacher-preis">{{ lehrer.stundenpreis }}€/h</p>
+                <p class="teacher-art">{{ lehrer.unterrichtsart }}</p>
 
                 <a href="{{ url_for('teacher_profile', id=lehrer.id) }}" class="profile-btn">
                 Profil ansehen
                 </a>
             </div>
+            {% else %}
+            <p class="no-results">Keine Lehrer gefunden. Bitte Filter anpassen.</p>
             {% endfor %}
 
         </section>
-        
+
     </main>
-    
+
 </body>
 </html>
