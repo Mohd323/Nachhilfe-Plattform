@@ -586,6 +586,7 @@ def nachhilfe_anbieten():
 def nutzungsbedingungen():
     return render_template('nutzungsbedingungen.html')
 
+
 with app.app_context():                         # Tabellen automatisch erstellen
     db.create_all()
 

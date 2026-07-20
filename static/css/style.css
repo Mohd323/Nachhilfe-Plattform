@@ -1,18 +1,18 @@
 /* Allgemein */
 body {
-    margin: 0;
+    margin: 0;                         /* Entfernt den Außenabstand der Seite */
     font-family: Arial, sans-serif;
-    color: #2c2c2c;
+    color: #2c2c2c;                  /* Standard-Textfarbe */
     background-color: #d9d9d9;
 }
 
 /* Kopfbereich */
 header {
     background-color: #ffffff;
-    padding: 15px 60px;                 /* Abstand zwischen Inhalt und Rand */
+    padding: 15px 60px;                 /* Abstand zwischen Inhalt und Rand, oben& unten , links&recht*/
     display: flex;                      /* horizontale Ausrichtung der Elemente */
     justify-content: space-between;     /* Elemente gleichmäßig auf dem horizontalen Raum verteilen */
-    align-items: center;
+    align-items: center;                /* mittig ausrichten */
 }
 
 /* Logo */
@@ -39,12 +39,12 @@ header h1 {
 /* Navbar */
 nav ul {
     list-style-type: none;                /* Entfernt Aufzählungspunkte */
-    margin: 0;
-    padding: 0;
+    margin: 0;                            /* Entfernt den Außenabstand */
+    padding: 0;                           /* Entfernt den Innenabstand */
     overflow: hidden;                     /* Behandelt Überlauf von Elementen */
-    display: flex;
+    display: flex;                        /* Ordnet die Elemente nebeneinander an */
     align-items: center;
-    gap: 45px;
+    gap: 45px;                             /* Abstand zwischen den Menüpunkten */
 }
 
 nav li {
@@ -62,69 +62,69 @@ nav li a {
 
 nav li a:hover {
     background-color: #ddd;               /* Hintergrundfarbe beim Überfahren */
-    border-radius: 20px;
+    border-radius: 20px;                     /* Macht die Ecken rund */
 }
 
 nav li a.active {
-    text-decoration: underline;
+    text-decoration: underline;             /* Unterstreicht den aktiven Menüpunkt */
 }
 
 .login-button {
     background-color: #e6e6e6;
-    border-radius: 30px;
-    padding: 14px 35px;
+    border-radius: 30px;                     /* Runde Ecken */
+    padding: 14px 35px;                      /* Innenabstand */
 }
 
 /* Hauptbereich */
 .hero {
-    min-height: 560px;
+    min-height: 560px;                       /* Mindesthöhe des Bereichs */
     text-align: center;
     padding: 70px 30px;
 }
 
 .hero h2 {
     font-size: 28px;
-    margin-bottom: 70px;
+    margin-bottom: 70px;                     /* Abstand nach unten */
 }
 
 /* Karten */
 .cards {
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-    flex-wrap: wrap;
+    display: flex;                           /* Karten nebeneinander anordnen */
+    justify-content: center;                 /* Karten mittig ausrichten */
+    gap: 35px;                               /* Abstand zwischen den Karten */
+    flex-wrap: wrap;                         /* Zeilenumbruch bei wenig Platz */
 }
 
 .card {
     background-color: #ffffff;
-    width: 230px;
-    min-height: 130px;
+    width: 230px;                            /* Breite der Karte */
+    min-height: 130px;                       /* Mindesthöhe der Karte */
     padding: 30px 20px;
     border-radius: 25px;
 }
 
 .card h3 {
     font-size: 24px;
-    margin-top: 0;
+    margin-top: 0;                           /* Kein Abstand nach oben */
 }
 
 .card p {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: bold;                        /* Fette Schrift */
 }
 
 /* Verifizierte Lehrer Box */
 .verified-card {
     background-color: #ffffff;
     width: 520px;
-    margin: 35px auto 0;
-    padding: 25px;
+    margin: 35px auto 0;                      /* Abstand oben und mittig ausrichten, auto=links&recht */
+    padding: 25px;                            /* Runde Ecken */
     border-radius: 25px;
 }
 
 .verified-card h3 {
     font-size: 24px;
-    margin-top: 0;
+    margin-top: 0;                             /* Kein Abstand nach oben */
 }
 
 .verified-card p {
@@ -280,7 +280,7 @@ footer a {
 }
 
 .rolle-hinweis{
-    display:block;
+    display:block;                              /* Zeigt das Element als Block an */
     margin-top:5px;
     font-size:14px;
     color:#666;
@@ -311,7 +311,7 @@ footer a {
 /* Filterbereich */
 .filter-box {
     display: flex;                    /* Elemente nebeneinander anzeigen */
-    justify-content: center;
+    justify-content: center;          /* Richtet den Inhalt mittig aus */
     gap: 15px;                        /* Abstand zwischen den Elementen */
     margin: 30px;
 }
@@ -321,7 +321,7 @@ footer a {
 .filter-box select {
     padding: 12px;                    /* Innenabstand */
     border-radius: 10px;              /* abgerundete Ecken */
-    border: 1px solid #cccccc;
+    border: 1px solid #cccccc;      /* Fügt einen 1px grauen Rahmen hinzu */
 }
 
 .filter-box button {
@@ -334,10 +334,10 @@ footer a {
 }
 
 /* Lehrerkarten */
-.teacher-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+.teacher-grid { 
+    display: flex;                       /* Elemente nebeneinander anordnen */
+    justify-content: center;            /* Elemente mittig ausrichten */
+    gap: 30px;                          /* Abstand zwischen den Elementen */
     flex-wrap: wrap;                  /* Zeilenumbruch bei wenig Platz */
     margin: 50px;
 }
@@ -355,19 +355,19 @@ footer a {
 }
 
 .profile-btn {
-    display: inline-block;
+    display: inline-block;              /* Als Block in einer Zeile anzeigen */
     margin-top: 15px;
     background-color: #5f9ea0;
     color: white;
     text-decoration: none;              /* Unterstreichung entfernen */
-    padding: 10px 18px;
-    border-radius: 10px;
+    padding: 10px 18px;                  /* Innenabstand */
+    border-radius: 10px;                  /* Runde Ecken */
 }
 
 /* Profilseite: teacher_profile.html */
 .profile-container {
-    display: flex;
-    justify-content: center;
+    display: flex;                      /* Elemente nebeneinander anordnen */
+    justify-content: center;            /* Elemente mittig ausrichten */
     margin-top: 60px;
 }
 
@@ -385,7 +385,7 @@ footer a {
 
 /* Button "Nachhilfe buchen" */
 .booking-btn {
-    display: inline-block;
+    display: inline-block;                  /* Als Block in einer Zeile anzeigen */
     margin-top: 25px;
     background-color: #5f9ea0;
     color: white;
@@ -490,13 +490,13 @@ footer a {
 
 /* Button */
 .dashboard-card a {
-    display: inline-block;
-    margin-top: 20px;
+    display: inline-block;              /* Link wie einen Button anzeigen */
+    margin-top: 20px;                   /* Abstand nach oben */
     padding: 10px 20px;
     background-color: #5f9ea0;
     color: white;
-    text-decoration: none;
-    border-radius: 10px;
+    text-decoration: none;              /* Unterstreichung entfernen */
+    border-radius: 10px;                /* Runde Ecken */
 }
 
 /* Hover-Effekt */
@@ -507,11 +507,11 @@ footer a {
 /* Buchungsseite: booking */
 /* Gesamter Buchungsbereich */
 .booking-container {
-    display: flex;                      /* Inhalt mittig ausrichten */
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-}
+    display: flex;                      /* Elemente nebeneinander anordnen */
+    justify-content: center;            /* Inhalt mittig ausrichten */
+    align-items: center;                /* Vertikal mittig ausrichten */
+    padding: 60px 20px;                 /* Innenabstand */
+}   
 
 /* Buchungskarte */
 .booking-card {
@@ -541,7 +541,7 @@ footer a {
 
 /* Formular-Label */
 .form-group label {
-    display: block;
+    display: block;                  /* Label in einer eigenen Zeile anzeigen */
     margin-bottom: 8px;
     font-weight: bold;
 }
@@ -552,9 +552,9 @@ footer a {
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #cccccc;
+    border: 1px solid #cccccc;          /* Grauer Rand */
     border-radius: 10px;
-    box-sizing: border-box;
+    box-sizing: border-box;                /* Padding in der Breite berücksichtigen */
 }
 
 /* Buchungsbutton */
@@ -566,36 +566,36 @@ footer a {
     border: none;
     border-radius: 10px;
     font-size: 16px;
-    cursor: pointer;
+    cursor: pointer;                     /* Mauszeiger wird zur Hand */
 }
 
 .bewertung-btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 20px;
+    display: inline-block;              /* Link wie Button anzeigen */
+    margin-top: 20px;                   /* Abstand nach oben */
+    padding: 12px 20px;                  /* Innenabstand */
     background-color: #5f9ea0;
     color: white;
-    text-decoration: none;
-    border-radius: 10px;
+    text-decoration: none;              /* Unterstreichung entfernen */
+    border-radius: 10px;                 /* Runde Ecken */
 }
 
 /* Hover-Effekt */
 .booking-btn:hover {
-    background-color: #4f888a;
+    background-color: #4f888a;           /* Dunklere Farbe beim Überfahren */
 }
 
 /* Liste für Buchungen / Anfragen */
 .requests-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+    display: flex;                         /* Elemente anordnen */
+    flex-direction: column;                  /* Elemente untereinander anzeigen */
+    gap: 25px;                               /* Abstand zwischen den Elementen */
     margin: 50px 30px;
 }
 
 /* Profilseite; profile.html */
 /* Gesamter Profilbereich */
 .profile-page-container {
-    display: flex; 
+    display: flex;                       /* Elemente nebeneinander anordnen */
     justify-content: center;             /* horizontal zentrieren */
     align-items: center;                 /* vertikal ausrichten */
     padding: 60px 20px;                  /* Innenabstand */
@@ -684,10 +684,10 @@ footer a {
 .flash-message {
     background-color: #dff5e1;
     color: #1f6b2a;
-    padding: 15px;
-    margin: 20px auto;
+    padding: 15px;                    /* Innenabstand */
+    margin: 20px auto;              /* Abstand und mittig ausrichten */
     width: 80%;
-    border-radius: 10px;
+    border-radius: 10px;             /* Runde Ecken */
     text-align: center;
     font-weight: bold;
 }
