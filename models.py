@@ -9,6 +9,13 @@ class User(db.Model):
     vorname = db.Column(db.String(100), nullable=False)
     nachname = db.Column(db.String(100), nullable=False)
     rolle = db.Column(db.String(20), nullable=False)                   #Schüler / lehrer
+    
+    ist_gesperrt = db.Column(
+        db.Boolean,
+        nullable=False,
+        default=False
+    )
+
     telefon = db.Column(db.String(30), nullable=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     passwort = db.Column(db.String(255), nullable=False)

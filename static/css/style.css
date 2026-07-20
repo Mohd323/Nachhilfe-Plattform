@@ -827,3 +827,20 @@ footer a {
     color: #666666;
     width: 100%;
 }
+
+.request-card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.delete-btn {
+    margin-top: 10px;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
