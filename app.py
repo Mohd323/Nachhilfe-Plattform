@@ -678,6 +678,7 @@ def admin_dashboard():
         nutzer_anzahl=nutzer_anzahl
     )
 
+
 @app.route('/admin/dokumente')
 @admin_required
 def admin_dokumente():
@@ -692,10 +693,7 @@ def admin_dokumente():
     )
 
 
-@app.route(
-    '/admin/dokument/<int:dokument_id>/<aktion>',
-    methods=['POST']
-)
+@app.route('/admin/dokument/<int:dokument_id>/<aktion>', methods=['POST'])
 @admin_required
 def admin_dokument_bearbeiten(dokument_id, aktion):
 
@@ -718,6 +716,7 @@ def admin_dokument_bearbeiten(dokument_id, aktion):
         flash("Das Dokument wurde akzeptiert.")
 
     elif aktion == "ablehnen":
+
         dokument.status = "abgelehnt"
 
         lehrer_profil = LehrerProfil.query.get(
@@ -750,6 +749,7 @@ def admin_meldungen():
         meldungen=meldungen
     )
 
+
 @app.route('/admin/meldung/<int:meldung_id>', methods=['POST'])
 @admin_required
 def admin_meldung_erledigen(meldung_id):
@@ -771,31 +771,32 @@ def admin_meldung_erledigen(meldung_id):
 
 @app.route('/admin/nutzer/<int:user_id>/sperren', methods=['POST'])
 @admin_required
-    def admin_nutzer_sperren(user_id):
-    
-        nutzer = User.query.get(user_id)
-    
-        if nutzer is None:
-            flash("Nutzer wurde nicht gefunden.")
-            return redirect(url_for('admin_meldungen'))
-    
-        if nutzer.rolle == "admin":
-            flash("Ein Administrator kann nicht gesperrt werden.")
-            return redirect(url_for('admin_meldungen'))
-    
-        nutzer.ist_gesperrt = True
-        db.session.commit()
-    
-        flash(
-            f"{nutzer.vorname} {nutzer.nachname} wurde gesperrt."
-        )
-    
+def admin_nutzer_sperren(user_id):
+
+    nutzer = User.query.get(user_id)
+
+    if nutzer is None:
+        flash("Nutzer wurde nicht gefunden.")
         return redirect(url_for('admin_meldungen'))
 
+    if nutzer.rolle == "admin":
+        flash("Ein Administrator kann nicht gesperrt werden.")
+        return redirect(url_for('admin_meldungen'))
 
-@app.route('/admin/nutzer/<int:user_id>/entsperren', methods=['POST'])
-@admin_required
-def admin_nutzer_entsperren(user_id):
+    nutzer.ist_gesperrt = True
+
+    db.session.commit()
+
+    flash(
+        f"{nutzer.vorname} {nutzer.nachname} wurde gesperrt."
+    )
+
+    return redirect(url_for('admin_meldungen'))
+
+
+        @app.route('/admin/nutzer/<int:user_id>/entsperren', methods=['POST'])
+        @admin_required
+        def admin_nutzer_entsperren(user_id):
         
             nutzer = User.query.get(user_id)
         
