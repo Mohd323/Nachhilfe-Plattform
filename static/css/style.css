@@ -710,3 +710,115 @@ footer a {
 .profile-save-btn:hover {
     background-color: #4f888a; /* dunklere Farbe */
 }
+
+
+/* Filterbereich: Checkbox & Reset */
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+}
+
+.reset-btn {
+    color: #5f9ea0;
+    text-decoration: underline;
+    align-self: center;
+    font-size: 14px;
+}
+
+/* Ergebnisanzahl */
+.search-results-info {
+    text-align: center;
+    color: #666666;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+/* Lehrerkarten (Suche) - überschreibt die alte .teacher-card/.profile-btn Definition weiter oben */
+.teacher-card {
+    position: relative;
+    background-color: white;
+    width: 260px;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.teacher-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-card h3 {
+    margin-top: 10px;
+}
+
+/* Verfügbarkeits-Badge */
+.badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.badge-verfuegbar {
+    background-color: #dff5e1;
+    color: #2e7d32;
+}
+
+.badge-nicht-verfuegbar {
+    background-color: #f5e1e1;
+    color: #a33a3a;
+}
+
+/* Bewertung */
+.teacher-rating {
+    font-size: 15px;
+    margin: 8px 0;
+}
+
+.rating-count {
+    color: #888888;
+    font-size: 13px;
+}
+
+/* Fächer-Tags */
+.teacher-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin: 10px 0;
+}
+
+.tag {
+    background-color: #eef6f6;
+    color: #5f9ea0;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.teacher-preis {
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+.teacher-art {
+    color: #666666;
+    font-size: 13px;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.no-results {
+    text-align: center;
+    color: #666666;
+    width: 100%;
+}

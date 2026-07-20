@@ -8,7 +8,7 @@ from flask import request
 from datetime import date, time
 from werkzeug.utils import secure_filename
 import os
-
+import re
 app = Flask(__name__)
 
 app.secret_key = 'nachhilfe-geheim-123'
@@ -129,6 +129,10 @@ def teacher_search():
     fach_filter = request.args.get('fach')
     unterrichtsart_filter = request.args.get('unterrichtsart')
     preis_filter = request.args.get('preis')
+    bewertung_filter = request.args.get('bewertung')
+    klassenstufe_filter = request.args.get('klassenstufe')
+    verfuegbar_filter = request.args.get('verfuegbar')
+    sortierung = request.args.get('sortierung')
 
     lehrer_liste = LehrerProfil.query.all()
 
@@ -149,7 +153,44 @@ def teacher_search():
             l for l in lehrer_liste
             if l.stundenpreis <= float(preis_filter)
         ]
-    return render_template('teacher_search.html', lehrer_liste=lehrer_liste)
+
+    if bewertung_filter:
+        lehrer_liste = [
+            l for l in lehrer_liste
+            if l.durchschnittsbewertung and float(l.durchschnittsbewertung) >= float(bewertung_filter)
+        ]
+
+    if klassenstufe_filter:
+        klassenstufe_zahl = int(klassenstufe_filter)
+        gefilterte_liste = []
+        for l in lehrer_liste:
+            for lf in l.faecher:
+                if not lf.klassenstufen:
+                    continue
+                zahlen = [int(z) for z in re.findall(r'\d+', lf.klassenstufen)]
+                if len(zahlen) >= 2 and zahlen[0] <= klassenstufe_zahl <= zahlen[-1]:
+                    gefilterte_liste.append(l)
+                    break
+                elif len(zahlen) == 1 and zahlen[0] == klassenstufe_zahl:
+                    gefilterte_liste.append(l)
+                    break
+        lehrer_liste = gefilterte_liste
+
+    if verfuegbar_filter:
+        lehrer_liste = [l for l in lehrer_liste if l.verfuegbar]
+
+    if sortierung == 'bewertung':
+        lehrer_liste.sort(key=lambda l: float(l.durchschnittsbewertung or 0), reverse=True)
+    elif sortierung == 'preis_aufsteigend':
+        lehrer_liste.sort(key=lambda l: l.stundenpreis or 0)
+    elif sortierung == 'preis_absteigend':
+        lehrer_liste.sort(key=lambda l: l.stundenpreis or 0, reverse=True)
+
+    return render_template(
+        'teacher_search.html',
+        lehrer_liste=lehrer_liste,
+        filter_werte=request.args
+    )
 
 @app.route('/lehrerprofil/<int:id>')
 def teacher_profile(id):
