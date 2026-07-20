@@ -815,6 +815,48 @@ def admin_nutzer_entsperren(user_id):
     return redirect(url_for('admin_meldungen'))
     
 
+@app.route('/lehrer-melden/<int:lehrer_id>', methods=['GET', 'POST'])
+def lehrer_melden(lehrer_id):
+
+    if 'user_id' not in session:
+        flash("Bitte zuerst einloggen.")
+        return redirect(url_for('login'))
+
+    if session.get('rolle') != 'schueler':
+        flash("Nur Schüler/innen können Lehrer melden.")
+        return redirect(url_for('teacher_search'))
+
+    lehrer_profil = LehrerProfil.query.get(lehrer_id)
+
+    if lehrer_profil is None:
+        flash("Lehrer wurde nicht gefunden.")
+        return redirect(url_for('teacher_search'))
+
+    if request.method == 'POST':
+        grund = request.form.get('grund')
+
+        if not grund:
+            flash("Bitte gib einen Grund für die Meldung an.")
+            return redirect(url_for('lehrer_melden', lehrer_id=lehrer_id))
+
+        neue_meldung = Meldung(
+            melder_id=session['user_id'],
+            gemeldeter_id=lehrer_profil.user_id,
+            grund=grund,
+            status="offen"
+        )
+
+        db.session.add(neue_meldung)
+        db.session.commit()
+
+        flash("Die Meldung wurde erfolgreich gesendet.")
+        return redirect(url_for('teacher_profile', id=lehrer_id))
+
+    return render_template(
+        'lehrer_melden.html',
+        lehrer=lehrer_profil
+    )
+
 with app.app_context():                         # Tabellen automatisch erstellen
     db.create_all()
 

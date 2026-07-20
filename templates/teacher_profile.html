@@ -52,6 +52,13 @@
               <a href="{{ url_for('booking_teacher', lehrer_id=lehrer.id) }}"  class="booking-btn">
                 Nachhilfe buchen
               </a>
+
+                {% if session.get('rolle') == 'schueler' %}
+                <a href="{{ url_for('lehrer_melden', lehrer_id=lehrer.id) }}"
+                   class="delete-btn">
+                    Lehrer melden
+                </a>
+                {% endif %}
             </div>
         </section>
     </main>
