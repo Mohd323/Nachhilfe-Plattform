@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Meldungen verwalten</title>
-
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
@@ -15,9 +13,7 @@
 
     <div class="header-left">
         <div class="logo">
-            <img src="{{ url_for('static', filename='images/logo.png') }}"
-                 alt="Nachhilfe Connect Logo">
-
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
             <p>Gemeinsam besser lernen.</p>
         </div>
 
@@ -26,47 +22,16 @@
 
     <nav>
         <ul>
-            <li>
-                <a href="{{ url_for('admin_dashboard') }}">
-                    Dashboard
-                </a>
-            </li>
-
-            <li>
-                <a href="{{ url_for('admin_dokumente') }}">
-                    Dokumente
-                </a>
-            </li>
-
-            <li>
-                <a class="active"
-                   href="{{ url_for('admin_meldungen') }}">
-                    Meldungen
-                </a>
-            </li>
-
-            <li>
-                <a class="login-button"
-                   href="{{ url_for('logout') }}">
-                    Logout
-                </a>
-            </li>
+            <li><a href="{{ url_for('admin_dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('admin_dokumente') }}">Dokumente</a></li>
+            <li><a class="active" href="{{ url_for('admin_meldungen') }}">Meldungen</a></li>
+            <li><a class="login-button" href="{{ url_for('logout') }}">Logout</a></li>
         </ul>
     </nav>
 
 </header>
 
 <main>
-
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <div class="flash-message">
-                {% for message in messages %}
-                    <p>{{ message }}</p>
-                {% endfor %}
-            </div>
-        {% endif %}
-    {% endwith %}
 
     <section class="dashboard-header">
         <h2>Gemeldete Profile</h2>
@@ -85,14 +50,12 @@
 
                     <p>
                         <strong>Gemeldet von:</strong>
-                        {{ meldung.melder.vorname }}
-                        {{ meldung.melder.nachname }}
+                        {{ meldung.melder.vorname }} {{ meldung.melder.nachname }}
                     </p>
 
                     <p>
                         <strong>Gemeldeter Nutzer:</strong>
-                        {{ meldung.gemeldeter.vorname }}
-                        {{ meldung.gemeldeter.nachname }}
+                        {{ meldung.gemeldeter.vorname }} {{ meldung.gemeldeter.nachname }}
                     </p>
 
                     <p>
@@ -101,7 +64,7 @@
                     </p>
 
                     <p>
-                        <strong>Status der Meldung:</strong>
+                        <strong>Status:</strong>
                         {{ meldung.status }}
                     </p>
 
@@ -118,15 +81,13 @@
                         {% else %}
                             Aktiv
                         {% endif %}
+
                     </p>
 
                     {% if not meldung.gemeldeter.ist_gesperrt %}
 
                         <form method="POST"
-                              action="{{ url_for(
-                                  'admin_nutzer_sperren',
-                                  user_id=meldung.gemeldeter.id
-                              ) }}">
+                              action="{{ url_for('admin_nutzer_sperren', user_id=meldung.gemeldeter.id) }}">
 
                             <button type="submit" class="delete-btn">
                                 Nutzer sperren
@@ -137,10 +98,7 @@
                     {% else %}
 
                         <form method="POST"
-                              action="{{ url_for(
-                                  'admin_nutzer_entsperren',
-                                  user_id=meldung.gemeldeter.id
-                              ) }}">
+                              action="{{ url_for('admin_nutzer_entsperren', user_id=meldung.gemeldeter.id) }}">
 
                             <button type="submit" class="booking-btn">
                                 Nutzer entsperren
@@ -153,10 +111,7 @@
                     {% if meldung.status != "erledigt" %}
 
                         <form method="POST"
-                              action="{{ url_for(
-                                  'admin_meldung_erledigen',
-                                  meldung_id=meldung.id
-                              ) }}">
+                              action="{{ url_for('admin_meldung_erledigen', meldung_id=meldung.id) }}">
 
                             <button type="submit" class="booking-btn">
                                 Meldung als erledigt markieren
@@ -166,7 +121,7 @@
 
                     {% else %}
 
-                        <p>✅ Diese Meldung wurde bereits erledigt.</p>
+                        <p><strong>Diese Meldung wurde bereits erledigt.</strong></p>
 
                     {% endif %}
 
@@ -188,4 +143,5 @@
 </main>
 
 </body>
+
 </html>
