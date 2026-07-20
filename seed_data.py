@@ -14,7 +14,15 @@ with app.app_context():
     lehrer1 = User(vorname="Ali", nachname="Tyson", rolle="lehrer", email="ali@test.de", passwort=generate_password_hash("test123"))
     lehrer2 = User(vorname="Cristiano", nachname="Ronaldo", rolle="lehrer", email="cristiano@test.de", passwort=generate_password_hash("test123"))
 
-    db.session.add_all([schueler1, schueler2, lehrer1, lehrer2])    # ich sage damit der Datenbank "merk dir diese 4 neuen Einträge"
+    admin = User(
+    vorname="Admin",
+    nachname="Admin",
+    rolle="admin",
+    email="admin@test.de",
+    passwort=generate_password_hash("admin123")
+    )
+
+    db.session.add_all([schueler1, schueler2, lehrer1, lehrer2, admin])    # ich sage damit der Datenbank "merk dir diese 4 neuen Einträge"
     db.session.commit()                                             # speichert die Einträge wirklich in nachhilfe.db, ohne commit() passiert nichts
                                                                     # wir brauchen die IDs von schueler1, lehrer1 usw. für die nächsten Tabellen (SchülerProfil braucht (user_id). 
                                                                     # erst nach commit() bekommen die Objekte ihre echte ID aus der Datenbank.
