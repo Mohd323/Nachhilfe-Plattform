@@ -688,7 +688,50 @@ def admin_dokumente():
     )
 
 
+@app.route(
+    '/admin/dokument/<int:dokument_id>/<aktion>',
+    methods=['POST']
+)
+@admin_required
+def admin_dokument_bearbeiten(dokument_id, aktion):
 
+    dokument = Verifizierungsdokument.query.get(dokument_id)
+
+    if dokument is None:
+        flash("Dokument wurde nicht gefunden.")
+        return redirect(url_for('admin_dokumente'))
+
+    if aktion == "akzeptieren":
+        dokument.status = "verifiziert"
+
+        lehrer_profil = LehrerProfil.query.get(
+            dokument.lehrer_profil_id
+        )
+
+        if lehrer_profil:
+            lehrer_profil.verifizierungs_status = "verifiziert"
+
+        flash("Das Dokument wurde akzeptiert.")
+
+    elif aktion == "ablehnen":
+        dokument.status = "abgelehnt"
+
+        lehrer_profil = LehrerProfil.query.get(
+            dokument.lehrer_profil_id
+        )
+
+        if lehrer_profil:
+            lehrer_profil.verifizierungs_status = "abgelehnt"
+
+        flash("Das Dokument wurde abgelehnt.")
+
+    else:
+        flash("Ungültige Aktion.")
+
+    db.session.commit()
+
+    return redirect(url_for('admin_dokumente'))
+    
 
 
 with app.app_context():                         # Tabellen automatisch erstellen
