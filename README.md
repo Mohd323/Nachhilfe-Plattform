@@ -70,15 +70,11 @@ Die ausführliche Projektdokumentation wird über GitHub Pages veröffentlicht.
     - Windows: `.venv\Scripts\activate`
     - Mac/Linux: `source venv/bin/activate`
 4. Abhängigkeiten installieren: `pip install -r requirements.txt`
-5. Testdaten erstellen: `python seed_data.py`
-6. Anwendung starten: `python app.py`
-7. Browser öffnen: http://127.0.0.1:5000
+5. Falls bereits eine `nachhilfe.db` im Ordner `instance/` vorhanden ist, diese löschen.
+6. Testdaten erstellen: `python seed_data.py`
+7. Anwendung starten: `python app.py`
+8. Browser öffnen: http://127.0.0.1:5000
 
-Hinweis für Schritt 5:
-
-Falls bereits eine `nachhilfe.db` vorhanden ist, sollten die Testdaten nicht erneut erstellt werden.
-
-Sollen die Testdaten dennoch neu erstellt werden, muss die vorhandene Datei `nachhilfe.db` zuerst gelöscht werden.
 
 ## Happy Path - Schüler/in
 
