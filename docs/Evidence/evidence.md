@@ -440,8 +440,209 @@ Das Demonstrationsvideo dient als Nachweis der implementierten Funktionen und de
 
 ---
 
+# 20. Weiterentwicklung nach der Oral Examination
+
+Nach der mündlichen Prüfung haben wir den bisherigen Projektstand ausgewertet und die im Ausblick angekündigten Verbesserungen priorisiert.
+
+Dabei konzentrierten wir uns besonders auf:
+
+- Erweiterung der Lehrersuche
+- Verbesserung der Navigation
+- Ausbau der Administratorfunktionen
+- Verifizierung hochgeladener Dokumente
+- Meldung und Sperrung problematischer Nutzerkonten
+- Aktualisierung des Vernetzungsplans
+- Bereinigung und Strukturierung des Codes
+- Aktualisierung der Projektdokumentation
+
+---
+
+# 21. Erweiterung der Lehrersuche
+
+Die Lehrersuche wurde funktional erweitert.
+
+Zusätzlich zu Fach, Unterrichtsart und Preis können Nutzer/innen nun nach folgenden Kriterien filtern:
+
+- Mindestbewertung
+- Klassenstufe
+- Verfügbarkeit
+
+Außerdem können die Suchergebnisse sortiert werden:
+
+- nach Bewertung
+- nach aufsteigendem Preis
+- nach absteigendem Preis
+
+Durch diese Erweiterungen können Schüler/innen schneller passende Nachhilfelehrer/innen finden.
+
+---
+
+# 22. Administratorfunktion
+
+Für die Final Submission wurde ein geschützter Administratorbereich umgesetzt.
+
+Administratoren können sich nicht über das öffentliche Registrierungsformular registrieren. Das Administratorkonto wird intern über die Testdaten erstellt.
+
+Der Administratorbereich umfasst:
+
+- Admin-Dashboard
+- Anzeige offener Verifizierungsdokumente
+- Annahme oder Ablehnung von Dokumenten
+- Anzeige gemeldeter Profile
+- Markierung von Meldungen als erledigt
+- Sperrung von Nutzerkonten
+- Entsperrung gesperrter Nutzerkonten
+
+Alle Admin-Routen werden durch einen eigenen Decorator geschützt. Dadurch können nur eingeloggte Nutzer mit der Rolle `admin` auf diese Seiten zugreifen.
+
+---
+
+# 23. Verifizierungsdokumente
+
+Bei der Registrierung laden Nutzer/innen einen Nachweis hoch.
+
+Für Lehrer/innen wird ein Eintrag in der Tabelle `Verifizierungsdokument` erstellt. Dieser enthält:
+
+- Dokumenttyp
+- Dateipfad
+- Status
+- Upload-Zeitpunkt
+- optionale Administratornotiz
+
+Der Status ist zunächst `ausstehend`.
+
+Administratoren können das Dokument später:
+
+- akzeptieren
+- ablehnen
+
+Bei einer Entscheidung wird zusätzlich der Verifizierungsstatus des zugehörigen Lehrerprofils aktualisiert.
+
+---
+
+# 24. Meldesystem und Kontosperrung
+
+Schüler/innen können ein Lehrerprofil melden.
+
+Dabei werden folgende Informationen gespeichert:
+
+- meldender Nutzer
+- gemeldeter Nutzer
+- Grund der Meldung
+- Status
+- Erstellungszeitpunkt
+
+Administratoren können Meldungen prüfen und als erledigt markieren.
+
+Zusätzlich wurde die Tabelle `User` um das Feld `ist_gesperrt` erweitert.
+
+Wenn ein Konto gesperrt ist, wird der Login abgelehnt und eine entsprechende Meldung angezeigt. Administratoren können gesperrte Konten später wieder entsperren.
+
+---
+
+# 25. Aktualisierung des Datenmodells
+
+Das Datenmodell wurde für die Final Submission erweitert.
+
+Neue beziehungsweise erweiterte Bereiche:
+
+- Rolle `admin` in der Tabelle `User`
+- Feld `ist_gesperrt` in der Tabelle `User`
+- Tabelle `Verifizierungsdokument`
+- Tabelle `Meldung`
+- Beziehungen zwischen Meldungen und Nutzern
+- Verifizierungsstatus in Schüler- und Lehrerprofilen
+
+Dadurch unterstützt das Datenmodell nun zusätzlich Dokumentprüfung, Meldungsverwaltung und Kontosperrung.
+
+---
+
+# 26. Aktualisierung des Vernetzungsplans
+
+Der Vernetzungsplan wurde an den aktuellen Implementierungsstand angepasst.
+
+Neu ergänzt wurden:
+
+- Admin-Dashboard
+- Dokumente prüfen
+- Meldungen
+- Nutzer sperren und entsperren
+- Lehrer melden
+- Bewertung abgeben
+- Nachhilfe anbieten
+- Profil bearbeiten
+- Nutzungsbedingungen
+
+Der Plan unterscheidet nun klar zwischen:
+
+- Schüler-Bereich
+- Lehrer-Bereich
+- Admin-Bereich
+- globalen Seiten
+
+---
+
+# 27. Test der Administratorfunktionen
+
+Die Administratorfunktionen wurden manuell getestet.
+
+## Testfall 1: Admin-Login
+
+- Anmeldung mit internem Administratorkonto
+- Weiterleitung zum Admin-Dashboard
+- Zugriff auf Admin-Seiten erfolgreich
+
+## Testfall 2: Dokumentprüfung
+
+- neuen Lehrer registriert
+- Verifizierungsdokument hochgeladen
+- Dokument im Admin-Bereich angezeigt
+- Dokument akzeptiert und abgelehnt
+- Verifizierungsstatus wurde korrekt aktualisiert
+
+## Testfall 3: Lehrer melden
+
+- Anmeldung als Schüler/in
+- Lehrerprofil geöffnet
+- Meldung mit Grund abgesendet
+- Meldung im Admin-Bereich angezeigt
+
+## Testfall 4: Nutzer sperren
+
+- gemeldeten Nutzer durch Administrator gesperrt
+- erneuter Login des gesperrten Nutzers wurde verhindert
+
+## Testfall 5: Nutzer entsperren
+
+- Nutzer durch Administrator entsperrt
+- Login war danach wieder möglich
+
+---
+
+# 28. Bereinigung und Fehlerbehebung
+
+Während der Finalisierung wurden mehrere technische Probleme behoben.
+
+Beispiele:
+
+- fehlende Pflichtfelder bei der Erstellung eines Lehrerprofils ergänzt
+- Speicherung von Verifizierungsdokumenten korrigiert
+- Datenbankbeziehungen ergänzt
+- Einrückungsfehler in Admin-Routen behoben
+- Navigation zwischen Rollenbereichen verbessert
+- ungenutzte beziehungsweise veraltete Seiten identifiziert
+- Vernetzungsplan und Dokumentation aktualisiert
+
+---
+
 # Fazit
 
-Diese Dokumentation zeigt unseren Entwicklungsprozess von der ersten Idee bis zum aktuellen Stand der Nachhilfe-Plattform.
+Diese Dokumentation zeigt den Entwicklungsprozess unserer Nachhilfe-Plattform von der ersten Idee bis zur Final Submission.
 
-Sie verdeutlicht, wie wir Entscheidungen getroffen, Feedback verarbeitet und unsere Lösung schrittweise verbessert haben.
+Im Verlauf des Projekts haben wir Anforderungen analysiert, verschiedene Projektideen verglichen, UI-Skizzen entwickelt, Feedback verarbeitet und die Anwendung schrittweise technisch umgesetzt.
+
+Für die Final Submission wurde die Plattform besonders in den Bereichen Suche, Sicherheit und Verwaltung erweitert. Die Lehrersuche bietet zusätzliche Filter- und Sortiermöglichkeiten. Außerdem wurden eine Administratorfunktion, die Prüfung von Verifizierungsdokumenten, ein Meldesystem sowie die Sperrung und Entsperrung von Nutzerkonten umgesetzt.
+
+Diese Erweiterungen unterstützen unsere Value Proposition direkt: Schüler/innen können schneller passende und vertrauenswürdige Nachhilfelehrer/innen finden, während Lehrkräfte ihre Angebote professionell präsentieren und verwalten können.
+
+Durch die Arbeit mit Flask, SQLAlchemy, Jinja2, HTML, CSS, Git und GitHub konnten wir sowohl technische Kenntnisse als auch Erfahrungen in Teamarbeit, Aufgabenverteilung und gemeinsamer Softwareentwicklung sammeln.

@@ -9,16 +9,33 @@ Webbasierte Plattform zur Vermittlung von privater Nachhilfe zwischen Schüler/i
 + Emrah Rabotic  
 
 ## Projektüberblick
-Viele Schüler/innen haben Schwierigkeiten, passende Nachhilfelehrer/innen zu finden. Unsere Plattform löst dieses Problem, indem sie Schüler/innen und Lehrer/innen direkt miteinander verbindet.
+Viele Schüler/innen haben Schwierigkeiten, passende und vertrauenswürdige Nachhilfelehrer/innen zu finden. Unsere Plattform löst dieses Problem, indem sie Schüler/innen und Lehrkräfte direkt miteinander verbindet.
+
+Die Anwendung unterstützt den gesamten Ablauf – von der Registrierung über die Lehrersuche bis hin zur Buchung und Bewertung von Nachhilfestunden. Zusätzlich sorgen Verifizierungsdokumente, ein Meldesystem und eine Administratorfunktion für mehr Sicherheit und Vertrauen.
 
 ### Schüler/innen können:
-+ nach Lehrern suchen  
-+ Profile ansehen  
-+ Nachhilfe anfragen  
+- registrieren und anmelden
+- Lehrer suchen
+- Lehrerprofile ansehen
+- Buchungsanfragen senden
+- Buchungen verwalten
+- Bewertungen abgeben
+- Lehrerprofile melden
 
 ### Lehrer/innen können:
-+ ihre Dienste anbieten  
-+ Anfragen erhalten und verwalten  
+- registrieren und anmelden
+- Verifizierungsdokument hochladen
+- Nachhilfeangebote erstellen oder bearbeiten
+- Buchungsanfragen annehmen oder ablehnen
+- bestätigte Termine einsehen
+- Bewertungen erhalten
+
+### Administrator/innen können:
+- Verifizierungsdokumente prüfen
+- Dokumente akzeptieren oder ablehnen
+- gemeldete Profile prüfen
+- Meldungen verwalten
+- Nutzerkonten sperren oder entsperren
 
 ## Plattform-Konzept
 Die Anwendung basiert auf einer **zweiseitigen Plattform**:
@@ -42,6 +59,8 @@ Die ausführliche Projektdokumentation wird über GitHub Pages veröffentlicht.
 - SQLAlchemy
 - HTML
 - CSS
+- Git
+- GitHub
 
 ## Installation und Start
 
@@ -55,24 +74,55 @@ Die ausführliche Projektdokumentation wird über GitHub Pages veröffentlicht.
 6. Anwendung starten: `python app.py`
 7. Browser öffnen: http://127.0.0.1:5000
 
+Hinweis für Schritt 5:
+
+Falls bereits eine `nachhilfe.db` vorhanden ist, sollten die Testdaten nicht erneut erstellt werden.
+
+Sollen die Testdaten dennoch neu erstellt werden, muss die vorhandene Datei `nachhilfe.db` zuerst gelöscht werden.
+
 ## Happy Path - Schüler/in
 
-1. Registrierung als Schüler/in und Upload des Schülerausweises
-2. Login in das System
-3. Suche nach einem passenden Nachhilfelehrer
-4. Buchungsanfrage senden
-5. Lehrer akzeptiert die Anfrage
-7. Bewertung des Lehrers abgeben
+1. Registrierung und Upload eines Verifizierungsdokuments
+2. Login
+3. Lehrer suchen
+4. Suche filtern
+5. Lehrerprofil ansehen
+6. Buchungsanfrage senden
+7. Lehrer akzeptiert die Anfrage
+8. Nachhilfestunde bewerten
 
 ## Happy Path - Lehrer/in
 
-1. Registrierung als Lehrer/in und Upload eines Nachweisdokuments
-2. Login in das System
+1. Registrierung und Upload eines Verifizierungsdokuments
+2. Login
 3. Nachhilfeangebot erstellen oder bearbeiten
-4. Buchungsanfrage erhalten
+4. Buchungsanfragen erhalten
 5. Anfrage annehmen oder ablehnen
-6. Termin durchführen
-7. Bewertungen von Schüler/innen erhalten
+6. Bestätigte Termine verwalten
+7. Bewertungen erhalten
+
+## Happy Path – Administrator/in
+
+1. Anmeldung mit dem Administratorkonto
+2. Verifizierungsdokumente prüfen
+3. Dokumente akzeptieren oder ablehnen
+4. Meldungen prüfen
+5. Nutzerkonten bei Bedarf sperren oder entsperren
+
+## Testkonten
+
+### Administrator
+E-Mail: admin@test.de
+Passwort: admin123
+
+### Lehrer:
+E-Mail: ali@test.de
+Passwort: test123
+
+### Schüler:
+E-Mail: anna@test.de
+Passwort: test123
+
 
 ## JSON API
 
@@ -80,3 +130,19 @@ Die Anwendung stellt eine einfache JSON-Schnittstelle bereit.
 
 Verfügbare API-Endpunkte:
 - http://127.0.0.1:5000/api/users → gibt alle registrierten Nutzer als JSON zurück
+
+## Aktueller Stand
+Die Final Submission enthält unter anderem folgende Funktionen:
+
+- Registrierung und Login
+- Lehrer-Suche mit Filtern und Sortierung
+- Lehrerprofile
+- Buchungssystem
+- Bewertungssystem
+- Schüler- und Lehrer-Dashboard
+- Administrator-Dashboard
+- Upload und Prüfung von Verifizierungsdokumenten
+- Meldesystem
+- Sperren und Entsperren von Nutzerkonten
+- Profilverwaltung
+- JSON API
